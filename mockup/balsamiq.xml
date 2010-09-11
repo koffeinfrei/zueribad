@@ -1,0 +1,33 @@
+<mockup version="1.0" skin="sketch" measuredW="634" measuredH="553" mockupW="592" mockupH="511">
+  <controls>
+    <control controlID="13" controlTypeID="com.balsamiq.mockups::iPhone" x="32" y="32" w="-1" h="-1" measuredW="282" measuredH="510" zOrder="0" locked="false" isInGroup="-1">
+      <controlProperties/>
+    </control>
+    <control controlID="15" controlTypeID="com.balsamiq.mockups::iPhone" x="342" y="33" w="-1" h="-1" measuredW="282" measuredH="510" zOrder="1" locked="false" isInGroup="-1"/>
+    <control controlID="16" controlTypeID="com.balsamiq.mockups::iPhoneMenu" x="63" y="211" w="-1" h="-1" measuredW="215" measuredH="242" zOrder="2" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Aemtler%2CSchulschwimmbad%0AAllenmoos%2CFreibad%0AAltstetten%2CHallenbad%0AAltweg%2CSchulschwimmbad%0AAuhof%2CFreibad%0AAu-H%F6ngg%2CFlussbad%0ABl%E4si%2CHallenbad%0ABorrweg%2CSchulschwimmbad</text>
+      </controlProperties>
+    </control>
+    <control controlID="17" controlTypeID="com.balsamiq.mockups::SearchBox" x="63" y="179" w="215" h="-1" measuredW="65" measuredH="25" zOrder="3" locked="false" isInGroup="-1"/>
+    <control controlID="19" controlTypeID="com.balsamiq.mockups::ButtonBar" x="63" y="139" w="180" h="24" measuredW="136" measuredH="29" zOrder="4" locked="false" isInGroup="-1">
+      <controlProperties>
+        <bold>false</bold>
+        <italic>false</italic>
+        <size>12</size>
+        <text>%DCbersicht%2C%20Favs%2C%20N%E4he</text>
+      </controlProperties>
+    </control>
+    <control controlID="23" controlTypeID="com.balsamiq.mockups::Accordion" x="375" y="137" w="209" h="303" measuredW="150" measuredH="207" zOrder="5" locked="false" isInGroup="-1">
+      <controlProperties>
+        <selectedIndex>0</selectedIndex>
+        <text>Aktuell%0AAdresse%0A%D6ffnungszeiten</text>
+      </controlProperties>
+    </control>
+    <control controlID="25" controlTypeID="com.balsamiq.mockups::DataGrid" x="377" y="170" w="-1" h="-1" measuredW="200" measuredH="58" zOrder="6" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Wassertemperatur%2C18%B0C%0AStatus%2Cge%F6ffnet</text>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>

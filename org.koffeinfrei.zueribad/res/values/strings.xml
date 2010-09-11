@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="app_name">Züri-Bad</string>
+	<string name="tab_title_overview">Übersicht</string>
+	<string name="tab_title_favorites">Favoriten</string>
+	<string name="tab_title_nearlocation">In der Nähe</string>
+</resources>
