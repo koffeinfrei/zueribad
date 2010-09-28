@@ -46,8 +46,9 @@ public class OverviewListAdapter extends BaseAdapter {
 		if (convertView == null) {
 			convertView = inflater.inflate(R.layout.overview_listview, null);
 			holder = new ViewHolder();
-			holder.text = (TextView) convertView.findViewById(R.id.overview_listitem_bathtitle);
-			holder.text2 = (TextView) convertView.findViewById(R.id.overview_listitem_bathtype);
+			holder.name = (TextView) convertView.findViewById(R.id.overview_listitem_bathname);
+			holder.type = (TextView) convertView.findViewById(R.id.overview_listitem_bathtype);
+			holder.temperature = (TextView) convertView.findViewById(R.id.overview_listitem_bathtemperature);
 			
 			convertView.setTag(holder);
 		} 
@@ -56,15 +57,17 @@ public class OverviewListAdapter extends BaseAdapter {
 		}
 		
 		Bath bath = bathRepository.getFiltered().get(position);
-		holder.text.setText(bath.getName());
-		holder.text2.setText(bath.getType());
+		holder.name.setText(bath.getName());
+		holder.type.setText(bath.getType());
+		holder.temperature.setText(bath.getFormattedTemperature().toString());
 		
 		return convertView;
 	}
 
 	static class  ViewHolder {
-		TextView text;
-		TextView text2;
+		TextView name;
+		TextView type;
+		TextView temperature;
 	}
 
 	public Filter getFilter() {

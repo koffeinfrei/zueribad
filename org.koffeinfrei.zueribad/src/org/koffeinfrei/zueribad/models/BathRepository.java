@@ -15,18 +15,21 @@ public class BathRepository {
 		all = new ArrayList<Bath>();
 		
 		Bath bath = new Bath();
-		bath.setName("asdf");
+		bath.setName("Ein warmes Bad");
 		bath.setType("freibad");
+		bath.setTemperature(23.0);
 		all.add(bath);
 		
 		bath = new Bath();
-		bath.setName("qwer");
-		bath.setType("hallenbad");
+		bath.setName("Ein saukaltes Flussbad");
+		bath.setType("freibad");
+		bath.setTemperature(16.0);
 		all.add(bath);
 		
 		bath = new Bath();
-		bath.setName("asdfasdf");
+		bath.setName("Ein mittelmässiges Hallenbad");
 		bath.setType("hallenbad");
+		bath.setTemperature(21.5);
 		all.add(bath);
 	}
 	

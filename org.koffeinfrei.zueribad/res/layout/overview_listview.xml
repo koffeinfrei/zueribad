@@ -1,24 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout 	xmlns:android="http://schemas.android.com/apk/res/android"
-				android:layout_height="wrap_content" 
-				android:gravity="left|center"
-				android:layout_width="wrap_content" 
+<TableLayout 	xmlns:android="http://schemas.android.com/apk/res/android"
+				android:layout_height="match_parent" 
+				android:layout_width="match_parent"
+				android:gravity="left|center" 
 				android:paddingBottom="5px"
 				android:paddingTop="5px" 
-				android:paddingLeft="5px">
+				android:paddingLeft="5px"
+				android:paddingRight="5px"
+				android:stretchColumns="1"
+				android:weightSum="1.0" >
+	
+	<TableRow>
+		<TextView 	android:id="@+id/overview_listitem_bathtemperature" 
+					android:layout_height="wrap_content"
+					android:gravity="left"
+					android:paddingRight="5px"
+					android:textColor="#B96D00"
+					android:text="°C" />
 				
-	<TextView 	android:id="@+id/overview_listitem_bathtitle" 
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content" 
-				android:gravity="center"
-				android:background="#000000" 
-				android:textColor="#FFFFFF"
-				android:text="hi" />
-				
-	<TextView 	android:id="@+id/overview_listitem_bathtype"
-				android:layout_width="wrap_content" 
-				android:layout_height="wrap_content"
-				android:layout_marginLeft="10px" 
-				android:textColor="#B96D00" />
-				
-</LinearLayout>
+		<TextView 	android:id="@+id/overview_listitem_bathname" 
+					android:layout_height="wrap_content" 
+					android:layout_weight="0.2"
+					android:gravity="left"
+					android:paddingRight="5px"
+					android:textColor="#FFFFFF"
+					android:text="name" />
+					
+		<TextView 	android:id="@+id/overview_listitem_bathtype"
+					android:layout_height="wrap_content"
+					android:gravity="right"
+					android:textColor="#B96D00"
+					android:text="bathtype" />	
+	</TableRow>				
+	
+</TableLayout>
