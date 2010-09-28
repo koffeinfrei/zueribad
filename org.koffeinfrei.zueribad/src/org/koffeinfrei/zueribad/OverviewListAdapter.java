@@ -20,7 +20,7 @@ public class OverviewListAdapter extends BaseAdapter {
 	public OverviewListAdapter(Context context){
 		inflater = LayoutInflater.from(context);
 		
-		bathRepository = new BathRepository();
+		bathRepository = BathRepository.getInstance();
 	}
 	
 	@Override
@@ -44,16 +44,15 @@ public class OverviewListAdapter extends BaseAdapter {
 	public View getView(int position, View convertView, ViewGroup parent) {
 		ViewHolder holder;
 		if (convertView == null) {
-		convertView = inflater.inflate(R.layout.overview_listview, null);
-		holder = new ViewHolder();
-		holder.text = (TextView) convertView
-		.findViewById(R.id.TextView01);
-		holder.text2 = (TextView) convertView
-		.findViewById(R.id.TextView02);
-		
-		convertView.setTag(holder);
-		} else {
-		holder = (ViewHolder) convertView.getTag();
+			convertView = inflater.inflate(R.layout.overview_listview, null);
+			holder = new ViewHolder();
+			holder.text = (TextView) convertView.findViewById(R.id.overview_listitem_bathtitle);
+			holder.text2 = (TextView) convertView.findViewById(R.id.overview_listitem_bathtype);
+			
+			convertView.setTag(holder);
+		} 
+		else {
+			holder = (ViewHolder) convertView.getTag();
 		}
 		
 		Bath bath = bathRepository.getFiltered().get(position);

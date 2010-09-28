@@ -42,16 +42,15 @@ public class OverviewListFilter extends Filter {
             }
         }
 
-        bathRepository.setFiltered((ArrayList<Bath>)results.values);
         return results;
 	}
 
 	@Override
 	protected void publishResults(CharSequence constraint, FilterResults results) {
 		// NOTE: this method is *always* called from the UI thread.
-	    //@SuppressWarnings("unchecked")
-//		ArrayList<Bath> values = new ArrayList<Bath>();//(ArrayList<Bath>)results.values;
-//		bathRepository.setFiltered(values);
+	    @SuppressWarnings("unchecked")
+		ArrayList<Bath> values = (ArrayList<Bath>)results.values;
+		bathRepository.setFiltered(values);
 	}
 
 }

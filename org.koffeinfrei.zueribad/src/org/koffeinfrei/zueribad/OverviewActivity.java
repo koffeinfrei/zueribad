@@ -1,22 +1,21 @@
 package org.koffeinfrei.zueribad;
 
-import org.koffeinfrei.zueribad.models.BathRepository;
-
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.EditText;
+import android.widget.Filter;
 import android.widget.ListView;
+import android.widget.AdapterView.OnItemClickListener;
 
 public class OverviewActivity extends Activity {
 	private ListView bathList;
 	private EditText filterText;
 	private OverviewListAdapter adapter;
-	
-	public OverviewActivity(){
-		new BathRepository();
-	}
 	
 	/** Called when the activity is first created. */
     @Override
@@ -30,7 +29,15 @@ public class OverviewActivity extends Activity {
 
         bathList = (ListView)findViewById(R.id.list);
         adapter = new OverviewListAdapter(this);
+        
         bathList.setAdapter(adapter);
+        bathList.setOnItemClickListener(new OnItemClickListener() {
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent detailsIntent = new Intent(getApplicationContext(), DetailsActivity.class);
+                detailsIntent.putExtra("SelectedItemPosition", position); // TODO add constant
+                startActivity(detailsIntent);
+            }
+        });
     }
 
     @Override
@@ -38,22 +45,23 @@ public class OverviewActivity extends Activity {
         super.onDestroy();
         filterText.removeTextChangedListener(filterTextWatcher);
     }
-
     
     private TextWatcher filterTextWatcher = new TextWatcher() {
-
+    	
         public void afterTextChanged(Editable s) {
         }
 
-        public void beforeTextChanged(CharSequence s, int start, int count,
-                int after) {
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
         }
-
+        
         public void onTextChanged(CharSequence s, int start, int before, int count) {
-            adapter.getFilter().filter(s);	
+            adapter.getFilter().filter(s, new Filter.FilterListener(){
+            	public void onFilterComplete(int count) {
+            		// force refresh of list and prevent illegalstateexception
+            		bathList.setAdapter(adapter); 
+                }
+            });
         }
-
     };
-
 }
 

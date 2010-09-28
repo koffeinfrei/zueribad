@@ -6,10 +6,12 @@ import org.koffeinfrei.zueribad.models.entities.Bath;
 
 public class BathRepository {
 	
-	ArrayList<Bath> all;
-	ArrayList<Bath> filtered;
+	private ArrayList<Bath> all;
+	private ArrayList<Bath> filtered;
 	
-	public BathRepository(){
+	private static BathRepository instance = new BathRepository(); 
+	
+	private BathRepository(){
 		all = new ArrayList<Bath>();
 		
 		Bath bath = new Bath();
@@ -26,6 +28,10 @@ public class BathRepository {
 		bath.setName("asdfasdf");
 		bath.setType("hallenbad");
 		all.add(bath);
+	}
+	
+	public static BathRepository getInstance(){
+		return instance;
 	}
 	
 	public ArrayList<Bath> getAll(){
