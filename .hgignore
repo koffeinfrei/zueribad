@@ -1,4 +1,4 @@
-
+syntax: glob
 Thumbs.db
 *.obj
 *.exe

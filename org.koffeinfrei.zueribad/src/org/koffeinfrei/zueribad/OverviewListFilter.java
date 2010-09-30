@@ -25,10 +25,12 @@ public class OverviewListFilter extends Filter {
         ArrayList<Bath> filteredBaths = new ArrayList<Bath>();
         ArrayList<Bath> allBaths = bathRepository.getAll();
         
-        if (constraint!= null && constraint.length() > 0) {
+        if (constraint != null && constraint.length() > 0) {
+        	String uppercaseConstraint = constraint.toString().toUpperCase();
 			for (int index = 0; index < allBaths.size(); index++) {
                 Bath bath = allBaths.get(index);
-                if(bath.getName().contains(constraint) || bath.getType().contains(constraint)){
+                if(bath.getName().toUpperCase().contains(uppercaseConstraint) || 
+                		bath.getType().toUpperCase().contains(uppercaseConstraint)){
                   filteredBaths.add(bath);  
                 }
             }

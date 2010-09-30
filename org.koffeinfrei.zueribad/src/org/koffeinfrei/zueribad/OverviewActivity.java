@@ -1,6 +1,5 @@
 package org.koffeinfrei.zueribad;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
@@ -12,7 +11,7 @@ import android.widget.Filter;
 import android.widget.ListView;
 import android.widget.AdapterView.OnItemClickListener;
 
-public class OverviewActivity extends Activity {
+public class OverviewActivity extends FirstLevelActivity {
 	private ListView bathList;
 	private EditText filterText;
 	private OverviewListAdapter adapter;
@@ -34,8 +33,10 @@ public class OverviewActivity extends Activity {
         bathList.setOnItemClickListener(new OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent detailsIntent = new Intent(getApplicationContext(), DetailsActivity.class);
+                detailsIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 detailsIntent.putExtra("SelectedItemPosition", position); // TODO add constant
-                startActivity(detailsIntent);
+                View intentView = getLocalActivityManager().startActivity("detailsActivity", detailsIntent).getDecorView();
+                setContentView(intentView);
             }
         });
     }
