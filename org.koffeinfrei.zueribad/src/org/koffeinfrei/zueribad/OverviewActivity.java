@@ -34,7 +34,7 @@ public class OverviewActivity extends FirstLevelActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent detailsIntent = new Intent(getApplicationContext(), DetailsActivity.class);
                 detailsIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                detailsIntent.putExtra("SelectedItemPosition", position); // TODO add constant
+                detailsIntent.putExtra("SelectedItemId", (int)id); // TODO add constant
                 View intentView = getLocalActivityManager().startActivity("detailsActivity", detailsIntent).getDecorView();
                 setContentView(intentView);
             }

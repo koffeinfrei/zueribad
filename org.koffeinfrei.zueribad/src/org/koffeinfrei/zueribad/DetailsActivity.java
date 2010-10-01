@@ -5,10 +5,12 @@ import java.util.HashMap;
 import java.util.List;
 
 import org.koffeinfrei.zueribad.models.BathRepository;
+import org.koffeinfrei.zueribad.models.entities.Bath;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.widget.ExpandableListView;
+import android.widget.ImageView;
 import android.widget.SimpleExpandableListAdapter;
 import android.widget.TextView;
 
@@ -24,10 +26,13 @@ public class DetailsActivity extends Activity {
 		Bundle extras = getIntent().getExtras();
 		if(extras != null)
 		{
-			int position = extras.getInt("SelectedItemPosition"); // TODO ->constant
-			System.out.println("details at position: " + position);
+			int id = extras.getInt("SelectedItemId"); // TODO ->constant
+			Bath bath = BathRepository.getInstance().get(id);
 			
-			titleView.setText(BathRepository.getInstance().getFiltered().get(position).getName());
+			titleView.setText(bath.getName());
+			
+			ImageView pictureView = (ImageView) findViewById(R.id.details_picture);
+			pictureView.setImageBitmap(bath.getPicture());
 		}
 		else{
 			titleView.setText("Error: no item found"); // TODO

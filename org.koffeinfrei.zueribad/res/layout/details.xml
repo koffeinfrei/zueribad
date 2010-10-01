@@ -8,12 +8,17 @@
 	<TextView
 		android:text="@+id/details_title" 
 		android:id="@+id/details_title" 
-		android:layout_width="fill_parent" 
+		android:layout_width="match_parent" 
+		android:layout_height="wrap_content" />
+		
+	<ImageView 
+		android:id="@+id/details_picture" 
+		android:layout_width="match_parent" 
 		android:layout_height="wrap_content" />
 			
 	<ExpandableListView	
 		android:id="@+id/details_explist"
-		android:layout_width="fill_parent" 
+		android:layout_width="match_parent" 
 		android:layout_height="wrap_content" />
 		
 </LinearLayout>
