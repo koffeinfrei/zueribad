@@ -2,7 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
 	package="org.koffeinfrei.zueribad" android:versionCode="1"
 	android:versionName="1.0">
+	
 	<application android:icon="@drawable/icon" android:label="@string/app_name">
+		<uses-library android:name="com.google.android.maps" />
+	
 		<activity android:label="@string/app_name" android:name="MainTabActivity">
 			<intent-filter>
 				<action android:name="android.intent.action.MAIN" />
@@ -13,10 +16,11 @@
 		<activity android:name="OverviewActivity"></activity>
 		<activity android:name="FavoritesActivity"></activity>
 		<activity android:name="NearLocationActivity"></activity>
-	<activity android:name="DetailsActivity"></activity>
-</application>
+		<activity android:name="DetailsActivity"></activity>
+	</application>
+	
 	<uses-sdk android:minSdkVersion="8" />
 	<uses-permission android:name="android.permission.INTERNET" />
-
+	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
 </manifest> 

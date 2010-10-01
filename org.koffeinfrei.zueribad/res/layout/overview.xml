@@ -6,7 +6,7 @@
 
 	<EditText 	android:layout_height="wrap_content" 
 				android:id="@+id/search_box"
-				android:layout_width="fill_parent" />
+				android:layout_width="fill_parent" android:lines="1"/>
 		
 	<ListView 	android:id="@+id/list" 
 				android:layout_width="wrap_content"
