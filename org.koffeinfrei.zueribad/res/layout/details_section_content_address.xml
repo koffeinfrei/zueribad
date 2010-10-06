@@ -6,38 +6,45 @@
 	android:layout_width="match_parent"
  	android:layout_height="wrap_content">
  	
-	<LinearLayout 
+	<LinearLayout
 		android:orientation="horizontal"
 		android:layout_width="match_parent"
 	 	android:layout_height="wrap_content">
 		
 		<Button
-			android:id="@+id/details_section_content_map_togglebutton"
+			android:id="@+id/details_section_content_address_togglebutton"
 			android:layout_width="wrap_content" 
 			android:layout_height="wrap_content"
 			android:text="+" />
 		
 		<TextView
-			android:text="@string/title_map"
+			android:text="@string/title_address"
 			android:layout_width="wrap_content"
 		    android:layout_height="wrap_content" />
 		    
 	</LinearLayout>
 			
 	<org.koffeinfrei.zueribad.CollapsiblePanel
-		android:id="@+id/details_section_content_map_panel"
+		android:id="@+id/details_section_content_address_panel"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:orientation="horizontal"
 		android:layout_alignParentBottom="false" >
 	
-		<com.google.android.maps.MapView
-			android:id="@+id/details_section_content_map"
-	        android:layout_width="fill_parent"
-	        android:layout_height="fill_parent"
-	        android:enabled="true"
-	 		android:clickable="true"
-			android:apiKey="0hgjlMipVsN0mk6pOrmVSsukBqKRnPAyCJbI5cA" />
+		<TextView 
+			android:id="@+id/details_section_content_address_address"
+			android:layout_width="fill_parent"
+		    android:layout_height="wrap_content" />
+	
+		<TextView 
+			android:layout_width="fill_parent"
+		    android:layout_height="wrap_content"
+		    android:text="@string/title_route" />
+		
+		<TextView 
+			android:id="@+id/details_section_content_address_route"
+			android:layout_width="fill_parent"
+		    android:layout_height="wrap_content" />
 	
 	</org.koffeinfrei.zueribad.CollapsiblePanel>
 

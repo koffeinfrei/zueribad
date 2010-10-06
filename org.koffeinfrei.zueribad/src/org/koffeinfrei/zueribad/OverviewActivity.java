@@ -5,6 +5,11 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
+import android.view.animation.AnimationSet;
+import android.view.animation.LayoutAnimationController;
+import android.view.animation.TranslateAnimation;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.Filter;
@@ -20,7 +25,7 @@ public class OverviewActivity extends FirstLevelActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        
         setContentView(R.layout.overview);
         
         filterText = (EditText) findViewById(R.id.search_box);
@@ -39,7 +44,27 @@ public class OverviewActivity extends FirstLevelActivity {
                 setContentView(intentView);
             }
         });
+        
+        //addAnimationToListLoading();
     }
+
+	private void addAnimationToListLoading() {
+		AnimationSet animationSet = new AnimationSet(true);
+        Animation animation = new AlphaAnimation(0.0f, 1.0f);
+        animation.setDuration(50);
+        animationSet.addAnimation(animation);
+
+        animation = new TranslateAnimation(
+        		Animation.RELATIVE_TO_SELF, 0.0f,Animation.RELATIVE_TO_SELF, 0.0f,
+        		Animation.RELATIVE_TO_SELF, -1.0f,Animation.RELATIVE_TO_SELF, 0.0f
+        );
+        animation.setDuration(500);
+        animationSet.addAnimation(animation);
+
+        LayoutAnimationController controller = new LayoutAnimationController(animationSet, 0.5f);
+                
+        bathList.setLayoutAnimation(controller);
+	}
 
     @Override
     protected void onDestroy() {

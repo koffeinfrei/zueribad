@@ -4,4 +4,8 @@
 	<string name="tab_title_overview">Übersicht</string>
 	<string name="tab_title_favorites">Favoriten</string>
 	<string name="tab_title_nearlocation">In der Nähe</string>
+	<string name="title_route">Anreise</string>
+	<string name="title_address">Adresse</string>
+	<string name="title_openinghours">Öffnungszeiten</string>
+	<string name="title_map">Lageplan</string> 
 </resources>
