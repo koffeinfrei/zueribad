@@ -33,8 +33,8 @@
 	
 		<com.google.android.maps.MapView
 			android:id="@+id/details_section_content_map"
-	        android:layout_width="fill_parent"
-	        android:layout_height="fill_parent"
+	        android:layout_width="match_parent"
+	        android:layout_height="match_parent"
 	        android:enabled="true"
 	 		android:clickable="true"
 			android:apiKey="0hgjlMipVsN0mk6pOrmVSsukBqKRnPAyCJbI5cA" />

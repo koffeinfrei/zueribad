@@ -28,22 +28,22 @@
 		android:id="@+id/details_section_content_address_panel"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:orientation="horizontal"
+		android:orientation="vertical"
 		android:layout_alignParentBottom="false" >
 	
 		<TextView 
 			android:id="@+id/details_section_content_address_address"
-			android:layout_width="fill_parent"
+			android:layout_width="match_parent"
 		    android:layout_height="wrap_content" />
 	
 		<TextView 
-			android:layout_width="fill_parent"
+			android:layout_width="match_parent"
 		    android:layout_height="wrap_content"
 		    android:text="@string/title_route" />
 		
 		<TextView 
 			android:id="@+id/details_section_content_address_route"
-			android:layout_width="fill_parent"
+			android:layout_width="match_parent"
 		    android:layout_height="wrap_content" />
 	
 	</org.koffeinfrei.zueribad.CollapsiblePanel>
