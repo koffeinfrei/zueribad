@@ -43,7 +43,7 @@ public class Bath {
 	}
 	
 	public String getFormattedTemperature(){
-		return Temperature + " °C";
+		return Temperature + " Â°C";
 	}
 
 	public void setPicture(Bitmap picture) {

@@ -34,7 +34,7 @@ public class BathRepository {
 		all.add(bath);
 		
 		bath = new Bath(3);
-		bath.setName("Ein mittelm‰ssiges Hallenbad");
+		bath.setName("Ein mittelm√§ssiges Hallenbad");
 		bath.setType("hallenbad");
 		bath.setTemperature(21.5);
 		all.add(bath);

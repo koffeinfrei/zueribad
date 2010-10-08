@@ -61,17 +61,17 @@ public class DetailsActivity extends MapActivity {
 
 	private void setAddress(Bath bath) {
 		TextView addressView = (TextView) findViewById(R.id.details_section_content_address_address);
-		addressView.setText("Wasserwerkstrasse 141\n8037 Zürich\nTelefon 044 362 10 80\nLeitung: Heinrich Stadler\n\nGratisbad");
+		addressView.setText("Wasserwerkstrasse 141\n8037 ZÃ¼rich\nTelefon 044 362 10 80\nLeitung: Heinrich Stadler\n\nGratisbad");
 		
 		TextView routeView = (TextView) findViewById(R.id.details_section_content_address_route);
-		routeView.setText("Tram 4/13 bis «Dammweg»\nBus 46 bis «Nordstrasse»\nS2/S8/S14 bis Bahnhof Wipkingen\nÖffentliche Parkplätze");
+		routeView.setText("Tram 4/13 bis Â«DammwegÂ»\nBus 46 bis Â«NordstrasseÂ»\nS2/S8/S14 bis Bahnhof Wipkingen\nÃ–ffentliche ParkplÃ¤tze");
 	}
 
 	private void setMap(Bath bath) {
 		MapView mapView = (MapView) findViewById(R.id.details_section_content_map);
 		Geocoder geocoder = new Geocoder(getApplicationContext(), Locale.getDefault());
 		try {
-			List<Address> addresses = geocoder.getFromLocationName("Wasserwerkstrasse 141, 8037 Zürich", 1);
+			List<Address> addresses = geocoder.getFromLocationName("Wasserwerkstrasse 141, 8037 ZÃ¼rich", 1);
 			
 			if (!addresses.isEmpty()){
 				Address address = addresses.get(0);
