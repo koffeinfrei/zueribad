@@ -19,8 +19,14 @@ public abstract class FirstLevelActivity extends ActivityGroup {
 		LocalActivityManager localActivityManager = getLocalActivityManager();
 		Activity currentActivity = localActivityManager.getCurrentActivity();
 		
+		//moveTaskToBack(true);
+		
 		// don't handle if the current activity if it has a parent
 		// (which is the case for DetailsActivity
+//		System.out.println("-->"+currentActivity + "\n" + currentClass);
+//		if (currentActivity != null){
+//			System.out.println("->"+currentActivity.getClass());
+//		}
 		if (currentActivity == null || currentActivity.getParent() == null){//currentActivity.getClass().equals(currentClass)
 	    	super.onBackPressed();
     	}

@@ -17,6 +17,7 @@ import android.app.Activity;
 import android.location.Address;
 import android.location.Geocoder;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -26,7 +27,26 @@ import android.widget.SimpleExpandableListAdapter;
 import android.widget.TextView;
 
 public class DetailsActivity extends MapActivity {
-
+	
+//	public boolean onKeyDown(int keyCode, KeyEvent event) {
+//        System.out.println("-----------------------------");
+//		if (keyCode == KeyEvent.KEYCODE_BACK
+//                && event.getRepeatCount() == 0) {
+//            event.startTracking();
+//            return true;
+//        }
+//        return super.onKeyDown(keyCode, event);
+//    }
+//
+//    public boolean onKeyUp(int keyCode, KeyEvent event) {
+//        if (keyCode == KeyEvent.KEYCODE_BACK && event.isTracking()
+//                && !event.isCanceled()) {
+//            System.out.println("!!!!!!!!");
+//            return true;
+//        }
+//        return super.onKeyUp(keyCode, event);
+//    }
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
