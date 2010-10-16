@@ -2,6 +2,7 @@ package org.koffeinfrei.zueribad;
 
 import org.koffeinfrei.zueribad.models.BathRepository;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
@@ -29,14 +30,13 @@ public class OverviewActivity extends FirstLevelActivity {
 	private ListView bathList;
 	private EditText filterText;
 	private OverviewListAdapter adapter;
-	private ProgressDialog progressDialog;
 	private GetDetailsTask detailTask;
 	
 	@Override
     protected Dialog onCreateDialog(int id) {
         switch (id) {
         case PROGRESS_DIALOG:
-            progressDialog = new ProgressDialog(OverviewActivity.this);
+        	final ProgressDialog progressDialog = new ProgressDialog(OverviewActivity.this);
             //progressDialog.setIcon(R.drawable.icon);
             progressDialog.setMessage("Details werden heruntergeladen..."); // TODO i18n
             progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
@@ -69,8 +69,16 @@ public class OverviewActivity extends FirstLevelActivity {
         bathList.setAdapter(adapter);
         bathList.setOnItemClickListener(new OnItemClickListener() {
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-            	showDialog(PROGRESS_DIALOG);
-            	
+				
+				// after back from details, we are inside firstlevelactivity somehow TODO fix this
+				Activity parentActivity = getParent();
+				if (parentActivity instanceof MainTabActivity) {
+					showDialog(PROGRESS_DIALOG);
+				}
+				else {
+					parentActivity.showDialog(PROGRESS_DIALOG);
+				}
+				            	
             	detailTask = new GetDetailsTask();
             	detailTask.execute((int)id);
             }
@@ -126,21 +134,27 @@ public class OverviewActivity extends FirstLevelActivity {
     	@Override
     	protected Integer doInBackground(Integer... bathId) {
     		
-    		BathRepository.getInstance().get(bathId[0]);
+    		BathRepository.getInstance().get(bathId[0]); // TODO add preload method or something?
     		
     		return bathId[0];
     	}
 
         protected void onPostExecute(Integer bathId) {
-        	Intent detailsIntent = new Intent(getApplicationContext(), DetailsActivity.class);
-            detailsIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            detailsIntent.putExtra("SelectedItemId", bathId); // TODO add constant
+        	Intent detailsIntent = new Intent(getApplicationContext(), DetailsActivity.class)
+            	.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+        		.putExtra("SelectedItemId", bathId); // TODO add constant
             View intentView = getLocalActivityManager().startActivity("detailsActivity", detailsIntent).getDecorView();
             setContentView(intentView);
             
-            if (progressDialog != null){
-            	progressDialog.dismiss();
-            }
+            // after back from details, we are inside firstlevelactivity somehow TODO fix this
+			Activity parentActivity = getParent();
+			if (parentActivity instanceof MainTabActivity) {
+				dismissDialog(PROGRESS_DIALOG);
+			}
+			else {
+				parentActivity.dismissDialog(PROGRESS_DIALOG);
+			}
+			
         }
     }
 }
