@@ -6,8 +6,10 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 
+import org.koffeinfrei.zueribad.UserSettings;
 import org.koffeinfrei.zueribad.models.entities.Bath;
 
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
@@ -15,10 +17,14 @@ public class BathRepository {
 	
 	private ArrayList<Bath> all;
 	private ArrayList<Bath> filtered;
+	private ArrayList<Bath> favorites; // TODO: maybe just store ids instead of whole bath objects
 	
 	private static BathRepository instance = new BathRepository(); 
 	
 	private BathRepository(){
+	}
+	
+	public void init(Context context) throws IOException, ClassNotFoundException {
 		all = new ArrayList<Bath>();
 		
 		Bath bath = new Bath(1);
@@ -38,6 +44,12 @@ public class BathRepository {
 		bath.setType("hallenbad");
 		bath.setTemperature(21.5);
 		all.add(bath);
+		
+		favorites = UserSettings.loadFavorites(context);
+		System.out.println(">>favs: "+favorites);
+		if (favorites == null) {
+			favorites = new ArrayList<Bath>();
+		}
 	}
 	
 	public static BathRepository getInstance(){
@@ -60,11 +72,20 @@ public class BathRepository {
 	}
 	
 	public Bath get(int id){
-		Bath bath = all.get(id - 1); //TODO stable enough?
+		Bath bath = all.get(id - 1); //TODO stable enough with id-1?
 		
 		bath.setPicture(getPicture());
 		
 		return bath;
+	}
+	
+	public void addToFavorites(Context context, int id) throws IOException {
+		favorites.add(all.get(id - 1));
+		UserSettings.save(context, UserSettings.KEY_FAVORITES, favorites);
+	}
+	
+	public ArrayList<Bath> getFavorites(){
+		return favorites;
 	}
 	
 	private Bitmap getPicture() {

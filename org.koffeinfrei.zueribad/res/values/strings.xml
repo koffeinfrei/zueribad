@@ -7,5 +7,13 @@
 	<string name="title_route">Anreise</string>
 	<string name="title_address">Adresse</string>
 	<string name="title_openinghours">Öffnungszeiten</string>
-	<string name="title_map">Lageplan</string> 
+	<string name="title_map">Lageplan</string>
+	<string name="title_bath">Bad</string>
+	<string name="menu_addtofavorites">Zu Favoriten</string>
+	<string name="dialog_error">Es ist ein Fehler aufgetreten:\n</string>
+	<string name="dialog_downloadingdetails">Details werden heruntergeladen...</string>
+	<string name="error_savesettings">Die Einstellungen konnten nicht gespeichert werden.</string>
+	<string name="button_cancel">Abbrechen</string>
+	<string name="button_ok">Ok</string>
+	<string name="error_loadsettings">Die Einstellungen konnten nicht geladen werden.</string>
 </resources>

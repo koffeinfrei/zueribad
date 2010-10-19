@@ -9,7 +9,6 @@ import android.view.animation.AccelerateInterpolator;
 import android.view.animation.Animation;
 import android.view.animation.AnimationSet;
 import android.view.animation.AnimationUtils;
-import android.view.animation.TranslateAnimation;
 import android.widget.LinearLayout;
 
 public class CollapsiblePanel extends LinearLayout {
@@ -34,7 +33,6 @@ public class CollapsiblePanel extends LinearLayout {
 	}
 
 	public void toggle() {
-		TranslateAnimation anim = null;
 		AnimationSet set = new AnimationSet(true);
 
 		if (getVisibility() == View.GONE) {

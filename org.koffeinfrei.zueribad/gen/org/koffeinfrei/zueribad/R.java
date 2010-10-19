@@ -73,10 +73,18 @@ containing a value of this type.
     }
     public static final class string {
         public static final int app_name=0x7f050000;
+        public static final int button_cancel=0x7f05000d;
+        public static final int button_ok=0x7f05000e;
+        public static final int dialog_downloadingdetails=0x7f05000b;
+        public static final int dialog_error=0x7f05000a;
+        public static final int error_loadsettings=0x7f05000f;
+        public static final int error_savesettings=0x7f05000c;
+        public static final int menu_addtofavorites=0x7f050009;
         public static final int tab_title_favorites=0x7f050002;
         public static final int tab_title_nearlocation=0x7f050003;
         public static final int tab_title_overview=0x7f050001;
         public static final int title_address=0x7f050005;
+        public static final int title_bath=0x7f050008;
         public static final int title_map=0x7f050007;
         public static final int title_openinghours=0x7f050006;
         public static final int title_route=0x7f050004;

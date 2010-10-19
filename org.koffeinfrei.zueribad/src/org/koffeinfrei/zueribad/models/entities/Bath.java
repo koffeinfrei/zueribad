@@ -1,8 +1,12 @@
 package org.koffeinfrei.zueribad.models.entities;
 
+import java.io.Serializable;
+
 import android.graphics.Bitmap;
 
-public class Bath {
+public class Bath implements Serializable{
+	
+	private static final long serialVersionUID = 4857741782219006158L;
 	
 	private int id;
 	private String Name;
