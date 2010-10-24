@@ -1,9 +1,9 @@
-package org.koffeinfrei.zueribad;
+package org.koffeinfrei.zueribad.overview;
 
 import java.util.ArrayList;
 
+import org.koffeinfrei.zueribad.models.Bath;
 import org.koffeinfrei.zueribad.models.BathRepository;
-import org.koffeinfrei.zueribad.models.entities.Bath;
 
 import android.widget.Filter;
 

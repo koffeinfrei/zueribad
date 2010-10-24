@@ -1,11 +1,13 @@
-package org.koffeinfrei.zueribad;
+package org.koffeinfrei.zueribad.activities;
 
 import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
 
+import org.koffeinfrei.zueribad.CollapsiblePanel;
+import org.koffeinfrei.zueribad.R;
+import org.koffeinfrei.zueribad.models.Bath;
 import org.koffeinfrei.zueribad.models.BathRepository;
-import org.koffeinfrei.zueribad.models.entities.Bath;
 
 import com.google.android.maps.GeoPoint;
 import com.google.android.maps.MapActivity;

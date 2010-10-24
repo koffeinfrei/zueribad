@@ -2,7 +2,7 @@ package org.koffeinfrei.zueribad;
 
 import java.util.ArrayList;
 
-import org.koffeinfrei.zueribad.models.entities.Bath;
+import org.koffeinfrei.zueribad.models.Bath;
 
 import android.content.Context;
 

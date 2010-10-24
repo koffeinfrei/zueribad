@@ -1,4 +1,4 @@
-package org.koffeinfrei.zueribad.models.entities;
+package org.koffeinfrei.zueribad.models;
 
 import java.io.Serializable;
 

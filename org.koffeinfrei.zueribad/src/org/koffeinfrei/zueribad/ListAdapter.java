@@ -2,8 +2,8 @@ package org.koffeinfrei.zueribad;
 
 import java.util.ArrayList;
 
+import org.koffeinfrei.zueribad.models.Bath;
 import org.koffeinfrei.zueribad.models.BathRepository;
-import org.koffeinfrei.zueribad.models.entities.Bath;
 
 import android.content.Context;
 import android.view.LayoutInflater;

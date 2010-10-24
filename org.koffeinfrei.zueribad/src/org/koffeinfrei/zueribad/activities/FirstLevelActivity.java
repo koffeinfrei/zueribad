@@ -1,5 +1,6 @@
-package org.koffeinfrei.zueribad;
+package org.koffeinfrei.zueribad.activities;
 
+import org.koffeinfrei.zueribad.R;
 import org.koffeinfrei.zueribad.models.BathRepository;
 
 import android.app.Activity;
@@ -20,10 +21,10 @@ import android.view.View;
  *
  */
 public abstract class FirstLevelActivity extends ActivityGroup {
-	protected static final int PROGRESS_DIALOG = 1;
-	protected static final int ERROR_DIALOG = 2;
+	public static final int PROGRESS_DIALOG = 1;
+	public static final int ERROR_DIALOG = 2;
+	public BathRepository bathRepository;
 	protected String errorMessage;
-	protected BathRepository bathRepository;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

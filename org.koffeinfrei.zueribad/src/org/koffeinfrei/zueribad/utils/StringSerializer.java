@@ -1,4 +1,4 @@
-package org.koffeinfrei.zueribad;
+package org.koffeinfrei.zueribad.utils;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
+
 
 public class StringSerializer {
 	public static Serializable deserialize(String s) throws IOException,

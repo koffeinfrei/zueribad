@@ -1,5 +1,6 @@
-package org.koffeinfrei.zueribad;
+package org.koffeinfrei.zueribad.activities;
 
+import org.koffeinfrei.zueribad.R;
 import android.app.TabActivity;
 import android.content.Intent;
 import android.os.Bundle;

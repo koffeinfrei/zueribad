@@ -1,5 +1,9 @@
 package org.koffeinfrei.zueribad;
 
+import org.koffeinfrei.zueribad.activities.DetailsActivity;
+import org.koffeinfrei.zueribad.activities.FirstLevelActivity;
+import org.koffeinfrei.zueribad.activities.MainTabActivity;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -33,10 +37,10 @@ public class GetDetailsTask extends AsyncTask<Integer, Void, Integer> {
         // after back from details, we are inside firstlevelactivity somehow TODO fix this
 		Activity parentActivity = this.activity.getParent();
 		if (parentActivity instanceof MainTabActivity) {
-			activity.dismissDialog(OverviewActivity.PROGRESS_DIALOG);
+			activity.dismissDialog(FirstLevelActivity.PROGRESS_DIALOG);
 		}
 		else {
-			parentActivity.dismissDialog(OverviewActivity.PROGRESS_DIALOG);
+			parentActivity.dismissDialog(FirstLevelActivity.PROGRESS_DIALOG);
 		}
 		
     }

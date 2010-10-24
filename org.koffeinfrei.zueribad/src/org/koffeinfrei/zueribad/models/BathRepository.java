@@ -7,7 +7,6 @@ import java.net.URL;
 import java.util.ArrayList;
 
 import org.koffeinfrei.zueribad.UserSettings;
-import org.koffeinfrei.zueribad.models.entities.Bath;
 
 import android.content.Context;
 import android.graphics.Bitmap;

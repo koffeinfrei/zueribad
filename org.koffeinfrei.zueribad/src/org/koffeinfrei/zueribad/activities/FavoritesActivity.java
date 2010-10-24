@@ -1,7 +1,10 @@
-package org.koffeinfrei.zueribad;
+package org.koffeinfrei.zueribad.activities;
 
 import java.io.IOException;
 
+import org.koffeinfrei.zueribad.FavoritesListAdapter;
+import org.koffeinfrei.zueribad.GetDetailsTask;
+import org.koffeinfrei.zueribad.R;
 import android.app.Activity;
 import android.app.Dialog;
 import android.app.ProgressDialog;

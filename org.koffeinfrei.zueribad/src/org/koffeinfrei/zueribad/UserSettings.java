@@ -4,7 +4,8 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-import org.koffeinfrei.zueribad.models.entities.Bath;
+import org.koffeinfrei.zueribad.models.Bath;
+import org.koffeinfrei.zueribad.utils.StringSerializer;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -29,6 +30,13 @@ public class UserSettings {
 		SharedPreferences settings = context.getSharedPreferences(UserSettings.class.getName(), 0);
 		String value = settings.getString(key, null);
 		return StringSerializer.deserialize(value);
+	}
+	
+	public static void reset(Context context) {
+		SharedPreferences settings = context.getSharedPreferences(UserSettings.class.getName(), 0);
+		SharedPreferences.Editor editor = settings.edit();
+		editor.clear();
+		editor.commit();
 	}
 	
 	public static ArrayList<Bath> loadFavorites(Context context) throws IOException, ClassNotFoundException{
