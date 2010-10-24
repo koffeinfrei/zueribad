@@ -84,6 +84,11 @@ public class BathRepository {
 		UserSettings.save(context, UserSettings.KEY_FAVORITES, favorites);
 	}
 	
+	public void removeFromFavorites(Context context, int id) throws IOException {
+		favorites.remove(id - 1);
+		UserSettings.save(context, UserSettings.KEY_FAVORITES, favorites);
+	}
+	
 	public ArrayList<Bath> getFavorites(){
 		return favorites;
 	}

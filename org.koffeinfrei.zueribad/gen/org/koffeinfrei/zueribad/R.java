@@ -54,11 +54,12 @@ containing a value of this type.
         public static final int details_section_content_map_panel=0x7f060007;
         public static final int details_section_content_map_togglebutton=0x7f060006;
         public static final int details_title=0x7f060000;
-        public static final int list=0x7f06000a;
-        public static final int overview_listitem_bathname=0x7f06000c;
-        public static final int overview_listitem_bathtemperature=0x7f06000b;
-        public static final int overview_listitem_bathtype=0x7f06000d;
-        public static final int search_box=0x7f060009;
+        public static final int favorites_list=0x7f060009;
+        public static final int overview_list=0x7f06000b;
+        public static final int overview_listitem_bathname=0x7f06000d;
+        public static final int overview_listitem_bathtemperature=0x7f06000c;
+        public static final int overview_listitem_bathtype=0x7f06000e;
+        public static final int overview_search_box=0x7f06000a;
     }
     public static final class layout {
         public static final int details=0x7f030000;
@@ -73,13 +74,14 @@ containing a value of this type.
     }
     public static final class string {
         public static final int app_name=0x7f050000;
-        public static final int button_cancel=0x7f05000d;
-        public static final int button_ok=0x7f05000e;
-        public static final int dialog_downloadingdetails=0x7f05000b;
-        public static final int dialog_error=0x7f05000a;
-        public static final int error_loadsettings=0x7f05000f;
-        public static final int error_savesettings=0x7f05000c;
+        public static final int button_cancel=0x7f05000e;
+        public static final int button_ok=0x7f05000f;
+        public static final int dialog_downloadingdetails=0x7f05000c;
+        public static final int dialog_error=0x7f05000b;
+        public static final int error_loadsettings=0x7f050010;
+        public static final int error_savesettings=0x7f05000d;
         public static final int menu_addtofavorites=0x7f050009;
+        public static final int menu_removefromfavorites=0x7f05000a;
         public static final int tab_title_favorites=0x7f050002;
         public static final int tab_title_nearlocation=0x7f050003;
         public static final int tab_title_overview=0x7f050001;

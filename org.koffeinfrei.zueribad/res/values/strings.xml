@@ -10,6 +10,7 @@
 	<string name="title_map">Lageplan</string>
 	<string name="title_bath">Bad</string>
 	<string name="menu_addtofavorites">Zu Favoriten</string>
+	<string name="menu_removefromfavorites">Entfernen</string>
 	<string name="dialog_error">Es ist ein Fehler aufgetreten:\n</string>
 	<string name="dialog_downloadingdetails">Details werden heruntergeladen...</string>
 	<string name="error_savesettings">Die Einstellungen konnten nicht gespeichert werden.</string>
