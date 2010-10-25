@@ -170,12 +170,13 @@ public class OverviewActivity extends FirstLevelActivity {
     }
     
     @Override
-    public void onCreateContextMenu(ContextMenu menu, View v,
-    		ContextMenuInfo menuInfo) {
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenuInfo menuInfo) {
+    	AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) menuInfo;
+    	boolean isAlreadyFavorite = bathRepository.isFavorite((int)info.id);
     	
     	menu.setHeaderTitle(R.string.title_bath);
     	menu.setHeaderIcon(R.drawable.tab_favorites_white);
-    	menu.add(0, 1, 0, R.string.menu_addtofavorites);
+    	menu.add(0, 1, 0, R.string.menu_addtofavorites).setEnabled(!isAlreadyFavorite);
     	    	
     	super.onCreateContextMenu(menu, v, menuInfo);
     }

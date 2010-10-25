@@ -2,7 +2,7 @@ package org.koffeinfrei.zueribad;
 
 import java.io.IOException;
 import java.io.Serializable;
-import java.util.ArrayList;
+import java.util.Hashtable;
 
 import org.koffeinfrei.zueribad.models.Bath;
 import org.koffeinfrei.zueribad.utils.StringSerializer;
@@ -21,7 +21,7 @@ public class UserSettings {
       editor.commit();
 	}
 	
-	public static void save(Context context, String key, ArrayList<Bath> values) throws IOException {
+	public static void save(Context context, String key, Hashtable<Integer, Bath> values) throws IOException {
 		String value = StringSerializer.serialize(values);
 		save(context, key, value);
 	}
@@ -39,8 +39,8 @@ public class UserSettings {
 		editor.commit();
 	}
 	
-	public static ArrayList<Bath> loadFavorites(Context context) throws IOException, ClassNotFoundException{
-		return (ArrayList<Bath>)load(context, KEY_FAVORITES);
+	public static Hashtable<Integer, Bath> loadFavorites(Context context) throws IOException, ClassNotFoundException{
+		return (Hashtable<Integer, Bath>)load(context, KEY_FAVORITES);
 	}
 }
 

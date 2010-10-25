@@ -1,7 +1,6 @@
 package org.koffeinfrei.zueribad.overview;
 
 import java.util.ArrayList;
-
 import org.koffeinfrei.zueribad.ListAdapter;
 import org.koffeinfrei.zueribad.models.Bath;
 
@@ -20,7 +19,7 @@ public class OverviewListAdapter extends ListAdapter {
 
 	@Override
 	protected ArrayList<Bath> getList() {
-		return bathRepository.getFiltered();
+		return new ArrayList<Bath>(bathRepository.getFiltered().values());
 	}
 	
 }
