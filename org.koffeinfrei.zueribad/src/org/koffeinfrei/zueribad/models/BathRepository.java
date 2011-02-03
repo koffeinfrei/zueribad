@@ -3,6 +3,7 @@ package org.koffeinfrei.zueribad.models;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.MalformedURLException;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.Hashtable;
 
@@ -11,41 +12,32 @@ import org.koffeinfrei.zueribad.UserSettings;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import org.xml.sax.SAXException;
+
+import javax.xml.parsers.ParserConfigurationException;
 
 public class BathRepository {
 	
 	private Hashtable<Integer, Bath> all;
 	private Hashtable<Integer, Bath> filtered;
 	private Hashtable<Integer, Bath> favorites; // TODO: maybe just store ids instead of whole bath objects
+    private int current;
 	
 	private static BathRepository instance = new BathRepository(); 
 	
 	private BathRepository(){
+        current = -1;
 	}
 	
-	public void init(Context context) throws IOException, ClassNotFoundException {
-		all = new Hashtable<Integer, Bath>();
-		
-		Bath bath = new Bath(1);
-		bath.setName("Ein warmes Bad");
-		bath.setType("freibad");
-		bath.setTemperature(23.0);
-		all.put(1, bath);
-		
-		bath = new Bath(2);
-		bath.setName("Ein saukaltes Flussbad");
-		bath.setType("freibad");
-		bath.setTemperature(16.0);
-		all.put(2, bath);
-		
-		bath = new Bath(3);
-		bath.setName("Ein mittelmässiges Hallenbad");
-		bath.setType("hallenbad");
-		bath.setTemperature(21.5);
-		all.put(3, bath);
-		
+	public void init(Context context) throws IOException, ClassNotFoundException, URISyntaxException, SAXException, ParserConfigurationException {
+
+        BathService service = new BathService("http://www.stadt-zuerich.ch/stzh/bathdatadownload"); // TODO -> settings
+        // http://192.168.1.23/stzh_bath_data.xml
+
+        all = service.load();
+
 		favorites = UserSettings.loadFavorites(context);
-		//System.out.println(">>favs: "+favorites);
+		
 		if (favorites == null) {
 			favorites = new Hashtable<Integer, Bath>();
 		}
@@ -73,8 +65,6 @@ public class BathRepository {
 	public Bath get(int id){
 		Bath bath = all.get(id);
 		
-		bath.setPicture(getPicture());
-		
 		return bath;
 	}
 	
@@ -95,22 +85,16 @@ public class BathRepository {
 	public boolean isFavorite(int id) {
 		return favorites.containsKey(id);
 	}
-	
-	private Bitmap getPicture() {
-		try {
-			Bitmap bitmap = BitmapFactory
-					.decodeStream((InputStream) new URL(
-							"http://www.koffeinfrei.org/uploads/images/base/hdrpic.jpg")
-							.getContent());
-			
-			return bitmap;
-		} 
-		catch (MalformedURLException e) {
-			e.printStackTrace();
-		} 
-		catch (IOException e) {
-			e.printStackTrace();
-		}
-		return null; // TODO return placeholder image
-	}
+
+    public Bath getCurrent() {
+        if (current == -1){
+            return null;
+        }
+
+        return all.get(current);
+    }
+
+    public void setCurrent(int current) {
+        this.current = current;
+    }
 }

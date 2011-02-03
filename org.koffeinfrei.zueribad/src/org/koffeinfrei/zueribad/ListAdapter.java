@@ -46,7 +46,6 @@ private LayoutInflater inflater;
 			convertView = inflater.inflate(R.layout.overview_listview, null);
 			holder = new ViewHolder();
 			holder.name = (TextView) convertView.findViewById(R.id.overview_listitem_bathname);
-			holder.type = (TextView) convertView.findViewById(R.id.overview_listitem_bathtype);
 			holder.temperature = (TextView) convertView.findViewById(R.id.overview_listitem_bathtemperature);
 			
 			convertView.setTag(holder);
@@ -57,7 +56,7 @@ private LayoutInflater inflater;
 		
 		Bath bath = getList().get(position);
 		holder.name.setText(bath.getName());
-		holder.type.setText(bath.getType());
+		//holder.type.setText(bath.getType());
 		holder.temperature.setText(bath.getFormattedTemperature().toString());
 		
 		return convertView;
@@ -67,7 +66,6 @@ private LayoutInflater inflater;
 	
 	protected static class  ViewHolder {
 		TextView name;
-		TextView type;
 		TextView temperature;
 	}
 

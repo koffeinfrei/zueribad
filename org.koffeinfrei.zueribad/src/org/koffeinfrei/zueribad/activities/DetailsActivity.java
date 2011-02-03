@@ -23,7 +23,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 public class DetailsActivity extends MapActivity {
-	
+
 //	public boolean onKeyDown(int keyCode, KeyEvent event) {
 //        System.out.println("-----------------------------");
 //		if (keyCode == KeyEvent.KEYCODE_BACK
@@ -54,17 +54,14 @@ public class DetailsActivity extends MapActivity {
 		SetupSlidingPanel(R.id.details_section_content_address_panel, R.id.details_section_content_address_togglebutton);
 		SetupSlidingPanel(R.id.details_section_content_map_panel, R.id.details_section_content_map_togglebutton);
 		
-		Bundle extras = getIntent().getExtras();
-		if(extras != null)
+		Bath bath = BathRepository.getInstance().getCurrent();
+		if(bath != null)
 		{
-			int id = extras.getInt("SelectedItemId"); // TODO ->constant
-			Bath bath = BathRepository.getInstance().get(id);
-			
 			// title
 			titleView.setText(bath.getName());
 			
 			// picture
-			pictureView.setImageBitmap(bath.getPicture());
+			//pictureView.setImageBitmap(bath.getPicture());
 			
 			setMap(bath);
 			setAddress(bath);

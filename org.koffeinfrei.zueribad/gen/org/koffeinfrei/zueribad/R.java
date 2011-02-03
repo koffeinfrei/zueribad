@@ -34,15 +34,18 @@ containing a value of this type.
     }
     public static final class drawable {
         public static final int icon=0x7f020000;
-        public static final int tab_favorites=0x7f020001;
-        public static final int tab_favorites_grey=0x7f020002;
-        public static final int tab_favorites_white=0x7f020003;
-        public static final int tab_nearlocation=0x7f020004;
-        public static final int tab_nearlocation_grey=0x7f020005;
-        public static final int tab_nearlocation_white=0x7f020006;
-        public static final int tab_overview=0x7f020007;
-        public static final int tab_overview_grey=0x7f020008;
-        public static final int tab_overview_white=0x7f020009;
+        public static final int tab_details=0x7f020001;
+        public static final int tab_details_grey=0x7f020002;
+        public static final int tab_details_white=0x7f020003;
+        public static final int tab_favorites=0x7f020004;
+        public static final int tab_favorites_grey=0x7f020005;
+        public static final int tab_favorites_white=0x7f020006;
+        public static final int tab_nearlocation=0x7f020007;
+        public static final int tab_nearlocation_grey=0x7f020008;
+        public static final int tab_nearlocation_white=0x7f020009;
+        public static final int tab_overview=0x7f02000a;
+        public static final int tab_overview_grey=0x7f02000b;
+        public static final int tab_overview_white=0x7f02000c;
     }
     public static final class id {
         public static final int details_picture=0x7f060001;
@@ -56,9 +59,8 @@ containing a value of this type.
         public static final int details_title=0x7f060000;
         public static final int favorites_list=0x7f060009;
         public static final int overview_list=0x7f06000b;
-        public static final int overview_listitem_bathname=0x7f06000d;
-        public static final int overview_listitem_bathtemperature=0x7f06000c;
-        public static final int overview_listitem_bathtype=0x7f06000e;
+        public static final int overview_listitem_bathname=0x7f06000c;
+        public static final int overview_listitem_bathtemperature=0x7f06000d;
         public static final int overview_search_box=0x7f06000a;
     }
     public static final class layout {
@@ -74,22 +76,23 @@ containing a value of this type.
     }
     public static final class string {
         public static final int app_name=0x7f050000;
-        public static final int button_cancel=0x7f05000e;
-        public static final int button_ok=0x7f05000f;
-        public static final int dialog_downloadingdetails=0x7f05000c;
-        public static final int dialog_error=0x7f05000b;
-        public static final int error_loadsettings=0x7f050010;
-        public static final int error_savesettings=0x7f05000d;
-        public static final int menu_addtofavorites=0x7f050009;
-        public static final int menu_removefromfavorites=0x7f05000a;
+        public static final int button_cancel=0x7f05000f;
+        public static final int button_ok=0x7f050010;
+        public static final int dialog_downloadingdetails=0x7f05000d;
+        public static final int dialog_error=0x7f05000c;
+        public static final int error_loadsettings=0x7f050011;
+        public static final int error_savesettings=0x7f05000e;
+        public static final int menu_addtofavorites=0x7f05000a;
+        public static final int menu_removefromfavorites=0x7f05000b;
+        public static final int tab_title_details=0x7f050003;
         public static final int tab_title_favorites=0x7f050002;
-        public static final int tab_title_nearlocation=0x7f050003;
+        public static final int tab_title_nearlocation=0x7f050004;
         public static final int tab_title_overview=0x7f050001;
-        public static final int title_address=0x7f050005;
-        public static final int title_bath=0x7f050008;
-        public static final int title_map=0x7f050007;
-        public static final int title_openinghours=0x7f050006;
-        public static final int title_route=0x7f050004;
+        public static final int title_address=0x7f050006;
+        public static final int title_bath=0x7f050009;
+        public static final int title_map=0x7f050008;
+        public static final int title_openinghours=0x7f050007;
+        public static final int title_route=0x7f050005;
     }
     public static final class styleable {
         /** Attributes that can be used with a SlidingPanel.

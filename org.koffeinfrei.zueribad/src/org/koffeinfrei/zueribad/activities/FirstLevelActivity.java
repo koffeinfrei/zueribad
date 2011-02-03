@@ -1,14 +1,10 @@
 package org.koffeinfrei.zueribad.activities;
 
+import android.app.*;
+import android.widget.TabHost;
 import org.koffeinfrei.zueribad.R;
 import org.koffeinfrei.zueribad.models.BathRepository;
 
-import android.app.Activity;
-import android.app.ActivityGroup;
-import android.app.AlertDialog;
-import android.app.Dialog;
-import android.app.LocalActivityManager;
-import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -20,44 +16,48 @@ import android.view.View;
  * @author alexis.reigel
  *
  */
-public abstract class FirstLevelActivity extends ActivityGroup {
+public abstract class FirstLevelActivity extends Activity {
 	public static final int PROGRESS_DIALOG = 1;
 	public static final int ERROR_DIALOG = 2;
-	public BathRepository bathRepository;
+	public static final int TAB_OVERVIEW_INDEX = 0;
+    public static final int TAB_FAVORITES_INDEX = 1;
+    public static final int TAB_DETAILS_INDEX = 2;
+
+    public BathRepository bathRepository;
 	protected String errorMessage;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		
+
 		bathRepository = BathRepository.getInstance();
 	}
 	
-	@Override
-    public void onBackPressed() {
-    	Class<? extends ActivityGroup> currentClass = this.getClass();
-		LocalActivityManager localActivityManager = getLocalActivityManager();
-		Activity currentActivity = localActivityManager.getCurrentActivity();
-		
-		//moveTaskToBack(true);
-		
-		// don't handle if the current activity if it has a parent
-		// (which is the case for DetailsActivity
-//		System.out.println("-->"+currentActivity + "\n" + currentClass);
-//		if (currentActivity != null){
-//			System.out.println("->"+currentActivity.getClass());
-//		}
-		if (currentActivity == null || currentActivity.getParent() == null){//currentActivity.getClass().equals(currentClass)
-	    	super.onBackPressed();
-    	}
-    	else{
-	    	Intent overviewIntent = new Intent(getApplicationContext(), currentClass);
-	        overviewIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-	        View intentView = localActivityManager.startActivity("overviewActivity", overviewIntent).getDecorView();
-	        setContentView(intentView);
-		    return;
-    	}
-    }
+//	@Override
+//    public void onBackPressed() {
+//    	Class<? extends ActivityGroup> currentClass = this.getClass();
+//		LocalActivityManager localActivityManager = getLocalActivityManager();
+//		Activity currentActivity = localActivityManager.getCurrentActivity();
+//
+//		//moveTaskToBack(true);
+//
+//		// don't handle if the current activity if it has a parent
+//		// (which is the case for DetailsActivity
+////		System.out.println("-->"+currentActivity + "\n" + currentClass);
+////		if (currentActivity != null){
+////			System.out.println("->"+currentActivity.getClass());
+////		}
+//		if (currentActivity == null || currentActivity.getParent() == null){//currentActivity.getClass().equals(currentClass)
+//	    	super.onBackPressed();
+//    	}
+//    	else{
+//	    	Intent overviewIntent = new Intent(getApplicationContext(), currentClass);
+//	        overviewIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//	        View intentView = localActivityManager.startActivity("overviewActivity", overviewIntent).getDecorView();
+//	        setContentView(intentView);
+//		    return;
+//    	}
+//    }
 	
 	@Override
     protected Dialog onCreateDialog(int id) {
@@ -83,4 +83,10 @@ public abstract class FirstLevelActivity extends ActivityGroup {
         }
         return null;
     }
+
+    public void setCurrentTab(int index) {
+        ((TabActivity)getParent()).getTabHost().setCurrentTab(index);
+    }
+
+
 }

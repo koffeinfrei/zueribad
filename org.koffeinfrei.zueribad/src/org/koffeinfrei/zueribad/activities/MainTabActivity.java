@@ -1,5 +1,6 @@
 package org.koffeinfrei.zueribad.activities;
 
+import android.app.Activity;
 import org.koffeinfrei.zueribad.R;
 import android.app.TabActivity;
 import android.content.Intent;
@@ -29,13 +30,13 @@ public class MainTabActivity extends TabActivity {
 				R.string.tab_title_favorites, 
 				R.drawable.tab_favorites);
 
-		createTab(
-				NearLocationActivity.class, 
-				R.string.tab_title_nearlocation, 
-				R.drawable.tab_nearlocation);
+        createTab(
+				DetailsActivity.class,
+				R.string.tab_title_details,
+				R.drawable.tab_details);
 	}
 
-	private void createTab(Class<? extends FirstLevelActivity> activityClass, int titleResourceId, int iconResourceId) {
+	private void createTab(Class<? extends Activity> activityClass, int titleResourceId, int iconResourceId) {
 		TabHost tabHost = getTabHost();
 		Intent intent = new Intent(this, activityClass).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 		

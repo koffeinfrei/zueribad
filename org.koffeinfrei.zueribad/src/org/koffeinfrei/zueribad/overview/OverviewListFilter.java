@@ -28,8 +28,8 @@ public class OverviewListFilter extends Filter {
         if (constraint != null && constraint.length() > 0) {
         	String uppercaseConstraint = constraint.toString().toUpperCase();
 			for (Bath bath : allBaths.values()) {
-				if(bath.getName().toUpperCase().contains(uppercaseConstraint) || 
-                		bath.getType().toUpperCase().contains(uppercaseConstraint)){
+				if(bath.getName().toUpperCase().contains(uppercaseConstraint)/* ||
+                		bath.getType().toUpperCase().contains(uppercaseConstraint)*/){
 					filteredBaths.put(bath.getId(), bath);  
                 }
 			}

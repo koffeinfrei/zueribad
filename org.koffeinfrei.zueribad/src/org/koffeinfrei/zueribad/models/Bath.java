@@ -1,18 +1,18 @@
 package org.koffeinfrei.zueribad.models;
 
 import java.io.Serializable;
-
-import android.graphics.Bitmap;
+import java.util.Date;
 
 public class Bath implements Serializable{
 	
 	private static final long serialVersionUID = 4857741782219006158L;
 	
 	private int id;
-	private String Name;
-	private String Type;
-	private Double Temperature;
-	private Bitmap Picture;
+	private String name;
+	private Double temperature;
+    private Date modified;
+    private String status;
+    private String url;
 	
 	public Bath(int id){
 		this.id = id;
@@ -23,38 +23,46 @@ public class Bath implements Serializable{
 	}
 	
 	public void setName(String name) {
-		Name = name;
+		this.name = name;
 	}
 
 	public String getName() {
-		return Name;
-	}
-
-	public void setType(String type) {
-		Type = type;
-	}
-
-	public String getType() {
-		return Type;
+		return name;
 	}
 
 	public void setTemperature(Double temperature) {
-		Temperature = temperature;
+		this.temperature = temperature;
 	}
 
 	public Double getTemperature() {
-		return Temperature;
+		return temperature;
 	}
 	
 	public String getFormattedTemperature(){
-		return Temperature + " °C";
+		return temperature + " °C";
 	}
 
-	public void setPicture(Bitmap picture) {
-		Picture = picture;
-	}
+    public Date getModified() {
+        return modified;
+    }
 
-	public Bitmap getPicture() {
-		return Picture;
-	}
+    public void setModified(Date modified) {
+        this.modified = modified;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
 }

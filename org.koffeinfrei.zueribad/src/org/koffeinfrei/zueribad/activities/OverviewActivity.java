@@ -1,6 +1,7 @@
 package org.koffeinfrei.zueribad.activities;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
 
 import org.koffeinfrei.zueribad.GetDetailsTask;
 import org.koffeinfrei.zueribad.R;
@@ -23,6 +24,9 @@ import android.widget.EditText;
 import android.widget.Filter;
 import android.widget.ListView;
 import android.widget.AdapterView.OnItemClickListener;
+import org.xml.sax.SAXException;
+
+import javax.xml.parsers.ParserConfigurationException;
 
 public class OverviewActivity extends FirstLevelActivity {
 	private ListView bathList;
@@ -137,35 +141,42 @@ public class OverviewActivity extends FirstLevelActivity {
     private class GetListTask extends AsyncTask<Void, Void, Void> {
     	@Override
 		protected Void doInBackground(Void... params) {
-			try {
+			// TODO fix these messages, is not always load settings problem
+            try {
 				bathRepository.init(getApplicationContext());
 			} catch (IOException e) {
 				e.printStackTrace();
 				dismissDialog(PROGRESS_DIALOG);
 				errorMessage = getString(R.string.error_loadsettings);
 				showDialog(ERROR_DIALOG);
-
 			} catch (ClassNotFoundException e) {
 				e.printStackTrace();
 				dismissDialog(PROGRESS_DIALOG);
 				errorMessage = getString(R.string.error_loadsettings);
 				showDialog(ERROR_DIALOG);
-			}
-			return null;
+			} catch (URISyntaxException e) {
+                e.printStackTrace();
+                dismissDialog(PROGRESS_DIALOG);
+				errorMessage = getString(R.string.error_loadsettings);
+				showDialog(ERROR_DIALOG);
+            } catch (SAXException e) {
+                e.printStackTrace();
+                dismissDialog(PROGRESS_DIALOG);
+				errorMessage = getString(R.string.error_loadsettings);
+				showDialog(ERROR_DIALOG);
+            } catch (ParserConfigurationException e) {
+                e.printStackTrace();
+                dismissDialog(PROGRESS_DIALOG);
+				errorMessage = getString(R.string.error_loadsettings);
+				showDialog(ERROR_DIALOG);
+            }
+            return null;
 		}
 
         protected void onPostExecute(Void param) {
         	bathList.setAdapter(adapter);
         	
-            // after back from details, we are inside firstlevelactivity somehow TODO fix this
-			Activity parentActivity = getParent();
-			if (parentActivity instanceof MainTabActivity) {
-				dismissDialog(PROGRESS_DIALOG);
-			}
-			else {
-				parentActivity.dismissDialog(PROGRESS_DIALOG);
-			}
-			
+            dismissDialog(PROGRESS_DIALOG);
         }
     }
     
@@ -199,14 +210,7 @@ public class OverviewActivity extends FirstLevelActivity {
     }
     
     private void loadListData() {
-    	// after back from details, we are inside firstlevelactivity somehow TODO fix this
-		Activity parentActivity = getParent();
-		if (parentActivity instanceof MainTabActivity) {
-			showDialog(PROGRESS_DIALOG);
-		}
-		else {
-			parentActivity.showDialog(PROGRESS_DIALOG);
-		}
+		showDialog(PROGRESS_DIALOG);
 		            	
     	listTask = new GetListTask();
     	listTask.execute((Void[])null);
