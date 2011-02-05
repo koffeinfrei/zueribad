@@ -1,11 +1,11 @@
-package org.koffeinfrei.zueribad.activities;
+package org.koffeinfrei.zueribad.ui.activities;
 
 import android.app.Activity;
-import org.koffeinfrei.zueribad.R;
 import android.app.TabActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TabHost;
+import org.koffeinfrei.zueribad.R;
 
 /**
  * This class is the actual tab container. It creates the

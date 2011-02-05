@@ -1,15 +1,8 @@
-package org.koffeinfrei.zueribad;
+package org.koffeinfrei.zueribad.ui;
 
-import android.app.TabActivity;
-import org.koffeinfrei.zueribad.activities.DetailsActivity;
-import org.koffeinfrei.zueribad.activities.FirstLevelActivity;
-import org.koffeinfrei.zueribad.activities.MainTabActivity;
-
-import android.app.Activity;
-import android.content.Intent;
 import android.os.AsyncTask;
-import android.view.View;
 import org.koffeinfrei.zueribad.models.BathRepository;
+import org.koffeinfrei.zueribad.ui.activities.FirstLevelActivity;
 
 public class GetDetailsTask extends AsyncTask<Integer, Void, Integer> {
 

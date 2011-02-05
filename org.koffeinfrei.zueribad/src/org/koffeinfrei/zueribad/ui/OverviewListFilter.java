@@ -1,11 +1,10 @@
-package org.koffeinfrei.zueribad.overview;
+package org.koffeinfrei.zueribad.ui;
 
-import java.util.Hashtable;
-
+import android.widget.Filter;
 import org.koffeinfrei.zueribad.models.Bath;
 import org.koffeinfrei.zueribad.models.BathRepository;
 
-import android.widget.Filter;
+import java.util.Hashtable;
 
 public class OverviewListFilter extends Filter {
 

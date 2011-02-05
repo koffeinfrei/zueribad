@@ -1,4 +1,4 @@
-package org.koffeinfrei.zueribad;
+package org.koffeinfrei.zueribad.ui;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -10,6 +10,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationSet;
 import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
+import org.koffeinfrei.zueribad.R;
 
 public class CollapsiblePanel extends LinearLayout {
 	private int speed = 300;

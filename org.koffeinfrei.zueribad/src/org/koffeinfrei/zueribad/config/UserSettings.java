@@ -1,14 +1,13 @@
-package org.koffeinfrei.zueribad;
+package org.koffeinfrei.zueribad.config;
+
+import android.content.Context;
+import android.content.SharedPreferences;
+import org.koffeinfrei.zueribad.models.Bath;
+import org.koffeinfrei.zueribad.utils.StringSerializer;
 
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.Hashtable;
-
-import org.koffeinfrei.zueribad.models.Bath;
-import org.koffeinfrei.zueribad.utils.StringSerializer;
-
-import android.content.Context;
-import android.content.SharedPreferences;
 
 public class UserSettings {
 	public static final String KEY_FAVORITES = "favorites";

@@ -6,17 +6,17 @@
 	<application android:icon="@drawable/icon" android:label="@string/app_name">
 		<uses-library android:name="com.google.android.maps" />
 	
-		<activity android:label="@string/app_name" android:name=".activities.MainTabActivity">
+		<activity android:label="@string/app_name" android:name=".ui.activities.MainTabActivity">
 			<intent-filter>
 				<action android:name="android.intent.action.MAIN" />
 				<category android:name="android.intent.category.LAUNCHER" />
 			</intent-filter>
 		</activity>
 
-		<activity android:name=".activities.OverviewActivity"></activity>
-		<activity android:name=".activities.FavoritesActivity"></activity>
-		<activity android:name=".activities.NearLocationActivity"></activity>
-		<activity android:name=".activities.DetailsActivity"></activity>
+		<activity android:name=".ui.activities.OverviewActivity"></activity>
+		<activity android:name=".ui.activities.FavoritesActivity"></activity>
+		<activity android:name=".ui.activities.NearLocationActivity"></activity>
+		<activity android:name=".ui.activities.DetailsActivity"></activity>
 	</application>
 	
 	<uses-sdk android:minSdkVersion="8" />

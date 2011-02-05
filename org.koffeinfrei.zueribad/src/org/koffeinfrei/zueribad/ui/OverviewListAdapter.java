@@ -1,11 +1,10 @@
-package org.koffeinfrei.zueribad.overview;
-
-import java.util.ArrayList;
-import org.koffeinfrei.zueribad.ListAdapter;
-import org.koffeinfrei.zueribad.models.Bath;
+package org.koffeinfrei.zueribad.ui;
 
 import android.content.Context;
 import android.widget.Filter;
+import org.koffeinfrei.zueribad.models.Bath;
+
+import java.util.ArrayList;
 
 public class OverviewListAdapter extends ListAdapter {
 	

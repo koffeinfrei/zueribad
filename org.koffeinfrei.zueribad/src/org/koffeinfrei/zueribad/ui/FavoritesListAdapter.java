@@ -1,9 +1,9 @@
-package org.koffeinfrei.zueribad;
-
-import java.util.ArrayList;
-import org.koffeinfrei.zueribad.models.Bath;
+package org.koffeinfrei.zueribad.ui;
 
 import android.content.Context;
+import org.koffeinfrei.zueribad.models.Bath;
+
+import java.util.ArrayList;
 
 public class FavoritesListAdapter extends ListAdapter {
 

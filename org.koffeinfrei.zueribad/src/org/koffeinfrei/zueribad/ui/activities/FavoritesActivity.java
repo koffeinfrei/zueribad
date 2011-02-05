@@ -1,22 +1,22 @@
-package org.koffeinfrei.zueribad.activities;
+package org.koffeinfrei.zueribad.ui.activities;
 
-import java.io.IOException;
-
-import org.koffeinfrei.zueribad.FavoritesListAdapter;
-import org.koffeinfrei.zueribad.GetDetailsTask;
-import org.koffeinfrei.zueribad.R;
 import android.app.Activity;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.ContextMenu;
+import android.view.ContextMenu.ContextMenuInfo;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ContextMenu.ContextMenuInfo;
 import android.widget.AdapterView;
-import android.widget.ListView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ListView;
+import org.koffeinfrei.zueribad.R;
+import org.koffeinfrei.zueribad.ui.FavoritesListAdapter;
+import org.koffeinfrei.zueribad.ui.GetDetailsTask;
+
+import java.io.IOException;
 
 public class FavoritesActivity extends FirstLevelActivity {
 	private ListView bathList;

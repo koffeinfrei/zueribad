@@ -1,11 +1,4 @@
-package org.koffeinfrei.zueribad.activities;
-
-import java.io.IOException;
-import java.net.URISyntaxException;
-
-import org.koffeinfrei.zueribad.GetDetailsTask;
-import org.koffeinfrei.zueribad.R;
-import org.koffeinfrei.zueribad.overview.OverviewListAdapter;
+package org.koffeinfrei.zueribad.ui.activities;
 
 import android.app.Activity;
 import android.app.Dialog;
@@ -16,17 +9,22 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.ContextMenu;
+import android.view.ContextMenu.ContextMenuInfo;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ContextMenu.ContextMenuInfo;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.EditText;
 import android.widget.Filter;
 import android.widget.ListView;
-import android.widget.AdapterView.OnItemClickListener;
+import org.koffeinfrei.zueribad.R;
+import org.koffeinfrei.zueribad.ui.GetDetailsTask;
+import org.koffeinfrei.zueribad.ui.OverviewListAdapter;
 import org.xml.sax.SAXException;
 
 import javax.xml.parsers.ParserConfigurationException;
+import java.io.IOException;
+import java.net.URISyntaxException;
 
 public class OverviewActivity extends FirstLevelActivity {
 	private ListView bathList;

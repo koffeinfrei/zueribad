@@ -1,20 +1,13 @@
 package org.koffeinfrei.zueribad.models;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.MalformedURLException;
-import java.net.URISyntaxException;
-import java.net.URL;
-import java.util.Hashtable;
-
-import org.koffeinfrei.zueribad.UserSettings;
-
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
+import org.koffeinfrei.zueribad.config.UserSettings;
 import org.xml.sax.SAXException;
 
 import javax.xml.parsers.ParserConfigurationException;
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.util.Hashtable;
 
 public class BathRepository {
 	

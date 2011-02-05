@@ -1,7 +1,7 @@
-package org.koffeinfrei.zueribad.activities;
+package org.koffeinfrei.zueribad.ui.activities;
 
-import org.koffeinfrei.zueribad.R;
 import android.os.Bundle;
+import org.koffeinfrei.zueribad.R;
 
 public class NearLocationActivity extends FirstLevelActivity {
 	public void onCreate(Bundle savedInstanceState) {

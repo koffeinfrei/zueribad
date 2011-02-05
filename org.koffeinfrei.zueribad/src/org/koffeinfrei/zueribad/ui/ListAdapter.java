@@ -1,8 +1,4 @@
-package org.koffeinfrei.zueribad;
-
-import java.util.ArrayList;
-import org.koffeinfrei.zueribad.models.Bath;
-import org.koffeinfrei.zueribad.models.BathRepository;
+package org.koffeinfrei.zueribad.ui;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,6 +6,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+import org.koffeinfrei.zueribad.R;
+import org.koffeinfrei.zueribad.models.Bath;
+import org.koffeinfrei.zueribad.models.BathRepository;
+
+import java.util.ArrayList;
 
 public abstract class ListAdapter extends BaseAdapter {
 	

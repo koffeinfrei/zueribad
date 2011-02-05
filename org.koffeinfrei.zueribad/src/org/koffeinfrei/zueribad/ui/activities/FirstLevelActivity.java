@@ -1,14 +1,10 @@
-package org.koffeinfrei.zueribad.activities;
+package org.koffeinfrei.zueribad.ui.activities;
 
 import android.app.*;
-import android.widget.TabHost;
+import android.content.DialogInterface;
+import android.os.Bundle;
 import org.koffeinfrei.zueribad.R;
 import org.koffeinfrei.zueribad.models.BathRepository;
-
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
 
 /**
  * This is the base class for the first level activities inside the tabs.
