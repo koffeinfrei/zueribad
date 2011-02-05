@@ -31,7 +31,6 @@ private LayoutInflater inflater;
 
 	@Override
 	public Object getItem(int arg0) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

@@ -1,6 +1,7 @@
 package org.koffeinfrei.zueribad.ui;
 
 import android.os.AsyncTask;
+import org.koffeinfrei.zueribad.config.Constants;
 import org.koffeinfrei.zueribad.models.BathRepository;
 import org.koffeinfrei.zueribad.ui.activities.FirstLevelActivity;
 
@@ -17,15 +18,15 @@ public class GetDetailsTask extends AsyncTask<Integer, Void, Integer> {
 
 	@Override
 	protected Integer doInBackground(Integer... bathId) {
-		this.activity.bathRepository.get(bathId[0]); // TODO add preload method or something?
+		this.activity.bathRepository.get(bathId[0]);
 		
 		return bathId[0];
 	}
 
     protected void onPostExecute(Integer bathId) {
         BathRepository.getInstance().setCurrent(bathId);
-    	activity.setCurrentTab(FirstLevelActivity.TAB_DETAILS_INDEX);
+    	activity.setCurrentTab(Constants.TAB_DETAILS_INDEX);
 
-		activity.dismissDialog(FirstLevelActivity.PROGRESS_DIALOG);
+		activity.dismissDialog(Constants.PROGRESS_DIALOG);
     }
 }

@@ -4,6 +4,7 @@ import android.app.*;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import org.koffeinfrei.zueribad.R;
+import org.koffeinfrei.zueribad.config.Constants;
 import org.koffeinfrei.zueribad.models.BathRepository;
 
 /**
@@ -13,12 +14,6 @@ import org.koffeinfrei.zueribad.models.BathRepository;
  *
  */
 public abstract class FirstLevelActivity extends Activity {
-	public static final int PROGRESS_DIALOG = 1;
-	public static final int ERROR_DIALOG = 2;
-	public static final int TAB_OVERVIEW_INDEX = 0;
-    public static final int TAB_FAVORITES_INDEX = 1;
-    public static final int TAB_DETAILS_INDEX = 2;
-
     public BathRepository bathRepository;
 	protected String errorMessage;
 
@@ -58,7 +53,7 @@ public abstract class FirstLevelActivity extends Activity {
 	@Override
     protected Dialog onCreateDialog(int id) {
         switch (id) {
-        case PROGRESS_DIALOG:
+        case Constants.PROGRESS_DIALOG:
         	final ProgressDialog progressDialog = new ProgressDialog(FirstLevelActivity.this);
             //progressDialog.setIcon(R.drawable.icon);
             progressDialog.setMessage(getString(R.string.dialog_downloadingdetails));
@@ -66,7 +61,7 @@ public abstract class FirstLevelActivity extends Activity {
             progressDialog.setIndeterminate(true);
             progressDialog.setCancelable(true);
             return progressDialog;
-        case ERROR_DIALOG:
+        case Constants.ERROR_DIALOG:
         	AlertDialog.Builder builder = new AlertDialog.Builder(this);
         	builder.setMessage(getString(R.string.dialog_error) + errorMessage)
         	       .setCancelable(false)

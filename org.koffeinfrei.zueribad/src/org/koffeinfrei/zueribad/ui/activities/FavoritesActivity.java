@@ -1,6 +1,5 @@
 package org.koffeinfrei.zueribad.ui.activities;
 
-import android.app.Activity;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
@@ -13,6 +12,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import org.koffeinfrei.zueribad.R;
+import org.koffeinfrei.zueribad.config.Constants;
 import org.koffeinfrei.zueribad.ui.FavoritesListAdapter;
 import org.koffeinfrei.zueribad.ui.GetDetailsTask;
 
@@ -33,16 +33,9 @@ public class FavoritesActivity extends FirstLevelActivity {
         
         bathList.setOnItemClickListener(new OnItemClickListener() {
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-				
-				// after back from details, we are inside firstlevelactivity somehow TODO fix this
-				Activity parentActivity = getParent();
-				if (parentActivity instanceof MainTabActivity) {
-					showDialog(PROGRESS_DIALOG);
-				}
-				else {
-					parentActivity.showDialog(PROGRESS_DIALOG);
-				}
-				            	
+
+				showDialog(Constants.PROGRESS_DIALOG);
+
             	detailTask = new GetDetailsTask(FavoritesActivity.this);
             	detailTask.execute((int)id);
             }
@@ -58,9 +51,9 @@ public class FavoritesActivity extends FirstLevelActivity {
     	final Dialog dialog = super.onCreateDialog(id);
     	
     	switch (id) {
-        case PROGRESS_DIALOG:
+        case Constants.PROGRESS_DIALOG:
         	final ProgressDialog progressDialog = (ProgressDialog) dialog;
-            progressDialog.setButton(getString(R.string.button_cancel), new DialogInterface.OnClickListener() {; //TODO i18n
+            progressDialog.setButton(getString(R.string.button_cancel), new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int whichButton) {
                 	if (detailTask != null){
                 		detailTask.cancel(true);
@@ -95,7 +88,7 @@ public class FavoritesActivity extends FirstLevelActivity {
 		} catch (IOException e) {
 			
 			errorMessage = getString(R.string.error_savesettings);
-			showDialog(ERROR_DIALOG);
+			showDialog(Constants.ERROR_DIALOG);
 			
 			e.printStackTrace();
 		}

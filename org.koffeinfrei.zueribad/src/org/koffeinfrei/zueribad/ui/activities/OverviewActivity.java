@@ -12,12 +12,14 @@ import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.*;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.EditText;
 import android.widget.Filter;
 import android.widget.ListView;
 import org.koffeinfrei.zueribad.R;
+import org.koffeinfrei.zueribad.config.Constants;
 import org.koffeinfrei.zueribad.ui.GetDetailsTask;
 import org.koffeinfrei.zueribad.ui.OverviewListAdapter;
 import org.xml.sax.SAXException;
@@ -39,9 +41,7 @@ public class OverviewActivity extends FirstLevelActivity {
         super.onCreate(savedInstanceState);
         
         setContentView(R.layout.overview);
-        
-        loadListData(); // TODO do this only on demand, or let user set in settings
-        
+
         filterText = (EditText) findViewById(R.id.overview_search_box);
         filterText.addTextChangedListener(filterTextWatcher);
 
@@ -50,24 +50,16 @@ public class OverviewActivity extends FirstLevelActivity {
         
         bathList.setOnItemClickListener(new OnItemClickListener() {
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-				
-				// after back from details, we are inside firstlevelactivity somehow TODO fix this
-				Activity parentActivity = getParent();
-				if (parentActivity instanceof MainTabActivity) {
-					showDialog(PROGRESS_DIALOG);
-				}
-				else {
-					parentActivity.showDialog(PROGRESS_DIALOG);
-				}
+				showDialog(Constants.PROGRESS_DIALOG);
 				            	
             	detailTask = new GetDetailsTask(OverviewActivity.this);
             	detailTask.execute((int)id);
             }
         });
         
-        registerForContextMenu(bathList);        
+        registerForContextMenu(bathList);
 
-        //addAnimationToListLoading();
+        loadListData();
     }
     
     @Override
@@ -75,7 +67,7 @@ public class OverviewActivity extends FirstLevelActivity {
     	final Dialog dialog = super.onCreateDialog(id);
     	
     	switch (id) {
-        case PROGRESS_DIALOG:
+        case Constants.PROGRESS_DIALOG:
         	final ProgressDialog progressDialog = (ProgressDialog) dialog;
             progressDialog.setButton(getString(R.string.button_cancel), new DialogInterface.OnClickListener() {; //TODO i18n
                 public void onClick(DialogInterface dialog, int whichButton) {
@@ -94,23 +86,23 @@ public class OverviewActivity extends FirstLevelActivity {
         return null;
     }
 
-//	private void addAnimationToListLoading() {
-//		AnimationSet animationSet = new AnimationSet(true);
-//        Animation animation = new AlphaAnimation(0.0f, 1.0f);
-//        animation.setDuration(50);
-//        animationSet.addAnimation(animation);
-//
-//        animation = new TranslateAnimation(
-//        		Animation.RELATIVE_TO_SELF, 0.0f,Animation.RELATIVE_TO_SELF, 0.0f,
-//        		Animation.RELATIVE_TO_SELF, -1.0f,Animation.RELATIVE_TO_SELF, 0.0f
-//        );
-//        animation.setDuration(500);
-//        animationSet.addAnimation(animation);
-//
-//        LayoutAnimationController controller = new LayoutAnimationController(animationSet, 0.5f);
-//                
-//        bathList.setLayoutAnimation(controller);
-//	}
+	private void addAnimationToListLoading() {
+		AnimationSet animationSet = new AnimationSet(true);
+        Animation animation = new AlphaAnimation(0.0f, 1.0f);
+        animation.setDuration(100);
+        animationSet.addAnimation(animation);
+
+        animation = new TranslateAnimation(
+        		Animation.RELATIVE_TO_SELF, 0.0f,Animation.RELATIVE_TO_SELF, 0.0f,
+        		Animation.RELATIVE_TO_SELF, -1.0f, Animation.RELATIVE_TO_SELF, 0.0f
+        );
+        animation.setDuration(200);
+        animationSet.addAnimation(animation);
+
+        LayoutAnimationController controller = new LayoutAnimationController(animationSet, 0.5f);
+
+        bathList.setLayoutAnimation(controller);
+	}
 
     @Override
     protected void onDestroy() {
@@ -144,29 +136,29 @@ public class OverviewActivity extends FirstLevelActivity {
 				bathRepository.init(getApplicationContext());
 			} catch (IOException e) {
 				e.printStackTrace();
-				dismissDialog(PROGRESS_DIALOG);
+				dismissDialog(Constants.PROGRESS_DIALOG);
 				errorMessage = getString(R.string.error_loadsettings);
-				showDialog(ERROR_DIALOG);
+				showDialog(Constants.ERROR_DIALOG);
 			} catch (ClassNotFoundException e) {
 				e.printStackTrace();
-				dismissDialog(PROGRESS_DIALOG);
+				dismissDialog(Constants.PROGRESS_DIALOG);
 				errorMessage = getString(R.string.error_loadsettings);
-				showDialog(ERROR_DIALOG);
+				showDialog(Constants.ERROR_DIALOG);
 			} catch (URISyntaxException e) {
                 e.printStackTrace();
-                dismissDialog(PROGRESS_DIALOG);
+                dismissDialog(Constants.PROGRESS_DIALOG);
 				errorMessage = getString(R.string.error_loadsettings);
-				showDialog(ERROR_DIALOG);
+				showDialog(Constants.ERROR_DIALOG);
             } catch (SAXException e) {
                 e.printStackTrace();
-                dismissDialog(PROGRESS_DIALOG);
+                dismissDialog(Constants.PROGRESS_DIALOG);
 				errorMessage = getString(R.string.error_loadsettings);
-				showDialog(ERROR_DIALOG);
+				showDialog(Constants.ERROR_DIALOG);
             } catch (ParserConfigurationException e) {
                 e.printStackTrace();
-                dismissDialog(PROGRESS_DIALOG);
+                dismissDialog(Constants.PROGRESS_DIALOG);
 				errorMessage = getString(R.string.error_loadsettings);
-				showDialog(ERROR_DIALOG);
+				showDialog(Constants.ERROR_DIALOG);
             }
             return null;
 		}
@@ -174,7 +166,7 @@ public class OverviewActivity extends FirstLevelActivity {
         protected void onPostExecute(Void param) {
         	bathList.setAdapter(adapter);
         	
-            dismissDialog(PROGRESS_DIALOG);
+            dismissDialog(Constants.PROGRESS_DIALOG);
         }
     }
     
@@ -196,10 +188,11 @@ public class OverviewActivity extends FirstLevelActivity {
     	
     	try {
 			bathRepository.addToFavorites(getApplicationContext(), (int)info.id);
+            setCurrentTab(Constants.TAB_FAVORITES_INDEX);
 		} catch (IOException e) {
 			
 			errorMessage = getString(R.string.error_savesettings);
-			showDialog(ERROR_DIALOG);
+			showDialog(Constants.ERROR_DIALOG);
 			
 			e.printStackTrace();
 		}
@@ -208,10 +201,17 @@ public class OverviewActivity extends FirstLevelActivity {
     }
     
     private void loadListData() {
-		showDialog(PROGRESS_DIALOG);
-		            	
-    	listTask = new GetListTask();
-    	listTask.execute((Void[])null);
+		if (bathRepository.getAll() == null){
+            showDialog(Constants.PROGRESS_DIALOG);
+
+            listTask = new GetListTask();
+            listTask.execute((Void[])null);
+
+            addAnimationToListLoading();
+        }
+        else{
+            bathList.setAdapter(adapter);
+        }
     }
 }
 

@@ -1,6 +1,7 @@
 package org.koffeinfrei.zueribad.models;
 
 import android.content.Context;
+import org.koffeinfrei.zueribad.config.Constants;
 import org.koffeinfrei.zueribad.config.UserSettings;
 import org.xml.sax.SAXException;
 
@@ -24,8 +25,7 @@ public class BathRepository {
 	
 	public void init(Context context) throws IOException, ClassNotFoundException, URISyntaxException, SAXException, ParserConfigurationException {
 
-        BathService service = new BathService("http://www.stadt-zuerich.ch/stzh/bathdatadownload"); // TODO -> settings
-        // http://192.168.1.23/stzh_bath_data.xml
+        BathService service = new BathService(Constants.SERVICE_URL);
 
         all = service.load();
 
