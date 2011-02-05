@@ -1,7 +1,10 @@
 package org.koffeinfrei.zueribad.models;
 
 import java.io.Serializable;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 public class Bath implements Serializable{
 	
@@ -44,6 +47,11 @@ public class Bath implements Serializable{
 
     public Date getModified() {
         return modified;
+    }
+
+    public String getFormattedModified(){
+        DateFormat format = new SimpleDateFormat("E, MM.dd.yyyy HH:mm");
+        return format.format(modified);
     }
 
     public void setModified(Date modified) {

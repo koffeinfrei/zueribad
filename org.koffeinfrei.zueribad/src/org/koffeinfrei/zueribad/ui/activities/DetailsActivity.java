@@ -45,24 +45,25 @@ public class DetailsActivity extends MapActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.details);
-		
+
 		TextView titleView = (TextView)findViewById(R.id.details_title);
-		ImageView pictureView = (ImageView) findViewById(R.id.details_picture);
-		
-		SetupSlidingPanel(R.id.details_section_content_address_panel, R.id.details_section_content_address_togglebutton);
-		SetupSlidingPanel(R.id.details_section_content_map_panel, R.id.details_section_content_map_togglebutton);
-		
+		TextView waterTemperatureView = (TextView) findViewById(R.id.details_watertemperature);
+		TextView lastModifiedView = (TextView) findViewById(R.id.details_lastmodified);
+		TextView status = (TextView) findViewById(R.id.details_status);
+
+		//SetupSlidingPanel(R.id.details_section_content_address_panel, R.id.details_section_content_address_togglebutton);
+		//SetupSlidingPanel(R.id.details_section_content_map_panel, R.id.details_section_content_map_togglebutton);
+
 		Bath bath = BathRepository.getInstance().getCurrent();
 		if(bath != null)
 		{
-			// title
 			titleView.setText(bath.getName());
-			
-			// picture
-			//pictureView.setImageBitmap(bath.getPicture());
-			
-			setMap(bath);
-			setAddress(bath);
+			waterTemperatureView.setText(bath.getFormattedTemperature());
+		    lastModifiedView.setText(bath.getFormattedModified());
+            status.setText(bath.getStatus());
+
+			//setMap(bath);
+			//setAddress(bath);
 			
 		}
 		else{
@@ -70,36 +71,36 @@ public class DetailsActivity extends MapActivity {
 		}
 	}
 
-	private void setAddress(Bath bath) {
-		TextView addressView = (TextView) findViewById(R.id.details_section_content_address_address);
-		addressView.setText("Wasserwerkstrasse 141\n8037 Zürich\nTelefon 044 362 10 80\nLeitung: Heinrich Stadler\n\nGratisbad");
-		
-		TextView routeView = (TextView) findViewById(R.id.details_section_content_address_route);
-		routeView.setText("Tram 4/13 bis «Dammweg»\nBus 46 bis «Nordstrasse»\nS2/S8/S14 bis Bahnhof Wipkingen\nÖffentliche Parkplätze");
-	}
+//	private void setAddress(Bath bath) {
+//		TextView addressView = (TextView) findViewById(R.id.details_section_content_address_address);
+//		addressView.setText("Wasserwerkstrasse 141\n8037 Zürich\nTelefon 044 362 10 80\nLeitung: Heinrich Stadler\n\nGratisbad");
+//
+//		TextView routeView = (TextView) findViewById(R.id.details_section_content_address_route);
+//		routeView.setText("Tram 4/13 bis «Dammweg»\nBus 46 bis «Nordstrasse»\nS2/S8/S14 bis Bahnhof Wipkingen\nÖffentliche Parkplätze");
+//	}
 
-	private void setMap(Bath bath) {
-		MapView mapView = (MapView) findViewById(R.id.details_section_content_map);
-		Geocoder geocoder = new Geocoder(getApplicationContext(), Locale.getDefault());
-		try {
-			List<Address> addresses = geocoder.getFromLocationName("Wasserwerkstrasse 141, 8037 Zürich", 1);
-			
-			if (!addresses.isEmpty()){
-				Address address = addresses.get(0);
-				GeoPoint geoPoint = new GeoPoint(
-						(int)(address.getLatitude() * 1000000.0), 
-						(int)(address.getLongitude() * 1000000.0));
-				mapView.getController().setCenter(geoPoint);
-				mapView.setBuiltInZoomControls(true);
-			}
-			else{
-				System.err.println("Address was not found"); // TODO
-			}
-		} 
-		catch (IOException e) {
-			System.err.println("Address was not found. " + e.getMessage()); // TODO
-		}
-	}
+//	private void setMap(Bath bath) {
+//		MapView mapView = (MapView) findViewById(R.id.details_section_content_map);
+//		Geocoder geocoder = new Geocoder(getApplicationContext(), Locale.getDefault());
+//		try {
+//			List<Address> addresses = geocoder.getFromLocationName("Wasserwerkstrasse 141, 8037 Zürich", 1);
+//
+//			if (!addresses.isEmpty()){
+//				Address address = addresses.get(0);
+//				GeoPoint geoPoint = new GeoPoint(
+//						(int)(address.getLatitude() * 1000000.0),
+//						(int)(address.getLongitude() * 1000000.0));
+//				mapView.getController().setCenter(geoPoint);
+//				mapView.setBuiltInZoomControls(true);
+//			}
+//			else{
+//				System.err.println("Address was not found"); // TODO
+//			}
+//		}
+//		catch (IOException e) {
+//			System.err.println("Address was not found. " + e.getMessage()); // TODO
+//		}
+//	}
 
 	private void SetupSlidingPanel(int slidingPanelId, int toggleButtonId) {
 		final CollapsiblePanel panel = (CollapsiblePanel) findViewById(slidingPanelId);

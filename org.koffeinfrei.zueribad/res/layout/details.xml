@@ -10,18 +10,62 @@
 		android:scrollbars="vertical">
 		
 		<TextView 
-			android:id="@+id/details_title" 
+			android:id="@+id/details_title"
+            android:textSize="20sp"
 			android:layout_width="match_parent" 
 			android:layout_height="wrap_content" />
-			
-		<ImageView 
+
+        <TextView
+                android:id="@+id/details_watertemperature"
+                android:layout_width="match_parent"
+                android:layout_weight="0.3"
+                android:gravity="left"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textSize="30sp"
+                android:text="- °C"/>
+
+        <TextView
+                android:id="@+id/details_status"
+                android:textSize="14sp"
+                android:layout_marginTop="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        <LinearLayout
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:weightSum="1.0"
+                android:layout_marginTop="25dp" >
+
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_weight="0.4"
+                    android:gravity="left"
+                    android:layout_height="wrap_content"
+                    android:textSize="10sp"
+                    android:text="@string/title_lastmodified" />
+
+            <TextView
+                    android:id="@+id/details_lastmodified"
+                    android:layout_width="match_parent"
+                    android:layout_weight="0.6"
+                    android:gravity="right"
+                    android:layout_height="wrap_content"
+                    android:textSize="10sp"
+                    android:text="-" />
+
+        </LinearLayout>
+
+		<!--<ImageView
 			android:id="@+id/details_picture" 
 			android:layout_width="match_parent" 
 			android:layout_height="wrap_content" />
 		
 		<include layout="@layout/details_section_content_address" />
 		
-		<include layout="@layout/details_section_content_map" />
+		<include layout="@layout/details_section_content_map" />-->
 		
 	</LinearLayout>
 </ScrollView>
