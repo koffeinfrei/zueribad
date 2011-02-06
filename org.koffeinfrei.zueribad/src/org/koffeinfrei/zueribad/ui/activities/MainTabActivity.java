@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TabHost;
 import org.koffeinfrei.zueribad.R;
+import org.koffeinfrei.zueribad.config.Constants;
 
 /**
  * This class is the actual tab container. It creates the
@@ -14,7 +15,8 @@ import org.koffeinfrei.zueribad.R;
  * @author alexis.reigel
  *
  */
-public class MainTabActivity extends TabActivity {
+public class
+        MainTabActivity extends TabActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		
@@ -34,6 +36,9 @@ public class MainTabActivity extends TabActivity {
 				DetailsActivity.class,
 				R.string.tab_title_details,
 				R.drawable.tab_details);
+
+        // disable details tab on default
+        getTabHost().getTabWidget().getChildTabViewAt(Constants.TAB_DETAILS_INDEX).setEnabled(false);
 	}
 
 	private void createTab(Class<? extends Activity> activityClass, int titleResourceId, int iconResourceId) {
@@ -44,8 +49,8 @@ public class MainTabActivity extends TabActivity {
 		TabHost.TabSpec spec = tabHost
 				.newTabSpec(activityClass.getName())
 				.setIndicator(
-						getText(titleResourceId),
-						getResources().getDrawable(iconResourceId))
+                        getText(titleResourceId),
+                        getResources().getDrawable(iconResourceId))
 				.setContent(intent);
 		tabHost.addTab(spec);
 	}

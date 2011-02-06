@@ -1,7 +1,9 @@
 package org.koffeinfrei.zueribad.ui.activities;
 
+import android.content.Intent;
 import android.location.Address;
 import android.location.Geocoder;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -54,7 +56,7 @@ public class DetailsActivity extends MapActivity {
 		//SetupSlidingPanel(R.id.details_section_content_address_panel, R.id.details_section_content_address_togglebutton);
 		//SetupSlidingPanel(R.id.details_section_content_map_panel, R.id.details_section_content_map_togglebutton);
 
-		Bath bath = BathRepository.getInstance().getCurrent();
+		final Bath bath = BathRepository.getInstance().getCurrent();
 		if(bath != null)
 		{
 			titleView.setText(bath.getName());
@@ -64,6 +66,14 @@ public class DetailsActivity extends MapActivity {
 
 			//setMap(bath);
 			//setAddress(bath);
+
+            final Button button = (Button) findViewById(R.id.details_homepagebutton);
+            button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(bath.getUrl()));
+                startActivity(browserIntent);
+            }
+         });
 			
 		}
 		else{

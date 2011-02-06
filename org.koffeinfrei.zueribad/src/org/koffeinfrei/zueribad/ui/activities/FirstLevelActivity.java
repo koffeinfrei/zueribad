@@ -79,5 +79,7 @@ public abstract class FirstLevelActivity extends Activity {
         ((TabActivity)getParent()).getTabHost().setCurrentTab(index);
     }
 
-
+    public void activateTab(int index) {
+        ((TabActivity)getParent()).getTabWidget().getChildTabViewAt(index).setEnabled(true);
+    }
 }

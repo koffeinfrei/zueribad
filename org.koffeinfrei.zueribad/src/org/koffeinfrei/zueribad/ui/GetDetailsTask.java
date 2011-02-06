@@ -25,7 +25,9 @@ public class GetDetailsTask extends AsyncTask<Integer, Void, Integer> {
 
     protected void onPostExecute(Integer bathId) {
         BathRepository.getInstance().setCurrent(bathId);
-    	activity.setCurrentTab(Constants.TAB_DETAILS_INDEX);
+
+        activity.activateTab(Constants.TAB_DETAILS_INDEX);
+        activity.setCurrentTab(Constants.TAB_DETAILS_INDEX);
 
 		activity.dismissDialog(Constants.PROGRESS_DIALOG);
     }
