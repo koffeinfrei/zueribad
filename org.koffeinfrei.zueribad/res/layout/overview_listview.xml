@@ -22,7 +22,7 @@
 		<TextView 	android:id="@+id/overview_listitem_bathtemperature"
 					android:layout_height="wrap_content"
 					android:gravity="right"
-					android:textColor="#B96D00"
+					android:textColor="#c0c0c0"
 					android:text="- °C" />
 	</TableRow>				
 	

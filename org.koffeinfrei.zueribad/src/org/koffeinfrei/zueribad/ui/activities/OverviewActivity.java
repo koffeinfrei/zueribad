@@ -175,7 +175,7 @@ public class OverviewActivity extends FirstLevelActivity {
     	boolean isAlreadyFavorite = bathRepository.isFavorite((int)info.id);
     	
     	menu.setHeaderTitle(R.string.title_bath);
-    	menu.setHeaderIcon(R.drawable.tab_favorites_white);
+    	menu.setHeaderIcon(R.drawable.dialog_bath);
     	menu.add(0, 1, 0, R.string.menu_addtofavorites).setEnabled(!isAlreadyFavorite);
     	    	
     	super.onCreateContextMenu(menu, v, menuInfo);

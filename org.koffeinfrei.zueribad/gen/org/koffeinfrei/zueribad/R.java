@@ -33,22 +33,22 @@ containing a value of this type.
         public static final int targetHeight=0x7f010001;
     }
     public static final class drawable {
-        public static final int button_homepage=0x7f020000;
-        public static final int button_homepage_grey=0x7f020001;
-        public static final int button_homepage_white=0x7f020002;
-        public static final int icon=0x7f020003;
-        public static final int tab_details=0x7f020004;
-        public static final int tab_details_grey=0x7f020005;
-        public static final int tab_details_white=0x7f020006;
-        public static final int tab_favorites=0x7f020007;
-        public static final int tab_favorites_grey=0x7f020008;
-        public static final int tab_favorites_white=0x7f020009;
-        public static final int tab_nearlocation=0x7f02000a;
-        public static final int tab_nearlocation_grey=0x7f02000b;
-        public static final int tab_nearlocation_white=0x7f02000c;
-        public static final int tab_overview=0x7f02000d;
-        public static final int tab_overview_grey=0x7f02000e;
-        public static final int tab_overview_white=0x7f02000f;
+        public static final int background=0x7f020000;
+        public static final int button_homepage=0x7f020001;
+        public static final int dialog_bath=0x7f020002;
+        public static final int ic_button_homepage=0x7f020003;
+        public static final int ic_dialog_bath=0x7f020004;
+        public static final int ic_icon=0x7f020005;
+        public static final int ic_tab_details_active=0x7f020006;
+        public static final int ic_tab_details_inactive=0x7f020007;
+        public static final int ic_tab_favorites_active=0x7f020008;
+        public static final int ic_tab_favorites_inactive=0x7f020009;
+        public static final int ic_tab_overview_active=0x7f02000a;
+        public static final int ic_tab_overview_inactive=0x7f02000b;
+        public static final int icon=0x7f02000c;
+        public static final int tab_details=0x7f02000d;
+        public static final int tab_favorites=0x7f02000e;
+        public static final int tab_overview=0x7f02000f;
     }
     public static final class id {
         public static final int details_homepagebutton=0x7f060003;
