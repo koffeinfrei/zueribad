@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="TranslucentZueribad" parent="android:Theme.Translucent.NoTitleBar">
+        <item name="android:textAppearance">@style/ZueribadTextAppearance</item>
+        <item name="android:listViewStyle">@style/ZueribadListViewStyle</item>
+    </style>
+
+    <!-- TODO define properly and remove all explicit declarations elsewhere -->
+    <style name="ZueribadTextAppearance" parent="@android:style/TextAppearance">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">#333</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="ZueribadListViewStyle" parent="@android:style/Widget.ListView">
+        <item name="android:listSelector">@drawable/listview</item>
+    </style>
+</resources>

@@ -5,8 +5,8 @@
 	
 	<application android:icon="@drawable/icon" android:label="@string/app_name">
 		<uses-library android:name="com.google.android.maps" />
-	
-		<activity android:label="@string/app_name" android:name=".ui.activities.MainTabActivity">
+
+		<activity android:label="@string/app_name" android:name=".ui.activities.MainTabActivity" android:theme="@style/TranslucentZueribad" >
 			<intent-filter>
 				<action android:name="android.intent.action.MAIN" />
 				<category android:name="android.intent.category.LAUNCHER" />
