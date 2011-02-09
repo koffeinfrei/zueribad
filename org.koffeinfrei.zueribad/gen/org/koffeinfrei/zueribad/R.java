@@ -109,7 +109,9 @@ containing a value of this type.
     }
     public static final class style {
         public static final int TranslucentZueribad=0x7f070000;
+        public static final int ZueribadEditTextStyle=0x7f070003;
         public static final int ZueribadListViewStyle=0x7f070002;
+        public static final int ZueribadTabWidgetStyle=0x7f070004;
         /**  TODO define properly and remove all explicit declarations elsewhere 
          */
         public static final int ZueribadTextAppearance=0x7f070001;

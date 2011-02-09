@@ -22,6 +22,7 @@
                 android:gravity="left"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
+                android:textColor="@color/second_text_color"
                 android:textSize="30sp"
                 android:text="- °C"/>
 

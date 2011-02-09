@@ -62,15 +62,21 @@ public abstract class FirstLevelActivity extends Activity {
             progressDialog.setCancelable(true);
             return progressDialog;
         case Constants.ERROR_DIALOG:
-        	AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        	AlertDialog.Builder builder = new AlertDialog.Builder(FirstLevelActivity.this);
         	builder.setMessage(getString(R.string.dialog_error) + errorMessage)
-        	       .setCancelable(false)
+                    .setCancelable(false)
         	       .setPositiveButton(getString(R.string.button_ok), new DialogInterface.OnClickListener() {
         	           public void onClick(DialogInterface dialog, int id) {
         	                dialog.cancel();
         	           }
         	       });
-        	return builder.create();
+            // reset error message for next time
+            errorMessage = null;
+            
+            AlertDialog alertDialog = builder.create();
+            // TODO: set title and icon
+            alertDialog.show();
+            return alertDialog;
         }
         return null;
     }

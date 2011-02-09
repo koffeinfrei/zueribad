@@ -7,6 +7,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.view.MenuItem;
@@ -134,41 +135,52 @@ public class OverviewActivity extends FirstLevelActivity {
             try {
 				bathRepository.init(getApplicationContext());
 			} catch (IOException e) {
-				e.printStackTrace();
+				Log.e(this.getClass().getSimpleName(), e.getMessage());
+                //e.printStackTrace();
 				dismissDialog(Constants.PROGRESS_DIALOG);
 				errorMessage = getString(R.string.error_loadsettings);
-				showDialog(Constants.ERROR_DIALOG);
+				//showDialog(Constants.ERROR_DIALOG);
 			} catch (ClassNotFoundException e) {
-				e.printStackTrace();
+				Log.e(this.getClass().getSimpleName(), e.getMessage());
+				//e.printStackTrace();
 				dismissDialog(Constants.PROGRESS_DIALOG);
 				errorMessage = getString(R.string.error_loadsettings);
-				showDialog(Constants.ERROR_DIALOG);
+				//showDialog(Constants.ERROR_DIALOG);
 			} catch (URISyntaxException e) {
-                e.printStackTrace();
+                Log.e(this.getClass().getSimpleName(), e.getMessage());
+                //e.printStackTrace();
                 dismissDialog(Constants.PROGRESS_DIALOG);
 				errorMessage = getString(R.string.error_loadsettings);
-				showDialog(Constants.ERROR_DIALOG);
+				//showDialog(Constants.ERROR_DIALOG);
             } catch (SAXException e) {
-                e.printStackTrace();
+                Log.e(this.getClass().getSimpleName(), e.getMessage());
+                //e.printStackTrace();
                 dismissDialog(Constants.PROGRESS_DIALOG);
 				errorMessage = getString(R.string.error_loadsettings);
-				showDialog(Constants.ERROR_DIALOG);
+				//showDialog(Constants.ERROR_DIALOG);
             } catch (ParserConfigurationException e) {
-                e.printStackTrace();
+                Log.e(this.getClass().getSimpleName(), e.getMessage());
+                //e.printStackTrace();
                 dismissDialog(Constants.PROGRESS_DIALOG);
 				errorMessage = getString(R.string.error_loadsettings);
-				showDialog(Constants.ERROR_DIALOG);
+				//showDialog(Constants.ERROR_DIALOG);
             }
             return null;
 		}
 
         protected void onPostExecute(Void param) {
-        	bathList.setAdapter(adapter);
+        	if (errorMessage != null){
+                dismissDialog(Constants.PROGRESS_DIALOG);
+                showDialog(Constants.ERROR_DIALOG);
+            }
+            else{
+                bathList.setAdapter(adapter);
         	
-            dismissDialog(Constants.PROGRESS_DIALOG);
+                dismissDialog(Constants.PROGRESS_DIALOG);
+            }
         }
     }
-    
+
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenuInfo menuInfo) {
     	AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) menuInfo;

@@ -3,10 +3,10 @@
 	package="org.koffeinfrei.zueribad" android:versionCode="1"
 	android:versionName="1.0">
 	
-	<application android:icon="@drawable/icon" android:label="@string/app_name">
+	<application android:icon="@drawable/icon" android:label="@string/app_name" android:theme="@style/TranslucentZueribad">
 		<uses-library android:name="com.google.android.maps" />
 
-		<activity android:label="@string/app_name" android:name=".ui.activities.MainTabActivity" android:theme="@style/TranslucentZueribad" >
+		<activity android:label="@string/app_name" android:name=".ui.activities.MainTabActivity">
 			<intent-filter>
 				<action android:name="android.intent.action.MAIN" />
 				<category android:name="android.intent.category.LAUNCHER" />

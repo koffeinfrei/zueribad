@@ -3,10 +3,7 @@
 				android:layout_height="match_parent" 
 				android:layout_width="match_parent"
 				android:gravity="left|center" 
-				android:paddingBottom="5px"
-				android:paddingTop="5px" 
-				android:paddingLeft="5px"
-				android:paddingRight="5px"
+				android:padding="5dp"
 				android:stretchColumns="1"
 				android:weightSum="1.0" >
 	
@@ -15,14 +12,14 @@
 					android:layout_height="wrap_content" 
 					android:layout_weight="0.2"
 					android:gravity="left"
-					android:paddingRight="5px"
-					android:textColor="#FFFFFF"
+					android:paddingRight="5dp"
+					android:textColor="@color/main_text_color"
 					android:text="name" />
 
 		<TextView 	android:id="@+id/overview_listitem_bathtemperature"
 					android:layout_height="wrap_content"
 					android:gravity="right"
-					android:textColor="#c0c0c0"
+					android:textColor="@color/second_text_color"
 					android:text="- °C" />
 	</TableRow>				
 	
