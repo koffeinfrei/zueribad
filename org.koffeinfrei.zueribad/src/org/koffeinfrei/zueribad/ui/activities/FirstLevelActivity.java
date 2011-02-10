@@ -64,7 +64,7 @@ public abstract class FirstLevelActivity extends Activity {
         case Constants.ERROR_DIALOG:
         	AlertDialog.Builder builder = new AlertDialog.Builder(FirstLevelActivity.this);
         	builder.setMessage(getString(R.string.dialog_error) + errorMessage)
-                    .setCancelable(false)
+                    .setCancelable(true)
         	       .setPositiveButton(getString(R.string.button_ok), new DialogInterface.OnClickListener() {
         	           public void onClick(DialogInterface dialog, int id) {
         	                dialog.cancel();

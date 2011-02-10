@@ -2,6 +2,7 @@ package org.koffeinfrei.zueribad.ui.activities;
 
 import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.app.SearchManager;
 import android.content.DialogInterface;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -50,7 +51,7 @@ public class OverviewActivity extends FirstLevelActivity {
         
         bathList.setOnItemClickListener(new OnItemClickListener() {
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-				showDialog(Constants.PROGRESS_DIALOG);
+				//showDialog(Constants.PROGRESS_DIALOG);
 				            	
             	detailTask = new GetDetailsTask(OverviewActivity.this);
             	detailTask.execute((int)id);
@@ -69,17 +70,16 @@ public class OverviewActivity extends FirstLevelActivity {
     	switch (id) {
         case Constants.PROGRESS_DIALOG:
         	final ProgressDialog progressDialog = (ProgressDialog) dialog;
-            progressDialog.setButton(getString(R.string.button_cancel), new DialogInterface.OnClickListener() {; //TODO i18n
-                public void onClick(DialogInterface dialog, int whichButton) {
-                	if (detailTask != null){
+            progressDialog.setOnCancelListener(new DialogInterface.OnCancelListener(){
+                @Override
+                public void onCancel(DialogInterface dialogInterface) {
+                    if (detailTask != null){
                 		detailTask.cancel(true);
                 	}
                 	if (listTask != null) {
                 		listTask.cancel(true);
                 	}
-                	progressDialog.dismiss();
                 }
-                
             });
             return progressDialog;
     	}
