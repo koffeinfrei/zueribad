@@ -13,13 +13,13 @@
 					android:layout_weight="0.2"
 					android:gravity="left"
 					android:paddingRight="5dp"
-					android:textColor="@color/main_text_color"
+					android:textColor="@color/main_text"
 					android:text="name" />
 
 		<TextView 	android:id="@+id/overview_listitem_bathtemperature"
 					android:layout_height="wrap_content"
 					android:gravity="right"
-					android:textColor="@color/second_text_color"
+					android:textColor="@color/second_text"
 					android:text="- °C" />
 	</TableRow>				
 	

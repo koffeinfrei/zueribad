@@ -14,10 +14,16 @@
             android:id="@android:id/tabs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
+
+        <!-- tab widget's bottom border -->
+        <View android:background="@color/main_background"
+              android:layout_height="2dp"
+              android:layout_width="match_parent" />
+
         <FrameLayout
             android:id="@android:id/tabcontent"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="5dp" />
+            android:paddingTop="5dp" />
     </LinearLayout>
 </TabHost>
