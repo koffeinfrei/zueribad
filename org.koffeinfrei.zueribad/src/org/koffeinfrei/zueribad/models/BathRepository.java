@@ -35,6 +35,11 @@ public class BathRepository {
 			favorites = new Hashtable<Integer, Bath>();
 		}
 	}
+
+    public void clear(){
+        all = null;
+        filtered = null;
+    }
 	
 	public static BathRepository getInstance(){
 		return instance;

@@ -5,9 +5,13 @@ import android.app.TabActivity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.TabHost;
 import org.koffeinfrei.zueribad.R;
 import org.koffeinfrei.zueribad.config.Constants;
+import org.koffeinfrei.zueribad.models.BathRepository;
 
 /**
  * This class is the actual tab container. It creates the
@@ -16,8 +20,7 @@ import org.koffeinfrei.zueribad.config.Constants;
  * @author alexis.reigel
  *
  */
-public class
-        MainTabActivity extends TabActivity {
+public class MainTabActivity extends TabActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
@@ -72,5 +75,33 @@ public class
 
         // TODO find a way to reference from colors.xml, or put in Constants.java
         tabHost.getTabWidget().getChildAt(tabHost.getCurrentTab()).setBackgroundColor(Color.parseColor("#66c0c0c0"));
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.main_menu_reload_data:
+                // temp. switch to fav tab, to switch back to overview, which triggers an update
+                if (getTabHost().getCurrentTab() == Constants.TAB_OVERVIEW_INDEX){
+                    getTabHost().setCurrentTab(Constants.TAB_FAVORITES_INDEX);
+                }
+
+                // clear bath data
+                BathRepository.getInstance().clear();
+
+                // call overview activity that will fetch the new data
+                getTabHost().setCurrentTab(Constants.TAB_OVERVIEW_INDEX);
+
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }
