@@ -34,7 +34,7 @@ public class FavoritesActivity extends FirstLevelActivity {
         bathList.setOnItemClickListener(new OnItemClickListener() {
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-				showDialog(Constants.PROGRESS_DIALOG);
+				//showDialog(Constants.PROGRESS_DIALOG);
 
             	detailTask = new GetDetailsTask(FavoritesActivity.this);
             	detailTask.execute((int)id);
