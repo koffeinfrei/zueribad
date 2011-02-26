@@ -11,9 +11,12 @@
 	<string name="title_map">Lageplan</string>
 	<string name="title_bath">Bad</string>
 	<string name="title_lastmodified">Letzte Aktualisierung</string>
+    <string name="title_about">Über</string>
+    <string name="title_version">Version</string>
 	<string name="menu_addtofavorites">Zu Favoriten</string>
 	<string name="menu_removefromfavorites">Entfernen</string>
     <string name="menu_reload_data">Aktualisieren</string>
+    <string name="menu_about">Über</string>
 	<string name="dialog_error">Es ist ein Fehler aufgetreten:\n</string>
 	<string name="dialog_downloadingdetails">Aktualisierung...</string>
     <string name="button_cancel">Abbrechen</string>
@@ -23,4 +26,5 @@
 	<string name="error_downlaod">Die Daten konnten nicht heruntergeladen werden. Keine Internetverbindung?</string>
 	<string name="error_parsedata">Die heruntergeladenen Daten konnten nicht verarbeitet werden.</string>
 	<string name="error_url">Die Server-URL ist falsch. Konfiguration korrupt?</string>
+    <string name="text_about">Mehr über den Autoren dieses Programms auf koffeinfrei.\n\nDie Daten werden vom Schul- und Sportdepartement der Stadt Zürich zur Verfügung gestellt.</string>
 </resources>

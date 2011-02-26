@@ -6,4 +6,8 @@
           android:icon="@drawable/reload"
           android:title="@string/menu_reload_data" />
 
+    <item android:id="@+id/main_menu_about"
+          android:icon="@drawable/about"
+          android:title="@string/menu_about" />
+
 </menu>

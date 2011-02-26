@@ -12,6 +12,7 @@ import android.widget.TabHost;
 import org.koffeinfrei.zueribad.R;
 import org.koffeinfrei.zueribad.config.Constants;
 import org.koffeinfrei.zueribad.models.BathRepository;
+import org.koffeinfrei.zueribad.ui.AboutDialogBuilder;
 
 /**
  * This class is the actual tab container. It creates the
@@ -98,6 +99,10 @@ public class MainTabActivity extends TabActivity {
 
                 // call overview activity that will fetch the new data
                 getTabHost().setCurrentTab(Constants.TAB_OVERVIEW_INDEX);
+
+                return true;
+            case R.id.main_menu_about:
+                AboutDialogBuilder.create(this).show();
 
                 return true;
             default:

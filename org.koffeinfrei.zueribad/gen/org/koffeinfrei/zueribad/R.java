@@ -39,27 +39,29 @@ containing a value of this type.
         public static final int second_text=0x7f050001;
     }
     public static final class drawable {
-        public static final int background=0x7f020000;
-        public static final int button_homepage=0x7f020001;
-        public static final int dialog_bath=0x7f020002;
-        public static final int ic_button_homepage=0x7f020003;
-        public static final int ic_dialog_bath=0x7f020004;
-        public static final int ic_icon=0x7f020005;
-        public static final int ic_reload=0x7f020006;
-        public static final int ic_tab_details_active=0x7f020007;
-        public static final int ic_tab_details_inactive=0x7f020008;
-        public static final int ic_tab_favorites_active=0x7f020009;
-        public static final int ic_tab_favorites_inactive=0x7f02000a;
-        public static final int ic_tab_overview_active=0x7f02000b;
-        public static final int ic_tab_overview_inactive=0x7f02000c;
-        public static final int icon=0x7f02000d;
-        public static final int listselector=0x7f02000e;
-        public static final int listview=0x7f02000f;
-        public static final int reload=0x7f020010;
-        public static final int searchbox=0x7f020011;
-        public static final int tab_details=0x7f020012;
-        public static final int tab_favorites=0x7f020013;
-        public static final int tab_overview=0x7f020014;
+        public static final int about=0x7f020000;
+        public static final int background=0x7f020001;
+        public static final int button_homepage=0x7f020002;
+        public static final int dialog_bath=0x7f020003;
+        public static final int ic_about=0x7f020004;
+        public static final int ic_button_homepage=0x7f020005;
+        public static final int ic_dialog_bath=0x7f020006;
+        public static final int ic_icon=0x7f020007;
+        public static final int ic_reload=0x7f020008;
+        public static final int ic_tab_details_active=0x7f020009;
+        public static final int ic_tab_details_inactive=0x7f02000a;
+        public static final int ic_tab_favorites_active=0x7f02000b;
+        public static final int ic_tab_favorites_inactive=0x7f02000c;
+        public static final int ic_tab_overview_active=0x7f02000d;
+        public static final int ic_tab_overview_inactive=0x7f02000e;
+        public static final int icon=0x7f02000f;
+        public static final int listselector=0x7f020010;
+        public static final int listview=0x7f020011;
+        public static final int reload=0x7f020012;
+        public static final int searchbox=0x7f020013;
+        public static final int tab_details=0x7f020014;
+        public static final int tab_favorites=0x7f020015;
+        public static final int tab_overview=0x7f020016;
     }
     public static final class id {
         public static final int details_homepagebutton=0x7f090003;
@@ -75,6 +77,7 @@ containing a value of this type.
         public static final int details_title=0x7f090000;
         public static final int details_watertemperature=0x7f090001;
         public static final int favorites_list=0x7f09000c;
+        public static final int main_menu_about=0x7f090012;
         public static final int main_menu_reload_data=0x7f090011;
         public static final int overview_list=0x7f09000e;
         public static final int overview_listitem_bathname=0x7f09000f;
@@ -97,28 +100,32 @@ containing a value of this type.
     }
     public static final class string {
         public static final int app_name=0x7f060000;
-        public static final int button_cancel=0x7f060010;
-        public static final int button_ok=0x7f060011;
-        public static final int dialog_downloadingdetails=0x7f06000f;
-        public static final int dialog_error=0x7f06000e;
-        public static final int error_downlaod=0x7f060014;
-        public static final int error_loadsettings=0x7f060013;
-        public static final int error_parsedata=0x7f060015;
-        public static final int error_savesettings=0x7f060012;
-        public static final int error_url=0x7f060016;
-        public static final int menu_addtofavorites=0x7f06000b;
-        public static final int menu_reload_data=0x7f06000d;
-        public static final int menu_removefromfavorites=0x7f06000c;
+        public static final int button_cancel=0x7f060013;
+        public static final int button_ok=0x7f060014;
+        public static final int dialog_downloadingdetails=0x7f060012;
+        public static final int dialog_error=0x7f060011;
+        public static final int error_downlaod=0x7f060017;
+        public static final int error_loadsettings=0x7f060016;
+        public static final int error_parsedata=0x7f060018;
+        public static final int error_savesettings=0x7f060015;
+        public static final int error_url=0x7f060019;
+        public static final int menu_about=0x7f060010;
+        public static final int menu_addtofavorites=0x7f06000d;
+        public static final int menu_reload_data=0x7f06000f;
+        public static final int menu_removefromfavorites=0x7f06000e;
         public static final int tab_title_details=0x7f060003;
         public static final int tab_title_favorites=0x7f060002;
         public static final int tab_title_nearlocation=0x7f060004;
         public static final int tab_title_overview=0x7f060001;
+        public static final int text_about=0x7f06001a;
+        public static final int title_about=0x7f06000b;
         public static final int title_address=0x7f060006;
         public static final int title_bath=0x7f060009;
         public static final int title_lastmodified=0x7f06000a;
         public static final int title_map=0x7f060008;
         public static final int title_openinghours=0x7f060007;
         public static final int title_route=0x7f060005;
+        public static final int title_version=0x7f06000c;
     }
     public static final class style {
         public static final int TranslucentZueribad=0x7f070000;
