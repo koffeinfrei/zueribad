@@ -97,12 +97,15 @@ containing a value of this type.
     }
     public static final class string {
         public static final int app_name=0x7f060000;
-        public static final int button_cancel=0x7f060011;
-        public static final int button_ok=0x7f060012;
+        public static final int button_cancel=0x7f060010;
+        public static final int button_ok=0x7f060011;
         public static final int dialog_downloadingdetails=0x7f06000f;
         public static final int dialog_error=0x7f06000e;
+        public static final int error_downlaod=0x7f060014;
         public static final int error_loadsettings=0x7f060013;
-        public static final int error_savesettings=0x7f060010;
+        public static final int error_parsedata=0x7f060015;
+        public static final int error_savesettings=0x7f060012;
+        public static final int error_url=0x7f060016;
         public static final int menu_addtofavorites=0x7f06000b;
         public static final int menu_reload_data=0x7f06000d;
         public static final int menu_removefromfavorites=0x7f06000c;

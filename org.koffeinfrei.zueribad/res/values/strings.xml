@@ -16,8 +16,11 @@
     <string name="menu_reload_data">Aktualisieren</string>
 	<string name="dialog_error">Es ist ein Fehler aufgetreten:\n</string>
 	<string name="dialog_downloadingdetails">Aktualisierung...</string>
-	<string name="error_savesettings">Die Einstellungen konnten nicht gespeichert werden.</string>
-	<string name="button_cancel">Abbrechen</string>
+    <string name="button_cancel">Abbrechen</string>
 	<string name="button_ok">Ok</string>
+	<string name="error_savesettings">Die Einstellungen konnten nicht gespeichert werden.</string>
 	<string name="error_loadsettings">Die Einstellungen konnten nicht geladen werden.</string>
+	<string name="error_downlaod">Die Daten konnten nicht heruntergeladen werden. Keine Internetverbindung?</string>
+	<string name="error_parsedata">Die heruntergeladenen Daten konnten nicht verarbeitet werden.</string>
+	<string name="error_url">Die Server-URL ist falsch. Konfiguration korrupt?</string>
 </resources>

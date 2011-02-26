@@ -2,7 +2,6 @@ package org.koffeinfrei.zueribad.ui.activities;
 
 import android.app.Dialog;
 import android.app.ProgressDialog;
-import android.app.SearchManager;
 import android.content.DialogInterface;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -23,11 +22,7 @@ import org.koffeinfrei.zueribad.R;
 import org.koffeinfrei.zueribad.config.Constants;
 import org.koffeinfrei.zueribad.ui.GetDetailsTask;
 import org.koffeinfrei.zueribad.ui.OverviewListAdapter;
-import org.xml.sax.SAXException;
-
-import javax.xml.parsers.ParserConfigurationException;
-import java.io.IOException;
-import java.net.URISyntaxException;
+import org.koffeinfrei.zueribad.utils.AndroidI18nException;
 
 public class OverviewActivity extends FirstLevelActivity {
 	private ListView bathList;
@@ -73,6 +68,8 @@ public class OverviewActivity extends FirstLevelActivity {
             progressDialog.setOnCancelListener(new DialogInterface.OnCancelListener(){
                 @Override
                 public void onCancel(DialogInterface dialogInterface) {
+                    assertHasBaths();
+
                     if (detailTask != null){
                 		detailTask.cancel(true);
                 	}
@@ -134,48 +131,26 @@ public class OverviewActivity extends FirstLevelActivity {
 			// TODO fix these messages, is not always load settings problem
             try {
 				bathRepository.init(getApplicationContext());
-			} catch (IOException e) {
+			} catch (AndroidI18nException e) {
 				Log.e(this.getClass().getSimpleName(), e.getMessage());
                 //e.printStackTrace();
 				dismissDialog(Constants.PROGRESS_DIALOG);
-				errorMessage = getString(R.string.error_loadsettings);
+				errorMessage = getString(e.getResourceStringId());
 				//showDialog(Constants.ERROR_DIALOG);
-			} catch (ClassNotFoundException e) {
-				Log.e(this.getClass().getSimpleName(), e.getMessage());
-				//e.printStackTrace();
-				dismissDialog(Constants.PROGRESS_DIALOG);
-				errorMessage = getString(R.string.error_loadsettings);
-				//showDialog(Constants.ERROR_DIALOG);
-			} catch (URISyntaxException e) {
-                Log.e(this.getClass().getSimpleName(), e.getMessage());
-                //e.printStackTrace();
-                dismissDialog(Constants.PROGRESS_DIALOG);
-				errorMessage = getString(R.string.error_loadsettings);
-				//showDialog(Constants.ERROR_DIALOG);
-            } catch (SAXException e) {
-                Log.e(this.getClass().getSimpleName(), e.getMessage());
-                //e.printStackTrace();
-                dismissDialog(Constants.PROGRESS_DIALOG);
-				errorMessage = getString(R.string.error_loadsettings);
-				//showDialog(Constants.ERROR_DIALOG);
-            } catch (ParserConfigurationException e) {
-                Log.e(this.getClass().getSimpleName(), e.getMessage());
-                //e.printStackTrace();
-                dismissDialog(Constants.PROGRESS_DIALOG);
-				errorMessage = getString(R.string.error_loadsettings);
-				//showDialog(Constants.ERROR_DIALOG);
-            }
+			}
             return null;
 		}
 
         protected void onPostExecute(Void param) {
-        	if (errorMessage != null){
+        	assertHasBaths();
+
+            if (errorMessage != null){
                 dismissDialog(Constants.PROGRESS_DIALOG);
                 showDialog(Constants.ERROR_DIALOG);
             }
             else{
                 bathList.setAdapter(adapter);
-        	
+        	    
                 dismissDialog(Constants.PROGRESS_DIALOG);
             }
         }
@@ -200,9 +175,9 @@ public class OverviewActivity extends FirstLevelActivity {
     	try {
 			bathRepository.addToFavorites(getApplicationContext(), (int)info.id);
             setCurrentTab(Constants.TAB_FAVORITES_INDEX);
-		} catch (IOException e) {
+		} catch (AndroidI18nException e) {
 			
-			errorMessage = getString(R.string.error_savesettings);
+			errorMessage = getString(e.getResourceStringId());
 			showDialog(Constants.ERROR_DIALOG);
 			
 			e.printStackTrace();
@@ -222,6 +197,21 @@ public class OverviewActivity extends FirstLevelActivity {
         }
         else{
             bathList.setAdapter(adapter);
+        }
+    }
+
+    private void assertHasBaths(){
+        if (bathRepository.getAll() == null){
+            deactivateTab(Constants.TAB_FAVORITES_INDEX);
+            deactivateTab(Constants.TAB_DETAILS_INDEX);
+            filterText.setVisibility(View.INVISIBLE);
+        }
+        else {
+            activateTab(Constants.TAB_FAVORITES_INDEX);
+            if (bathRepository.getCurrent() != null){
+                activateTab(Constants.TAB_DETAILS_INDEX);
+            }
+            filterText.setVisibility(View.VISIBLE);
         }
     }
 }

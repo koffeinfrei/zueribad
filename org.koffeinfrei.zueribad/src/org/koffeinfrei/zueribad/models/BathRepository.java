@@ -3,11 +3,8 @@ package org.koffeinfrei.zueribad.models;
 import android.content.Context;
 import org.koffeinfrei.zueribad.config.Constants;
 import org.koffeinfrei.zueribad.config.UserSettings;
-import org.xml.sax.SAXException;
+import org.koffeinfrei.zueribad.utils.AndroidI18nException;
 
-import javax.xml.parsers.ParserConfigurationException;
-import java.io.IOException;
-import java.net.URISyntaxException;
 import java.util.Hashtable;
 
 public class BathRepository {
@@ -23,7 +20,7 @@ public class BathRepository {
         current = -1;
 	}
 	
-	public void init(Context context) throws IOException, ClassNotFoundException, URISyntaxException, SAXException, ParserConfigurationException {
+	public void init(Context context) throws AndroidI18nException {
 
         BathService service = new BathService(Constants.SERVICE_URL);
 
@@ -66,12 +63,12 @@ public class BathRepository {
 		return bath;
 	}
 	
-	public void addToFavorites(Context context, int id) throws IOException {
+	public void addToFavorites(Context context, int id) throws AndroidI18nException {
 		favorites.put(id, all.get(id));
 		UserSettings.save(context, UserSettings.KEY_FAVORITES, favorites);
 	}
 	
-	public void removeFromFavorites(Context context, int id) throws IOException {
+	public void removeFromFavorites(Context context, int id) throws AndroidI18nException {
 		favorites.remove(id);
 		UserSettings.save(context, UserSettings.KEY_FAVORITES, favorites);
 	}

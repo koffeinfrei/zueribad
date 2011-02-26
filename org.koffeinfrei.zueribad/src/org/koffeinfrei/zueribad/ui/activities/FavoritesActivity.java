@@ -15,8 +15,7 @@ import org.koffeinfrei.zueribad.R;
 import org.koffeinfrei.zueribad.config.Constants;
 import org.koffeinfrei.zueribad.ui.FavoritesListAdapter;
 import org.koffeinfrei.zueribad.ui.GetDetailsTask;
-
-import java.io.IOException;
+import org.koffeinfrei.zueribad.utils.AndroidI18nException;
 
 public class FavoritesActivity extends FirstLevelActivity {
 	private ListView bathList;
@@ -85,9 +84,9 @@ public class FavoritesActivity extends FirstLevelActivity {
     	try {
 			bathRepository.removeFromFavorites(getApplicationContext(), (int)info.id);
 			bathList.setAdapter(adapter);
-		} catch (IOException e) {
+		} catch (AndroidI18nException e) {
 			
-			errorMessage = getString(R.string.error_savesettings);
+			errorMessage = getString(e.getResourceStringId());
 			showDialog(Constants.ERROR_DIALOG);
 			
 			e.printStackTrace();

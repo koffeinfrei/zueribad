@@ -5,6 +5,8 @@ import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.koffeinfrei.zueribad.R;
+import org.koffeinfrei.zueribad.utils.AndroidI18nException;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
@@ -29,12 +31,16 @@ public class BathService {
     private String xmlData;
     private Hashtable<Integer, Bath> baths;
 
-    public BathService(String url) throws URISyntaxException {
-        this.url = new URI(url);
+    public BathService(String url) throws AndroidI18nException {
+        try {
+            this.url = new URI(url);
+        } catch (URISyntaxException e) {
+            throw new AndroidI18nException(R.string.error_url, e);
+        }
         baths = new Hashtable<Integer, Bath>();
     }
 
-    public Hashtable<Integer, Bath> load() throws IOException, ParserConfigurationException, SAXException {
+    public Hashtable<Integer, Bath> load() throws AndroidI18nException {
         download();
 
         parseXml();
@@ -42,11 +48,23 @@ public class BathService {
         return baths;
     }
 
-    private void parseXml() throws ParserConfigurationException, IOException, SAXException {
+    private void parseXml() throws AndroidI18nException {
         DocumentBuilderFactory docBuilderFactory = DocumentBuilderFactory.newInstance();
-        DocumentBuilder docBuilder = docBuilderFactory.newDocumentBuilder();
+        DocumentBuilder docBuilder = null;
+        try {
+            docBuilder = docBuilderFactory.newDocumentBuilder();
+        } catch (ParserConfigurationException e) {
+            throw new AndroidI18nException(R.string.error_parsedata, e);
+        }
         InputSource source = new InputSource(new StringReader(xmlData));
-        Document doc = docBuilder.parse(source);
+        Document doc;
+        try {
+            doc = docBuilder.parse(source);
+        } catch (SAXException e) {
+            throw new AndroidI18nException(R.string.error_parsedata, e);
+        } catch (IOException e) {
+            throw new AndroidI18nException(R.string.error_parsedata, e);
+        }
         doc.getDocumentElement().normalize();
         NodeList bathNodes = doc.getElementsByTagName("bath");
         for(int i = 0; i < bathNodes.getLength(); ++i){
@@ -83,25 +101,29 @@ public class BathService {
         }
     }
 
-    private void download() throws IOException{
+    private void download() throws AndroidI18nException {
         HttpClient client = new DefaultHttpClient();
         HttpGet get = new HttpGet(url);
         get.addHeader("Accept", "text/xml");
         get.addHeader("User-Agent", "Koffeinfrei.Zueribad");
 
-        HttpResponse response = client.execute(get);
-        HttpEntity entity = response.getEntity();
-        if (entity != null){
-            InputStream inputStream = entity.getContent();
-            BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+        try {
+            HttpResponse response = client.execute(get);
+            HttpEntity entity = response.getEntity();
+            if (entity != null){
+                InputStream inputStream = entity.getContent();
+                BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
 
-            StringBuilder dataBuilder = new StringBuilder();
-            String tmpData;
-            while((tmpData = reader.readLine()) != null){
-                dataBuilder.append(tmpData);
+                StringBuilder dataBuilder = new StringBuilder();
+                String tmpData;
+                while((tmpData = reader.readLine()) != null){
+                    dataBuilder.append(tmpData);
+                }
+
+                xmlData = dataBuilder.toString();
             }
-
-            xmlData = dataBuilder.toString();
+        } catch (IOException e) {
+            throw new AndroidI18nException(R.string.error_downlaod,e);
         }
     }
 }

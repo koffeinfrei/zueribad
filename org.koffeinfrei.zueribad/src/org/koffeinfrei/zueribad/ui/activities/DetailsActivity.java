@@ -1,26 +1,17 @@
 package org.koffeinfrei.zueribad.ui.activities;
 
 import android.content.Intent;
-import android.location.Address;
-import android.location.Geocoder;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
-import com.google.android.maps.GeoPoint;
 import com.google.android.maps.MapActivity;
-import com.google.android.maps.MapView;
 import org.koffeinfrei.zueribad.R;
 import org.koffeinfrei.zueribad.models.Bath;
 import org.koffeinfrei.zueribad.models.BathRepository;
 import org.koffeinfrei.zueribad.ui.CollapsiblePanel;
-
-import java.io.IOException;
-import java.util.List;
-import java.util.Locale;
 
 public class DetailsActivity extends MapActivity {
 

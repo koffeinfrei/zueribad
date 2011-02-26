@@ -2,7 +2,9 @@ package org.koffeinfrei.zueribad.config;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import org.koffeinfrei.zueribad.R;
 import org.koffeinfrei.zueribad.models.Bath;
+import org.koffeinfrei.zueribad.utils.AndroidI18nException;
 import org.koffeinfrei.zueribad.utils.StringSerializer;
 
 import java.io.IOException;
@@ -20,16 +22,27 @@ public class UserSettings {
       editor.commit();
 	}
 	
-	public static void save(Context context, String key, Hashtable<Integer, Bath> values) throws IOException {
-		String value = StringSerializer.serialize(values);
-		save(context, key, value);
+	public static void save(Context context, String key, Hashtable<Integer, Bath> values) throws AndroidI18nException {
+        String value = null;
+        try {
+            value = StringSerializer.serialize(values);
+        } catch (IOException e) {
+            throw new AndroidI18nException(R.string.error_savesettings, e);
+        }
+        save(context, key, value);
 	}
 	
-	public static Serializable load(Context context, String key) throws IOException, ClassNotFoundException {
+	public static Serializable load(Context context, String key) throws AndroidI18nException {
 		SharedPreferences settings = context.getSharedPreferences(UserSettings.class.getName(), 0);
 		String value = settings.getString(key, null);
-		return StringSerializer.deserialize(value);
-	}
+        try {
+            return StringSerializer.deserialize(value);
+        } catch (IOException e) {
+            throw new AndroidI18nException(R.string.error_loadsettings, e);
+        } catch (ClassNotFoundException e) {
+            throw new AndroidI18nException(R.string.error_loadsettings, e);
+        }
+    }
 	
 	public static void reset(Context context) {
 		SharedPreferences settings = context.getSharedPreferences(UserSettings.class.getName(), 0);
@@ -38,7 +51,7 @@ public class UserSettings {
 		editor.commit();
 	}
 	
-	public static Hashtable<Integer, Bath> loadFavorites(Context context) throws IOException, ClassNotFoundException{
+	public static Hashtable<Integer, Bath> loadFavorites(Context context) throws AndroidI18nException {
 		return (Hashtable<Integer, Bath>)load(context, KEY_FAVORITES);
 	}
 }
