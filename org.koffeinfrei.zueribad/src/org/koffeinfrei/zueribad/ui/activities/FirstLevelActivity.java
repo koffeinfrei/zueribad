@@ -63,7 +63,7 @@ public abstract class FirstLevelActivity extends Activity {
             return progressDialog;
         case Constants.ERROR_DIALOG:
         	AlertDialog.Builder builder = new AlertDialog.Builder(FirstLevelActivity.this);
-        	builder.setMessage(getString(R.string.dialog_error) + errorMessage)
+        	builder.setMessage(getString(R.string.dialog_error) + ":\n" + errorMessage)
                     .setCancelable(true)
         	       .setPositiveButton(getString(R.string.button_ok), new DialogInterface.OnClickListener() {
         	           public void onClick(DialogInterface dialog, int id) {

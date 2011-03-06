@@ -104,7 +104,7 @@ containing a value of this type.
         public static final int button_ok=0x7f060014;
         public static final int dialog_downloadingdetails=0x7f060012;
         public static final int dialog_error=0x7f060011;
-        public static final int error_downlaod=0x7f060017;
+        public static final int error_download=0x7f060017;
         public static final int error_loadsettings=0x7f060016;
         public static final int error_parsedata=0x7f060018;
         public static final int error_savesettings=0x7f060015;

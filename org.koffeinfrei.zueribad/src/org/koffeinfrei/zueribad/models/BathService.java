@@ -123,7 +123,7 @@ public class BathService {
                 xmlData = dataBuilder.toString();
             }
         } catch (IOException e) {
-            throw new AndroidI18nException(R.string.error_downlaod,e);
+            throw new AndroidI18nException(R.string.error_download,e);
         }
     }
 }
