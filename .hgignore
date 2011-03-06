@@ -12,3 +12,4 @@ obj/
 [Rr]elease*/
 _ReSharper*/
 TestResults/
+glob:org.koffeinfrei.zueribad/local.properties

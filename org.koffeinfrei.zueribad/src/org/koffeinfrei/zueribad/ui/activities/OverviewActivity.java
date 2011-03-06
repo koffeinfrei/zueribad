@@ -12,6 +12,7 @@ import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.view.animation.*;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -37,6 +38,8 @@ public class OverviewActivity extends FirstLevelActivity {
         super.onCreate(savedInstanceState);
         
         setContentView(R.layout.overview);
+
+        
 
         filterText = (EditText) findViewById(R.id.overview_search_box);
         filterText.addTextChangedListener(filterTextWatcher);
@@ -93,7 +96,7 @@ public class OverviewActivity extends FirstLevelActivity {
         		Animation.RELATIVE_TO_SELF, 0.0f,Animation.RELATIVE_TO_SELF, 0.0f,
         		Animation.RELATIVE_TO_SELF, -1.0f, Animation.RELATIVE_TO_SELF, 0.0f
         );
-        animation.setDuration(200);
+        animation.setDuration(100);
         animationSet.addAnimation(animation);
 
         LayoutAnimationController controller = new LayoutAnimationController(animationSet, 0.5f);

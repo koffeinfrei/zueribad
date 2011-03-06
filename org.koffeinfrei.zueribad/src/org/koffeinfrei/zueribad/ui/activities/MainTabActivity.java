@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.WindowManager;
 import android.widget.TabHost;
 import org.koffeinfrei.zueribad.R;
 import org.koffeinfrei.zueribad.config.Constants;
@@ -26,6 +27,9 @@ public class MainTabActivity extends TabActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.main);
+
+        // hide the keyboard initially
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
         createTab(
                 OverviewActivity.class,
