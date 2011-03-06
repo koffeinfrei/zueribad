@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="app_name">Züri-Bad</string>
+	<string name="app_name">Züribad</string>
 	<string name="tab_title_overview">Übersicht</string>
 	<string name="tab_title_favorites">Favoriten</string>
 	<string name="tab_title_details">Details</string>
