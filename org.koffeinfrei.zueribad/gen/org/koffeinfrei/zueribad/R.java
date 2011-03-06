@@ -54,14 +54,13 @@ containing a value of this type.
         public static final int ic_tab_favorites_inactive=0x7f02000c;
         public static final int ic_tab_overview_active=0x7f02000d;
         public static final int ic_tab_overview_inactive=0x7f02000e;
-        public static final int icon=0x7f02000f;
-        public static final int listselector=0x7f020010;
-        public static final int listview=0x7f020011;
-        public static final int reload=0x7f020012;
-        public static final int searchbox=0x7f020013;
-        public static final int tab_details=0x7f020014;
-        public static final int tab_favorites=0x7f020015;
-        public static final int tab_overview=0x7f020016;
+        public static final int listselector=0x7f02000f;
+        public static final int listview=0x7f020010;
+        public static final int reload=0x7f020011;
+        public static final int searchbox=0x7f020012;
+        public static final int tab_details=0x7f020013;
+        public static final int tab_favorites=0x7f020014;
+        public static final int tab_overview=0x7f020015;
     }
     public static final class id {
         public static final int details_homepagebutton=0x7f090003;
