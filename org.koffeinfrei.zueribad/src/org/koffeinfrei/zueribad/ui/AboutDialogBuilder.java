@@ -42,7 +42,7 @@ public class AboutDialogBuilder {
         Pattern sPattern = Pattern.compile("Schul- und Sportdepartement der Stadt Zürich");
         Linkify.addLinks(message, sPattern,  "http://www.stadt-zuerich.ch/ssd/de/index/sport/schwimmen.html", null, transformFilter);
 
-        return new AlertDialog.Builder(context).setTitle(aboutTitle).setCancelable(true).setIcon(R.drawable.icon).setPositiveButton(
+        return new AlertDialog.Builder(context).setTitle(aboutTitle).setCancelable(true).setIcon(R.drawable.ic_icon).setPositiveButton(
              context.getString(android.R.string.ok), null).setView(message).create();
     }
 }
