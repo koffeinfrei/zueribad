@@ -13,3 +13,4 @@ obj/
 _ReSharper*/
 TestResults/
 glob:org.koffeinfrei.zueribad/local.properties
+glob:.idea/

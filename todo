@@ -1,0 +1,4 @@
+/* reload button in global menu
+/* diversify error messages (maybe throw koffeinfreiexception, handle messages in throwing methods)
+/* add about menu item
+/* disable search box etc. when no data is loaded (-> hide search box, maybe display some other view anyway)

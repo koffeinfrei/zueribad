@@ -131,7 +131,6 @@ public class OverviewActivity extends FirstLevelActivity {
     private class GetListTask extends AsyncTask<Void, Void, Void> {
     	@Override
 		protected Void doInBackground(Void... params) {
-			// TODO fix these messages, is not always load settings problem
             try {
 				bathRepository.init(getApplicationContext());
 			} catch (AndroidI18nException e) {

@@ -1,0 +1,8 @@
+rounded corner: 15%
+
+drop shadow:
+	x 1
+	y 1
+	rad 15
+	color #000
+	opacity 75
