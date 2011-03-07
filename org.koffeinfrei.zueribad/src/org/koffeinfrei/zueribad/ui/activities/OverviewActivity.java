@@ -3,6 +3,7 @@ package org.koffeinfrei.zueribad.ui.activities;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
+import android.graphics.ImageFormat;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Editable;
@@ -39,10 +40,16 @@ public class OverviewActivity extends FirstLevelActivity {
         
         setContentView(R.layout.overview);
 
-        
-
         filterText = (EditText) findViewById(R.id.overview_search_box);
         filterText.addTextChangedListener(filterTextWatcher);
+
+        // get saved value
+        if (savedInstanceState != null){
+            String filterValue = savedInstanceState.getString(Constants.SAVE_STATE_FILTER_TEXT);
+            if (filterValue != null){
+                filterText.setText(filterValue);
+            }
+        }
 
         bathList = (ListView)findViewById(R.id.overview_list);
         adapter = new OverviewListAdapter(this);
@@ -60,7 +67,14 @@ public class OverviewActivity extends FirstLevelActivity {
 
         loadListData();
     }
-    
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        outState.putString(Constants.SAVE_STATE_FILTER_TEXT, filterText.getText().toString());
+
+        super.onSaveInstanceState(outState);
+    }
+
     @Override
     protected Dialog onCreateDialog(int id) {
     	final Dialog dialog = super.onCreateDialog(id);
