@@ -133,12 +133,14 @@ public class OverviewActivity extends FirstLevelActivity {
         }
         
         public void onTextChanged(CharSequence s, int start, int before, int count) {
-            adapter.getFilter().filter(s, new Filter.FilterListener(){
-            	public void onFilterComplete(int count) {
-            		// force refresh of list and prevent illegalstateexception
-            		bathList.setAdapter(adapter); 
-                }
-            });
+            if (adapter != null){
+                adapter.getFilter().filter(s, new Filter.FilterListener(){
+                    public void onFilterComplete(int count) {
+                        // force refresh of list and prevent illegalstateexception
+                        bathList.setAdapter(adapter);
+                    }
+                });
+            }
         }
     };
 	    
