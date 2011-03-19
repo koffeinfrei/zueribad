@@ -5,6 +5,7 @@ import android.widget.Filter;
 import org.koffeinfrei.zueribad.models.Bath;
 
 import java.util.ArrayList;
+import java.util.Hashtable;
 
 public class OverviewListAdapter extends ListAdapter {
 	
@@ -18,7 +19,8 @@ public class OverviewListAdapter extends ListAdapter {
 
 	@Override
 	protected ArrayList<Bath> getList() {
-		return new ArrayList<Bath>(bathRepository.getFiltered().values());
+        Hashtable<Integer,Bath> list = bathRepository.getFiltered();
+        return new ArrayList<Bath>(list != null ? list.values() : new ArrayList<Bath>());
 	}
 	
 }

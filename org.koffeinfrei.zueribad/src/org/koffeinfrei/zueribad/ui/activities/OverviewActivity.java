@@ -32,12 +32,11 @@ public class OverviewActivity extends FirstLevelActivity {
 	private OverviewListAdapter adapter;
 	private GetDetailsTask detailTask;
 	private GetListTask listTask;
-	
-	/** Called when the activity is first created. */
+
+    /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        
         setContentView(R.layout.overview);
 
         filterText = (EditText) findViewById(R.id.overview_search_box);
@@ -46,7 +45,7 @@ public class OverviewActivity extends FirstLevelActivity {
         // get saved value
         if (savedInstanceState != null){
             String filterValue = savedInstanceState.getString(Constants.SAVE_STATE_FILTER_TEXT);
-            if (filterValue != null){
+            if (filterValue != null && filterValue != ""){
                 filterText.setText(filterValue);
             }
         }
