@@ -58,7 +58,6 @@ public class MainTabActivity extends TabActivity {
         Intent intent = new Intent(this, activityClass);
 
         if (activityClass.getName().equals(DetailsActivity.class.getName())){
-            Log.d("zueribad", "asdf");
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         }
 
