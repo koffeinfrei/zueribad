@@ -5,6 +5,7 @@ import android.app.TabActivity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -55,6 +56,11 @@ public class MainTabActivity extends TabActivity {
     private void createTab(Class<? extends Activity> activityClass, int titleResourceId, int iconResourceId) {
         final TabHost tabHost = getTabHost();
         Intent intent = new Intent(this, activityClass);
+
+        if (activityClass.getName().equals(DetailsActivity.class.getName())){
+            Log.d("zueribad", "asdf");
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        }
 
         // Initialize a TabSpec for each tab and add it to the TabHost
         TabHost.TabSpec spec = tabHost
