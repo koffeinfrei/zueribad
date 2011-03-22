@@ -33,6 +33,8 @@ public class OverviewActivity extends FirstLevelActivity {
 	private GetDetailsTask detailTask;
 	private GetListTask listTask;
 
+    private static CharSequence filterTextString;
+
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -41,14 +43,6 @@ public class OverviewActivity extends FirstLevelActivity {
 
         filterText = (EditText) findViewById(R.id.overview_search_box);
         filterText.addTextChangedListener(filterTextWatcher);
-
-        // get saved value
-        if (savedInstanceState != null){
-            String filterValue = savedInstanceState.getString(Constants.SAVE_STATE_FILTER_TEXT);
-            if (filterValue != null && filterValue != ""){
-                filterText.setText(filterValue);
-            }
-        }
 
         bathList = (ListView)findViewById(R.id.overview_list);
         adapter = new OverviewListAdapter(this);
@@ -65,14 +59,13 @@ public class OverviewActivity extends FirstLevelActivity {
         registerForContextMenu(bathList);
 
         loadListData();
+
+        // get saved filter text
+        if (filterTextString != null && filterTextString != ""){
+            filterText.setText(filterTextString);
+        }
     }
 
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        outState.putString(Constants.SAVE_STATE_FILTER_TEXT, filterText.getText().toString());
-
-        super.onSaveInstanceState(outState);
-    }
 
     @Override
     protected Dialog onCreateDialog(int id) {
@@ -133,6 +126,7 @@ public class OverviewActivity extends FirstLevelActivity {
         
         public void onTextChanged(CharSequence s, int start, int before, int count) {
             if (adapter != null){
+                filterTextString = s;
                 adapter.getFilter().filter(s, new Filter.FilterListener(){
                     public void onFilterComplete(int count) {
                         // force refresh of list and prevent illegalstateexception
@@ -205,6 +199,7 @@ public class OverviewActivity extends FirstLevelActivity {
     
     private void loadListData() {
 		if (bathRepository.getAll() == null){
+            filterTextString = null;
             showDialog(Constants.PROGRESS_DIALOG);
 
             listTask = new GetListTask();

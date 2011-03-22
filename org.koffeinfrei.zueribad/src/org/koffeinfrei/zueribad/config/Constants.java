@@ -13,6 +13,4 @@ public class Constants {
     public static final int TAB_OVERVIEW_INDEX = 0;
     public static final int TAB_FAVORITES_INDEX = 1;
     public static final int TAB_DETAILS_INDEX = 2;
-
-    public static final String SAVE_STATE_FILTER_TEXT = "SaveStateFilterText";
 }

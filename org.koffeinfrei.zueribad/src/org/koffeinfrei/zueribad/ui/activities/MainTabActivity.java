@@ -55,11 +55,7 @@ public class MainTabActivity extends TabActivity {
 
     private void createTab(Class<? extends Activity> activityClass, int titleResourceId, int iconResourceId) {
         final TabHost tabHost = getTabHost();
-        Intent intent = new Intent(this, activityClass);
-
-        if (activityClass.getName().equals(DetailsActivity.class.getName())){
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        }
+        Intent intent = new Intent(this, activityClass).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
         // Initialize a TabSpec for each tab and add it to the TabHost
         TabHost.TabSpec spec = tabHost
