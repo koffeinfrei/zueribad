@@ -21,6 +21,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.text.DateFormat;
 import java.text.ParseException;
+import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Hashtable;
@@ -93,12 +94,10 @@ public class BathService {
 
     private Date getElementDateValue(Element parent, String childName){
         String stringValue = getElementStringValue(parent, childName);
-        DateFormat format = new SimpleDateFormat("E, MM.dd.yyyy HH:mm", Locale.GERMAN);
-        try {
-            return format.parse(stringValue);
-        } catch (ParseException e) {
-            return new Date();
-        }
+        final String dateFormat = "dd.MM.yyyy HH:mm";
+        DateFormat format = new SimpleDateFormat(dateFormat, Locale.GERMAN);
+        Date date = format.parse(stringValue, new ParsePosition(4));
+        return date == null ? new Date() : date;
     }
 
     private void download() throws AndroidI18nException {

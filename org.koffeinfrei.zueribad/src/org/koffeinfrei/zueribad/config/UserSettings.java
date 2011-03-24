@@ -23,7 +23,7 @@ public class UserSettings {
 	}
 	
 	public static void save(Context context, String key, Hashtable<Integer, Bath> values) throws AndroidI18nException {
-        String value = null;
+        String value;
         try {
             value = StringSerializer.serialize(values);
         } catch (IOException e) {

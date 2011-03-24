@@ -49,7 +49,7 @@ public class Bath implements Serializable{
     }
 
     public String getFormattedModified(){
-        DateFormat format = new SimpleDateFormat("E, MM.dd.yyyy HH:mm");
+        DateFormat format = new SimpleDateFormat("E dd.MM.yyyy HH:mm");
         return format.format(modified);
     }
 
