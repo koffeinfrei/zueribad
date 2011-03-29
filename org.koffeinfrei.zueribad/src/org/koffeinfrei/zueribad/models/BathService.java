@@ -27,13 +27,15 @@ import java.util.Hashtable;
 import java.util.Locale;
 
 public class BathService {
-    private URI url;
+    private URI remoteUrl;
+    private URI staticDataFileUrl;
     private String xmlData;
     private Hashtable<Integer, Bath> baths;
 
-    public BathService(String url) throws AndroidI18nException {
+    public BathService(String remoteUrl, String staticDataFileUrl) throws AndroidI18nException {
         try {
-            this.url = new URI(url);
+            this.remoteUrl = new URI(remoteUrl);
+            this.staticDataFileUrl = new URI(staticDataFileUrl);
         } catch (URISyntaxException e) {
             throw new AndroidI18nException(R.string.error_url, e);
         }
@@ -50,7 +52,7 @@ public class BathService {
 
     private void parseXml() throws AndroidI18nException {
         DocumentBuilderFactory docBuilderFactory = DocumentBuilderFactory.newInstance();
-        DocumentBuilder docBuilder = null;
+        DocumentBuilder docBuilder;
         try {
             docBuilder = docBuilderFactory.newDocumentBuilder();
         } catch (ParserConfigurationException e) {
@@ -101,7 +103,7 @@ public class BathService {
 
     private void download() throws AndroidI18nException {
         HttpClient client = new DefaultHttpClient();
-        HttpGet get = new HttpGet(url);
+        HttpGet get = new HttpGet(remoteUrl);
         get.addHeader("Accept", "text/xml");
         get.addHeader("User-Agent", "Koffeinfrei.Zueribad");
 

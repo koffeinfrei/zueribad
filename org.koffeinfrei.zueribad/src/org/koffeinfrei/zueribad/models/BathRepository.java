@@ -22,7 +22,7 @@ public class BathRepository {
 	
 	public void init(Context context) throws AndroidI18nException {
 
-        BathService service = new BathService(Constants.SERVICE_URL);
+        BathService service = new BathService(Constants.SERVICE_URL, Constants.STATIC_DATA_FILE_URL);
 
         all = service.load();
 
