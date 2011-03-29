@@ -94,4 +94,9 @@ public class FavoritesActivity extends FirstLevelActivity {
     	
     	return super.onContextItemSelected(item);
     }
+
+    @Override
+    public void onBackPressed() {
+        setCurrentTab(Constants.TAB_OVERVIEW_INDEX);
+    }
 }

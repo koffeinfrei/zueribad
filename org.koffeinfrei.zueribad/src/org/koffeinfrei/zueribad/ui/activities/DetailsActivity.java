@@ -1,5 +1,6 @@
 package org.koffeinfrei.zueribad.ui.activities;
 
+import android.app.TabActivity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -9,6 +10,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import com.google.android.maps.MapActivity;
 import org.koffeinfrei.zueribad.R;
+import org.koffeinfrei.zueribad.config.Constants;
 import org.koffeinfrei.zueribad.models.Bath;
 import org.koffeinfrei.zueribad.models.BathRepository;
 import org.koffeinfrei.zueribad.ui.CollapsiblePanel;
@@ -120,4 +122,13 @@ public class DetailsActivity extends MapActivity {
 	protected boolean isRouteDisplayed() {
 		return false;
 	}
+
+    private void setCurrentTab(int index) {
+        ((TabActivity)getParent()).getTabHost().setCurrentTab(index);
+    }
+
+    @Override
+    public void onBackPressed() {
+        setCurrentTab(Constants.TAB_OVERVIEW_INDEX);
+    }
 }
