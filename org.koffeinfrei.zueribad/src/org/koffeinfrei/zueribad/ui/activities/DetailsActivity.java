@@ -2,11 +2,13 @@ package org.koffeinfrei.zueribad.ui.activities;
 
 import android.app.TabActivity;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import com.google.android.maps.MapActivity;
 import org.koffeinfrei.zueribad.R;
@@ -45,6 +47,7 @@ public class DetailsActivity extends MapActivity {
 		TextView waterTemperatureView = (TextView) findViewById(R.id.details_watertemperature);
 		TextView lastModifiedView = (TextView) findViewById(R.id.details_lastmodified);
 		TextView status = (TextView) findViewById(R.id.details_status);
+        ImageView uvIndex = (ImageView) findViewById(R.id.details_uvindex_picture);
 
 		//SetupSlidingPanel(R.id.details_section_content_address_panel, R.id.details_section_content_address_togglebutton);
 		//SetupSlidingPanel(R.id.details_section_content_map_panel, R.id.details_section_content_map_togglebutton);
@@ -56,6 +59,11 @@ public class DetailsActivity extends MapActivity {
 			waterTemperatureView.setText(bath.getFormattedTemperature());
 		    lastModifiedView.setText(bath.getFormattedModified());
             status.setText(bath.getStatus());
+
+            Drawable uvIndexImage = BathRepository.getInstance().getUvIndexImage();
+            if (uvIndexImage != null){
+                uvIndex.setImageDrawable(uvIndexImage);
+            }
 
 			//setMap(bath);
 			//setAddress(bath);

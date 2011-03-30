@@ -1,52 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView
-	android:layout_width="match_parent"
-	android:layout_height="match_parent"
-	xmlns:android="http://schemas.android.com/apk/res/android">
-	<LinearLayout
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:orientation="vertical"
-		android:scrollbars="vertical">
-		
-		<TextView 
-			android:id="@+id/details_title"
-            android:textSize="20sp"
-			android:layout_width="match_parent" 
-			android:layout_height="wrap_content" />
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:scrollbars="vertical">
 
         <TextView
-                android:id="@+id/details_watertemperature"
+                android:id="@+id/details_title"
+                android:textSize="20sp"
                 android:layout_width="match_parent"
-                android:layout_weight="0.3"
-                android:gravity="left"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:textColor="@color/second_text"
-                android:textSize="30sp"
-                android:text="- °C"/>
-
-        <TextView
-                android:id="@+id/details_status"
-                android:textSize="14sp"
-                android:layout_marginTop="15dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-        <Button
-                android:id="@+id/details_homepagebutton"
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:layout_marginTop="25dp"
-                android:background="@drawable/button_homepage"
-                android:onClick="openHomepage"/>
+                android:layout_height="wrap_content"/>
 
         <LinearLayout
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
                 android:orientation="horizontal"
                 android:weightSum="1.0"
-                android:layout_marginTop="30dp" >
+                android:layout_marginTop="10dp">
+
+            <TextView
+                    android:id="@+id/details_watertemperature"
+                    android:layout_width="wrap_content"
+                    android:layout_weight="0.8"
+                    android:gravity="top"
+                    android:layout_height="match_parent"
+                    android:textColor="@color/second_text"
+                    android:textSize="30sp"
+                    android:text="- °C"/>
+
+            <!-- TODO android:layout_marginTop="5sp" is kind of hacky, > clean middle align -->
+            <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_weight="0.2"
+                    android:gravity="right"
+                    android:layout_marginTop="5sp"
+                    android:layout_height="match_parent">
+                <Button
+                        android:id="@+id/details_homepagebutton"
+                        android:layout_width="wrap_content"
+                        android:gravity="right"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/button_homepage"
+                        android:onClick="openHomepage"/>
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <TextView
+                android:id="@+id/details_status"
+                android:textSize="14sp"
+                android:layout_marginTop="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        <ImageView
+                android:id="@+id/details_uvindex_picture"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginTop="25dp"
+                android:background="#fff"/>
+
+        <LinearLayout
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:weightSum="1.0"
+                android:layout_marginTop="30dp">
 
             <TextView
                     android:layout_width="match_parent"
@@ -54,7 +80,7 @@
                     android:gravity="left"
                     android:layout_height="wrap_content"
                     android:textSize="10sp"
-                    android:text="@string/title_lastmodified" />
+                    android:text="@string/title_lastmodified"/>
 
             <TextView
                     android:id="@+id/details_lastmodified"
@@ -63,18 +89,20 @@
                     android:gravity="right"
                     android:layout_height="wrap_content"
                     android:textSize="10sp"
-                    android:text="-" />
+                    android:text="-"/>
 
         </LinearLayout>
 
-		<!--<ImageView
-			android:id="@+id/details_picture" 
-			android:layout_width="match_parent" 
-			android:layout_height="wrap_content" />
-		
-		<include layout="@layout/details_section_content_address" />
-		
-		<include layout="@layout/details_section_content_map" />-->
-		
-	</LinearLayout>
+
+        <!--<ImageView
+              android:id="@+id/details_picture"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content" />
+
+          <include layout="@layout/details_section_content_address" />
+
+          <include layout="@layout/details_section_content_map" />-->
+
+    </LinearLayout>
+    
 </ScrollView>

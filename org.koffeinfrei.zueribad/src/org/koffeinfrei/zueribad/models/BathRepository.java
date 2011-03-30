@@ -1,6 +1,7 @@
 package org.koffeinfrei.zueribad.models;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import org.koffeinfrei.zueribad.config.Constants;
 import org.koffeinfrei.zueribad.config.UserSettings;
 import org.koffeinfrei.zueribad.utils.AndroidI18nException;
@@ -13,6 +14,7 @@ public class BathRepository {
 	private Hashtable<Integer, Bath> filtered;
 	private Hashtable<Integer, Bath> favorites; // TODO: maybe just store ids instead of whole bath objects
     private int current;
+    private Drawable uvIndexImage;
 	
 	private static BathRepository instance = new BathRepository(); 
 	
@@ -25,6 +27,7 @@ public class BathRepository {
         BathService service = new BathService(Constants.SERVICE_URL);
 
         all = service.load();
+        uvIndexImage = service.getUvIndexImage();
 
 		favorites = UserSettings.loadFavorites(context);
 		
@@ -91,5 +94,9 @@ public class BathRepository {
 
     public void setCurrent(int current) {
         this.current = current;
+    }
+
+    public Drawable getUvIndexImage() {
+        return uvIndexImage;
     }
 }
