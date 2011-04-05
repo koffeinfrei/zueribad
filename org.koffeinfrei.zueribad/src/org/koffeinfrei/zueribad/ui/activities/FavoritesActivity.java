@@ -71,9 +71,8 @@ public class FavoritesActivity extends FirstLevelActivity {
     		ContextMenuInfo menuInfo) {
     	
     	menu.setHeaderTitle(R.string.title_bath);
-    	menu.setHeaderIcon(R.drawable.dialog_bath);
     	menu.add(0, 1, 0, R.string.menu_removefromfavorites);
-    	    	
+
     	super.onCreateContextMenu(menu, v, menuInfo);
     }
     
