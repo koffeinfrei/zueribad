@@ -1,7 +1,6 @@
 package org.koffeinfrei.zueribad.models;
 
 import android.graphics.drawable.Drawable;
-import android.util.Log;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;

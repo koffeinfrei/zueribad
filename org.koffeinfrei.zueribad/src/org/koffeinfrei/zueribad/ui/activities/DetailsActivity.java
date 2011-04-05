@@ -18,46 +18,33 @@ import org.koffeinfrei.zueribad.models.BathRepository;
 import org.koffeinfrei.zueribad.ui.CollapsiblePanel;
 
 public class DetailsActivity extends MapActivity {
-
-//	public boolean onKeyDown(int keyCode, KeyEvent event) {
-//        System.out.println("-----------------------------");
-//		if (keyCode == KeyEvent.KEYCODE_BACK
-//                && event.getRepeatCount() == 0) {
-//            event.startTracking();
-//            return true;
-//        }
-//        return super.onKeyDown(keyCode, event);
-//    }
-//
-//    public boolean onKeyUp(int keyCode, KeyEvent event) {
-//        if (keyCode == KeyEvent.KEYCODE_BACK && event.isTracking()
-//                && !event.isCanceled()) {
-//            System.out.println("!!!!!!!!");
-//            return true;
-//        }
-//        return super.onKeyUp(keyCode, event);
-//    }
-	
+    
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.details);
+        final Bath bath = BathRepository.getInstance().getCurrent();
 
-		TextView titleView = (TextView)findViewById(R.id.details_title);
-		TextView waterTemperatureView = (TextView) findViewById(R.id.details_watertemperature);
-		TextView lastModifiedView = (TextView) findViewById(R.id.details_lastmodified);
-		TextView status = (TextView) findViewById(R.id.details_status);
-        ImageView uvIndex = (ImageView) findViewById(R.id.details_uvindex_picture);
-
-		//SetupSlidingPanel(R.id.details_section_content_address_panel, R.id.details_section_content_address_togglebutton);
-		//SetupSlidingPanel(R.id.details_section_content_map_panel, R.id.details_section_content_map_togglebutton);
-
-		final Bath bath = BathRepository.getInstance().getCurrent();
-		if(bath != null)
+        // if no data, switch to overview
+        if(bath == null)
 		{
-			titleView.setText(bath.getName());
-			waterTemperatureView.setText(bath.getFormattedTemperature());
-		    lastModifiedView.setText(bath.getFormattedModified());
+            setCurrentTab(Constants.TAB_OVERVIEW_INDEX);
+        }
+        else
+        {
+            setContentView(R.layout.details);
+
+            TextView titleView = (TextView)findViewById(R.id.details_title);
+            TextView waterTemperatureView = (TextView) findViewById(R.id.details_watertemperature);
+            TextView lastModifiedView = (TextView) findViewById(R.id.details_lastmodified);
+            TextView status = (TextView) findViewById(R.id.details_status);
+            ImageView uvIndex = (ImageView) findViewById(R.id.details_uvindex_picture);
+
+            //SetupSlidingPanel(R.id.details_section_content_address_panel, R.id.details_section_content_address_togglebutton);
+            //SetupSlidingPanel(R.id.details_section_content_map_panel, R.id.details_section_content_map_togglebutton);
+
+            titleView.setText(bath.getName());
+            waterTemperatureView.setText(bath.getFormattedTemperature());
+            lastModifiedView.setText(bath.getFormattedModified());
             status.setText(bath.getStatus());
 
             Drawable uvIndexImage = BathRepository.getInstance().getUvIndexImage();
@@ -65,21 +52,17 @@ public class DetailsActivity extends MapActivity {
                 uvIndex.setImageDrawable(uvIndexImage);
             }
 
-			//setMap(bath);
-			//setAddress(bath);
+            //setMap(bath);
+            //setAddress(bath);
 
             final Button button = (Button) findViewById(R.id.details_homepagebutton);
             button.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(bath.getUrl()));
-                startActivity(browserIntent);
-            }
-         });
-			
-		}
-		else{
-			titleView.setText("Error: no item found"); // TODO
-		}
+                public void onClick(View v) {
+                    Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(bath.getUrl()));
+                    startActivity(browserIntent);
+                }
+            });
+        }
 	}
 
 //	private void setAddress(Bath bath) {
