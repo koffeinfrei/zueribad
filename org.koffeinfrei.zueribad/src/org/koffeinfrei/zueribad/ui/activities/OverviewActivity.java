@@ -159,8 +159,12 @@ public class OverviewActivity extends FirstLevelActivity {
             }
             else{
                 bathList.setAdapter(adapter);
-        	    
-                dismissDialog(Constants.PROGRESS_DIALOG);
+
+                // TODO: find a better way to find out whether the dialog is showing
+                try {
+                    dismissDialog(Constants.PROGRESS_DIALOG);
+                } catch (Exception e) {
+                }
             }
         }
     }
@@ -171,7 +175,6 @@ public class OverviewActivity extends FirstLevelActivity {
     	boolean isAlreadyFavorite = bathRepository.isFavorite((int)info.id);
     	
     	menu.setHeaderTitle(R.string.title_bath);
-    	menu.setHeaderIcon(R.drawable.dialog_bath);
     	menu.add(0, 1, 0, R.string.menu_addtofavorites).setEnabled(!isAlreadyFavorite);
     	    	
     	super.onCreateContextMenu(menu, v, menuInfo);
@@ -198,12 +201,17 @@ public class OverviewActivity extends FirstLevelActivity {
     private void loadListData() {
 		if (bathRepository.getAll() == null){
             filterTextString = null;
-            showDialog(Constants.PROGRESS_DIALOG);
 
-            listTask = new GetListTask();
-            listTask.execute((Void[])null);
+            if (listTask == null){
+                listTask = new GetListTask();
+            }
+            if (listTask.getStatus() == AsyncTask.Status.PENDING){
+                showDialog(Constants.PROGRESS_DIALOG);
 
-            addAnimationToListLoading();
+                listTask.execute((Void[])null);
+
+                addAnimationToListLoading();
+            }
         }
         else{
             bathList.setAdapter(adapter);

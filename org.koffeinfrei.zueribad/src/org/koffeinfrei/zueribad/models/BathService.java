@@ -1,5 +1,6 @@
 package org.koffeinfrei.zueribad.models;
 
+import android.graphics.drawable.Drawable;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -31,6 +32,8 @@ public class BathService {
     private URI staticDataFileUrl;
     private String xmlData;
     private Hashtable<Integer, Bath> baths;
+    private URI uvIndexImageUrl;
+    private Drawable uvIndexImage;
 
     public BathService(String remoteUrl, String staticDataFileUrl) throws AndroidI18nException {
         try {
@@ -48,6 +51,34 @@ public class BathService {
         parseXml();
 
         return baths;
+    }
+
+    public Drawable getUvIndexImage() {
+        if (uvIndexImage == null){
+            downloadUvIndexImage();
+        }
+        return uvIndexImage;
+    }
+
+    private void downloadUvIndexImage() {
+        try {
+            if (uvIndexImageUrl != null){
+                HttpClient client = new DefaultHttpClient();
+                HttpGet get = new HttpGet(uvIndexImageUrl);
+                get.addHeader("Accept", "text/xml");
+                get.addHeader("User-Agent", "Koffeinfrei.Zueribad");
+
+                HttpResponse response = client.execute(get);
+                HttpEntity entity = response.getEntity();
+                if (entity != null){
+                    InputStream inputStream = entity.getContent();
+                    uvIndexImage = Drawable.createFromStream(inputStream, "src");
+                }
+            }
+        } catch (IOException e) {
+            // this is a minor problem, we just skip the uv index picture and
+            // go on with our lives
+        }
     }
 
     private void parseXml() throws AndroidI18nException {
@@ -68,6 +99,8 @@ public class BathService {
             throw new AndroidI18nException(R.string.error_parsedata, e);
         }
         doc.getDocumentElement().normalize();
+
+        // get all baths
         NodeList bathNodes = doc.getElementsByTagName("bath");
         for(int i = 0; i < bathNodes.getLength(); ++i){
             Element bathElement = (Element)bathNodes.item(i);
@@ -81,6 +114,12 @@ public class BathService {
             bath.setUrl(getElementStringValue(bathElement, "urlPage"));
 
             baths.put(i, bath);
+        }
+
+        // get global info
+        NodeList uvIndexImgUrlNode = doc.getElementsByTagName("meta");
+        if (uvIndexImgUrlNode != null && uvIndexImgUrlNode.getLength() > 0){
+            uvIndexImageUrl = getElementUriValue((Element) uvIndexImgUrlNode.item(0), "uvindexImgUrl");
         }
     }
 
@@ -99,6 +138,18 @@ public class BathService {
         DateFormat format = new SimpleDateFormat(dateFormat, Locale.GERMAN);
         Date date = format.parse(stringValue, new ParsePosition(4));
         return date == null ? new Date() : date;
+    }
+
+    private URI getElementUriValue(Element parent, String childName){
+        String stringValue = getElementStringValue(parent, childName);
+        try {
+            URI url = new URI(stringValue);
+            return url;
+        } catch (URISyntaxException e) {
+            // this is a minor problem, we just skip the uv index picture and
+            // go on with our lives
+            return null;
+        }
     }
 
     private void download() throws AndroidI18nException {
