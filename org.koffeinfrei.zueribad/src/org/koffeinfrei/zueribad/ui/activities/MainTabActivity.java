@@ -37,6 +37,11 @@ public class MainTabActivity extends TabActivity {
                 R.drawable.tab_overview);
 
         createTab(
+                OverviewMapActivity.class,
+                R.string.tab_title_overview,
+                R.drawable.tab_overview);
+
+        createTab(
                 FavoritesActivity.class,
                 R.string.tab_title_favorites,
                 R.drawable.tab_favorites);

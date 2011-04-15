@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bathinfos>
+    <baths>
+        <bath>
+            <title>Flussbad Au-Höngg</title>
+            <geoPointX>47.39935</geoPointX>
+            <geoPointY>8.48915</geoPointY>
+        </bath>
+        <bath>
+            <title>Flussbad Oberer Letten</title>
+            <geoPointX>47.39935</geoPointX>
+            <geoPointY>8.48915</geoPointY>
+        </bath>
+        <bath>
+            <title>Flussbad Unterer Letten</title>
+            <geoPointX>47.39935</geoPointX>
+            <geoPointY>8.48915</geoPointY>
+        </bath>
+        <bath>
+            <title>Frauenbad Stadthausquai</title>
+            <geoPointX>47.39935</geoPointX>
+            <geoPointY>8.48915</geoPointY>
+        </bath>
+        <bath>
+            <title>Freibad Allenmoos</title>
+            <geoPointX>47.39935</geoPointX>
+            <geoPointY>8.48915</geoPointY>
+        </bath>
+        <bath>
+            <title>Freibad Auhof</title>
+            <geoPointX>47.39935</geoPointX>
+            <geoPointY>8.48915</geoPointY>
+        </bath>
+        <bath>
+            <title>Freibad Heuried</title>
+            <geoPointX>47.39935</geoPointX>
+            <geoPointY>8.48915</geoPointY>
+        </bath>
+        <bath>
+            <title>Freibad Letzigraben</title>
+            <geoPointX>47.39935</geoPointX>
+            <geoPointY>8.48915</geoPointY>
+        </bath>
+        <bath>
+            <title>Freibad Seebach</title>
+            <geoPointX>47.39935</geoPointX>
+            <geoPointY>8.48915</geoPointY>
+        </bath>
+        <bath>
+            <title>Freibad Zwischen den Hölzern</title>
+            <geoPointX>47.39935</geoPointX>
+            <geoPointY>8.48915</geoPointY>
+        </bath>
+        <bath>
+            <title>Seebad Katzensee</title>
+            <geoPointX>47.39935</geoPointX>
+            <geoPointY>8.48915</geoPointY>
+        </bath>
+        <bath>
+            <title>Seebad Utoquai</title>
+            <geoPointX>47.39935</geoPointX>
+            <geoPointY>8.48915</geoPointY>
+        </bath>
+        <bath>
+            <title>Strandbad Mythenquai</title>
+            <geoPointX>47.39935</geoPointX>
+            <geoPointY>8.48915</geoPointY>
+        </bath>
+        <bath>
+            <title>Strandbad Tiefenbrunnen</title>
+            <geoPointX>47.39935</geoPointX>
+            <geoPointY>8.48915</geoPointY>
+        </bath>
+        <bath>
+            <title>Strandbad Wollishofen</title>
+            <geoPointX>47.39935</geoPointX>
+            <geoPointY>8.48915</geoPointY>
+        </bath>
+    </baths>
+</bathinfos>

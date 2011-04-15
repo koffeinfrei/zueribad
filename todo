@@ -1,3 +1,7 @@
+* add license!!
+* correct android page http://developer.android.com/resources/tutorials/views/hello-mapview.html:
+  * custom class constructor -> call this(...)
+  * call constructor with 2 params
 * add opening hours
 * clear button to filterbox
 * add uv index

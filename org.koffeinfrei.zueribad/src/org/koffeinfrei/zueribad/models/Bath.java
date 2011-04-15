@@ -1,5 +1,7 @@
 package org.koffeinfrei.zueribad.models;
 
+import com.google.android.maps.GeoPoint;
+
 import java.io.Serializable;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -15,6 +17,7 @@ public class Bath implements Serializable{
     private Date modified;
     private String status;
     private String url;
+    private GeoPoint geoPoint;
 	
 	public Bath(int id){
 		this.id = id;
@@ -71,5 +74,13 @@ public class Bath implements Serializable{
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public GeoPoint getGeoPoint() {
+        return geoPoint;
+    }
+
+    public void setGeoPoint(GeoPoint geoPoint) {
+        this.geoPoint = geoPoint;
     }
 }
