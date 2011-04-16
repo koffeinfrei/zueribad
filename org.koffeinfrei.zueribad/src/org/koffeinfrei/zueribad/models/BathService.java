@@ -8,7 +8,6 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.koffeinfrei.zueribad.R;
-import org.koffeinfrei.zueribad.config.Constants;
 import org.koffeinfrei.zueribad.utils.AndroidI18nException;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -155,7 +154,7 @@ public class BathService {
     }
 
     private String getElementStringValue(Element parent, String childName){
-        return parent.getElementsByTagName(childName).item(0).getTextContent();
+        return parent.getElementsByTagName(childName).item(0).getTextContent().trim();
     }
 
     private Double getElementDoubleValue(Element parent, String childName){
