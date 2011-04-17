@@ -86,6 +86,11 @@ public class BathService {
     private void parseRemoteXml() throws AndroidI18nException {
         Document doc = getXmlDocument(remoteXmlData);
 
+        Element rootElement = doc.getDocumentElement();
+        if (rootElement == null || !rootElement.getNodeName().equals("bathinfos")){
+            throw new AndroidI18nException(R.string.error_parsedata);
+        }
+
         // get all baths
         NodeList bathNodes = doc.getElementsByTagName("bath");
         for(int i = 0; i < bathNodes.getLength(); ++i){
