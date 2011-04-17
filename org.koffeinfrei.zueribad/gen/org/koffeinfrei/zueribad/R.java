@@ -58,13 +58,16 @@ containing a value of this type.
         public static final int ic_tab_favorites_inactive=0x7f020010;
         public static final int ic_tab_overview_active=0x7f020011;
         public static final int ic_tab_overview_inactive=0x7f020012;
-        public static final int listselector=0x7f020013;
-        public static final int listview=0x7f020014;
-        public static final int reload=0x7f020015;
-        public static final int searchbox=0x7f020016;
-        public static final int tab_details=0x7f020017;
-        public static final int tab_favorites=0x7f020018;
-        public static final int tab_overview=0x7f020019;
+        public static final int ic_tab_overview_map_active=0x7f020013;
+        public static final int ic_tab_overview_map_inactive=0x7f020014;
+        public static final int listselector=0x7f020015;
+        public static final int listview=0x7f020016;
+        public static final int reload=0x7f020017;
+        public static final int searchbox=0x7f020018;
+        public static final int tab_details=0x7f020019;
+        public static final int tab_favorites=0x7f02001a;
+        public static final int tab_overview=0x7f02001b;
+        public static final int tab_overview_map=0x7f02001c;
     }
     public static final class id {
         public static final int balloon_inner_layout=0x7f090001;
