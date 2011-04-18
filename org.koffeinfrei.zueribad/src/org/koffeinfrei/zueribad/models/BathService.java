@@ -8,6 +8,7 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.koffeinfrei.zueribad.R;
+import org.koffeinfrei.zueribad.config.Constants;
 import org.koffeinfrei.zueribad.utils.AndroidI18nException;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -123,8 +124,8 @@ public class BathService {
             Element bathElement = (Element)bathNodes.item(i);
 
             String title = getElementStringValue(bathElement, "title");
-            int x = (int)(getElementDoubleValue(bathElement, "geoPointX") * 1000000.0);
-            int y = (int)(getElementDoubleValue(bathElement, "geoPointY") * 1000000.0);
+            int x = (int)(getElementDoubleValue(bathElement, "geoPointX") * Constants.GEO_POINT_MULTIPLIER);
+            int y = (int)(getElementDoubleValue(bathElement, "geoPointY") * Constants.GEO_POINT_MULTIPLIER);
             GeoPoint point = new GeoPoint(x, y);
 
             for (Bath b : baths.values()){

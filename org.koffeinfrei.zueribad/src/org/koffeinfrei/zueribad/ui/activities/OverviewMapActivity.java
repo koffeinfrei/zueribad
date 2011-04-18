@@ -3,10 +3,7 @@ package org.koffeinfrei.zueribad.ui.activities;
 import android.app.TabActivity;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import com.google.android.maps.MapActivity;
-import com.google.android.maps.MapView;
-import com.google.android.maps.Overlay;
-import com.google.android.maps.OverlayItem;
+import com.google.android.maps.*;
 import org.koffeinfrei.zueribad.R;
 import org.koffeinfrei.zueribad.config.Constants;
 import org.koffeinfrei.zueribad.models.Bath;
@@ -32,12 +29,10 @@ public class OverviewMapActivity extends MapActivity {
         else
         {
             MapView mapView = (MapView) findViewById(R.id.overview_map_content_map);
-
-            mapView.getController().animateTo(baths.get(0).getGeoPoint());
-            mapView.getController().setZoom(15);
             mapView.setBuiltInZoomControls(true);
             mapView.invalidate();
 
+            // set bath markers
             List<Overlay> mapOverlays = mapView.getOverlays();
             // TODO use different markers for different bath types
             Drawable marker = this.getResources().getDrawable(R.drawable.ic_map_marker_beach);
@@ -49,31 +44,13 @@ public class OverviewMapActivity extends MapActivity {
             }
 
             mapOverlays.add(itemizedOverlay);
+
+            // center and zoom
+            MapController mapViewController = mapView.getController();
+            mapViewController.animateTo(Constants.MAP_CENTRE);
+            mapViewController.zoomToSpan(itemizedOverlay.getLatSpanE6(), itemizedOverlay.getLonSpanE6());
         }
     }
-
-//	private void setMap(Bath bath) {
-//		MapView mapView = (MapView) findViewById(R.id.details_section_content_map);
-//		Geocoder geocoder = new Geocoder(getApplicationContext(), Locale.getDefault());
-//		try {
-//			List<Address> addresses = geocoder.getFromLocationName("Wasserwerkstrasse 141, 8037 Zürich", 1);
-//
-//			if (!addresses.isEmpty()){
-//				Address address = addresses.get(0);
-//				GeoPoint geoPoint = new GeoPoint(
-//						(int)(address.getLatitude() * 1000000.0),
-//						(int)(address.getLongitude() * 1000000.0));
-//				mapView.getController().setCenter(geoPoint);
-//				mapView.setBuiltInZoomControls(true);
-//			}
-//			else{
-//				System.err.println("Address was not found"); // TODO
-//			}
-//		}
-//		catch (IOException e) {
-//			System.err.println("Address was not found. " + e.getMessage()); // TODO
-//		}
-//	}
 
 	@Override
 	protected boolean isRouteDisplayed() {

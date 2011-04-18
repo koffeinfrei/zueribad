@@ -1,4 +1,5 @@
 * add license!!
+* strikethrough not up-to-date temperatures (older than ~2 days)
 * correct android page http://developer.android.com/resources/tutorials/views/hello-mapview.html:
   * custom class constructor -> call this(...)
   * call constructor with 2 params
