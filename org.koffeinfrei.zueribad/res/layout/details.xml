@@ -75,7 +75,7 @@
 
             <TextView
                     android:layout_width="match_parent"
-                    android:layout_weight="0.4"
+                    android:layout_weight="0.6"
                     android:gravity="left"
                     android:layout_height="wrap_content"
                     android:textSize="10sp"
@@ -84,7 +84,7 @@
             <TextView
                     android:id="@+id/details_lastmodified"
                     android:layout_width="match_parent"
-                    android:layout_weight="0.6"
+                    android:layout_weight="0.4"
                     android:gravity="right"
                     android:layout_height="wrap_content"
                     android:textSize="10sp"

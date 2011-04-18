@@ -124,6 +124,7 @@ containing a value of this type.
         public static final int error_parsedata=0x7f060018;
         public static final int error_savesettings=0x7f060015;
         public static final int error_url=0x7f060019;
+        public static final int info_data_outofdate=0x7f06001a;
         public static final int menu_about=0x7f060010;
         public static final int menu_addtofavorites=0x7f06000d;
         public static final int menu_reload_data=0x7f06000f;
@@ -132,7 +133,7 @@ containing a value of this type.
         public static final int tab_title_favorites=0x7f060002;
         public static final int tab_title_nearlocation=0x7f060004;
         public static final int tab_title_overview=0x7f060001;
-        public static final int text_about=0x7f06001a;
+        public static final int text_about=0x7f06001b;
         public static final int title_about=0x7f06000b;
         public static final int title_address=0x7f060006;
         public static final int title_bath=0x7f060009;

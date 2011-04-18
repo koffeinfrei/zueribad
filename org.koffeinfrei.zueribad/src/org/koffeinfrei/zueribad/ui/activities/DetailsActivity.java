@@ -34,6 +34,7 @@ import org.koffeinfrei.zueribad.config.Constants;
 import org.koffeinfrei.zueribad.models.Bath;
 import org.koffeinfrei.zueribad.models.BathRepository;
 import org.koffeinfrei.zueribad.ui.CollapsiblePanel;
+import org.koffeinfrei.zueribad.ui.ViewModifier;
 
 public class DetailsActivity extends Activity {
     
@@ -62,7 +63,11 @@ public class DetailsActivity extends Activity {
 
             titleView.setText(bath.getName());
             waterTemperatureView.setText(bath.getFormattedTemperature());
+            ViewModifier.temperature(waterTemperatureView, bath.getModified());
+
             lastModifiedView.setText(bath.getFormattedModified());
+            ViewModifier.lastModified(lastModifiedView, bath.getModified());
+            
             status.setText(bath.getStatus());
 
             Drawable uvIndexImage = BathRepository.getInstance().getUvIndexImage();

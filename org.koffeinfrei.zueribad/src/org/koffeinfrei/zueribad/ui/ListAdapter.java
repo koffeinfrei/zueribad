@@ -74,6 +74,10 @@ private LayoutInflater inflater;
 		
 		Bath bath = getList().get(position);
 		holder.name.setText(bath.getName());
+
+        // if data is not current
+        ViewModifier.temperature(holder.temperature, bath.getModified());
+
 		//holder.type.setText(bath.getType());
 		holder.temperature.setText(bath.getFormattedTemperature().toString());
 		

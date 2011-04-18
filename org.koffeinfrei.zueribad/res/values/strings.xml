@@ -26,5 +26,6 @@
 	<string name="error_download">The data could not be downloaded. No internet connection?</string>
 	<string name="error_parsedata">The data could not be parsed.</string>
 	<string name="error_url">The server url is wrong. Corrupt configuration?</string>
+    <string name="info_data_outofdate">The data is not up-to-date!</string>
     <string name="text_about">More about the author of this application on koffeinfrei.\n\nThe data is provided by the Schul- und Sportdepartement der Stadt Zürich.</string>
 </resources>

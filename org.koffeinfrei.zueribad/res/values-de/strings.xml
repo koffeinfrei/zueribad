@@ -26,5 +26,6 @@
 	<string name="error_download">Die Daten konnten nicht heruntergeladen werden. Keine Internetverbindung?</string>
 	<string name="error_parsedata">Die heruntergeladenen Daten konnten nicht verarbeitet werden.</string>
 	<string name="error_url">Die Server-URL ist falsch. Konfiguration korrupt?</string>
+    <string name="info_data_outofdate">Die Daten sind nicht aktuell!</string>
     <string name="text_about">Mehr über den Autoren dieses Programms auf koffeinfrei.\n\nDie Daten werden vom Schul- und Sportdepartement der Stadt Zürich zur Verfügung gestellt.</string>
 </resources>

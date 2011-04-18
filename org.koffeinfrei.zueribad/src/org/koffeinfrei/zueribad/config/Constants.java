@@ -18,10 +18,11 @@
 
 package org.koffeinfrei.zueribad.config;
 
+import android.os.Build;
 import com.google.android.maps.GeoPoint;
 
 public class Constants {
-    public static final boolean IS_EMULATOR = android.provider.Settings.Secure.ANDROID_ID == null;
+    public static final boolean IS_EMULATOR = Build.PRODUCT.equals("google_sdk");
 
     public static final String SERVICE_URL = IS_EMULATOR
             ? "http://192.168.1.38/stzh_bath_data.xml"
@@ -34,6 +35,8 @@ public class Constants {
     public static final int TAB_OVERVIEW_MAP_INDEX = 1;
     public static final int TAB_FAVORITES_INDEX = 2;
     public static final int TAB_DETAILS_INDEX = 3;
+
+    public static final int EXPIRED_MODIFIED_DATE_IN_DAYS = 1;
 
     public static final double GEO_POINT_MULTIPLIER = 1000000.0;
 
