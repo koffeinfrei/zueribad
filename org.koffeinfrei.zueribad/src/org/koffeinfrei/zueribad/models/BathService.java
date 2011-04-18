@@ -1,12 +1,14 @@
 package org.koffeinfrei.zueribad.models;
 
 import android.graphics.drawable.Drawable;
+import com.google.android.maps.GeoPoint;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.koffeinfrei.zueribad.R;
+import org.koffeinfrei.zueribad.config.Constants;
 import org.koffeinfrei.zueribad.utils.AndroidI18nException;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -28,15 +30,17 @@ import java.util.Hashtable;
 import java.util.Locale;
 
 public class BathService {
-    private URI url;
-    private String xmlData;
+    private URI remoteUrl;
+    private String remoteXmlData;
+    private String staticXmlData;
     private Hashtable<Integer, Bath> baths;
     private URI uvIndexImageUrl;
     private Drawable uvIndexImage;
 
-    public BathService(String url) throws AndroidI18nException {
+    public BathService(String remoteUrl, String staticXmlData) throws AndroidI18nException {
+        this.staticXmlData = staticXmlData;
         try {
-            this.url = new URI(url);
+            this.remoteUrl = new URI(remoteUrl);
         } catch (URISyntaxException e) {
             throw new AndroidI18nException(R.string.error_url, e);
         }
@@ -46,7 +50,8 @@ public class BathService {
     public Hashtable<Integer, Bath> load() throws AndroidI18nException {
         download();
 
-        parseXml();
+        parseRemoteXml();
+        parseStaticXml();
 
         return baths;
     }
@@ -79,24 +84,13 @@ public class BathService {
         }
     }
 
-    private void parseXml() throws AndroidI18nException {
-        DocumentBuilderFactory docBuilderFactory = DocumentBuilderFactory.newInstance();
-        DocumentBuilder docBuilder = null;
-        try {
-            docBuilder = docBuilderFactory.newDocumentBuilder();
-        } catch (ParserConfigurationException e) {
-            throw new AndroidI18nException(R.string.error_parsedata, e);
+    private void parseRemoteXml() throws AndroidI18nException {
+        Document doc = getXmlDocument(remoteXmlData);
+
+        Element rootElement = doc.getDocumentElement();
+        if (rootElement == null || !rootElement.getNodeName().equals("bathinfos")){
+            throw new AndroidI18nException(R.string.error_parsedata);
         }
-        InputSource source = new InputSource(new StringReader(xmlData));
-        Document doc;
-        try {
-            doc = docBuilder.parse(source);
-        } catch (SAXException e) {
-            throw new AndroidI18nException(R.string.error_parsedata, e);
-        } catch (IOException e) {
-            throw new AndroidI18nException(R.string.error_parsedata, e);
-        }
-        doc.getDocumentElement().normalize();
 
         // get all baths
         NodeList bathNodes = doc.getElementsByTagName("bath");
@@ -121,8 +115,52 @@ public class BathService {
         }
     }
 
+    private void parseStaticXml() throws AndroidI18nException {
+        Document doc = getXmlDocument(staticXmlData);
+
+        // get all baths
+        NodeList bathNodes = doc.getElementsByTagName("bath");
+        for(int i = 0; i < bathNodes.getLength(); ++i){
+            Element bathElement = (Element)bathNodes.item(i);
+
+            String title = getElementStringValue(bathElement, "title");
+            int x = (int)(getElementDoubleValue(bathElement, "geoPointX") * Constants.GEO_POINT_MULTIPLIER);
+            int y = (int)(getElementDoubleValue(bathElement, "geoPointY") * Constants.GEO_POINT_MULTIPLIER);
+            GeoPoint point = new GeoPoint(x, y);
+
+            for (Bath b : baths.values()){
+                if (b.getName().equals(title)){
+                    b.setGeoPoint(point);
+                }
+            }
+        }
+    }
+
+    private Document getXmlDocument(String xmlData) throws AndroidI18nException {
+        InputSource source = new InputSource(new StringReader(xmlData));
+
+        DocumentBuilderFactory docBuilderFactory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder docBuilder;
+        try {
+            docBuilder = docBuilderFactory.newDocumentBuilder();
+        } catch (ParserConfigurationException e) {
+            throw new AndroidI18nException(R.string.error_parsedata, e);
+        }
+
+        Document doc;
+        try {
+            doc = docBuilder.parse(source);
+        } catch (SAXException e) {
+            throw new AndroidI18nException(R.string.error_parsedata, e);
+        } catch (IOException e) {
+            throw new AndroidI18nException(R.string.error_parsedata, e);
+        }
+        doc.getDocumentElement().normalize();
+        return doc;
+    }
+
     private String getElementStringValue(Element parent, String childName){
-        return parent.getElementsByTagName(childName).item(0).getTextContent();
+        return parent.getElementsByTagName(childName).item(0).getTextContent().trim();
     }
 
     private Double getElementDoubleValue(Element parent, String childName){
@@ -152,7 +190,7 @@ public class BathService {
 
     private void download() throws AndroidI18nException {
         HttpClient client = new DefaultHttpClient();
-        HttpGet get = new HttpGet(url);
+        HttpGet get = new HttpGet(remoteUrl);
         get.addHeader("Accept", "text/xml");
         get.addHeader("User-Agent", "Koffeinfrei.Zueribad");
 
@@ -169,7 +207,7 @@ public class BathService {
                     dataBuilder.append(tmpData);
                 }
 
-                xmlData = dataBuilder.toString();
+                remoteXmlData = dataBuilder.toString();
             }
         } catch (IOException e) {
             throw new AndroidI18nException(R.string.error_download,e);

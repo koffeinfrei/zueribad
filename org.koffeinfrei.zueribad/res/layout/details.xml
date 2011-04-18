@@ -45,8 +45,7 @@
                         android:layout_width="wrap_content"
                         android:gravity="right"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/button_homepage"
-                        android:onClick="openHomepage"/>
+                        android:background="@drawable/button_homepage" />
             </LinearLayout>
 
 

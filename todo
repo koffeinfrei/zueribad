@@ -1,5 +1,11 @@
+* add license!!
+* strikethrough not up-to-date temperatures (older than ~2 days)
+* correct android page http://developer.android.com/resources/tutorials/views/hello-mapview.html:
+  * custom class constructor -> call this(...)
+  * call constructor with 2 params
 * add opening hours
 * clear button to filterbox
+* add uv index
 
 /* reload button in global menu
 /* diversify error messages (maybe throw koffeinfreiexception, handle messages in throwing methods)
@@ -8,4 +14,4 @@
 /* last modified is wrong
 /* home button -> press state
 /* back button (catch when not on overview, else default, test especially progress dialog!)
-/* add uv index
+

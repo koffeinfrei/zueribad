@@ -10,6 +10,10 @@ package org.koffeinfrei.zueribad.utils;
 public class AndroidI18nException extends Exception {
     private int resourceStringId;
 
+    public AndroidI18nException(int resourceStringId) {
+        this(resourceStringId, new Exception());
+    }
+
     public AndroidI18nException(int resourceStringId, Throwable throwable) {
         super(throwable);
         this.resourceStringId = resourceStringId;

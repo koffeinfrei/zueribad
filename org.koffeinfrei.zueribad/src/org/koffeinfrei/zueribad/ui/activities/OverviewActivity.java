@@ -221,14 +221,18 @@ public class OverviewActivity extends FirstLevelActivity {
     private void assertHasBaths(){
         if (bathRepository.getAll() == null){
             deactivateTab(Constants.TAB_FAVORITES_INDEX);
+            deactivateTab(Constants.TAB_OVERVIEW_MAP_INDEX);
             deactivateTab(Constants.TAB_DETAILS_INDEX);
+            
             filterText.setVisibility(View.INVISIBLE);
         }
         else {
             activateTab(Constants.TAB_FAVORITES_INDEX);
+            activateTab(Constants.TAB_OVERVIEW_MAP_INDEX);
             if (bathRepository.getCurrent() != null){
                 activateTab(Constants.TAB_DETAILS_INDEX);
             }
+            
             filterText.setVisibility(View.VISIBLE);
         }
     }

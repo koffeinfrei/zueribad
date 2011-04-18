@@ -37,6 +37,11 @@ public class MainTabActivity extends TabActivity {
                 R.drawable.tab_overview);
 
         createTab(
+                OverviewMapActivity.class,
+                R.string.tab_title_overview,
+                R.drawable.tab_overview_map);
+
+        createTab(
                 FavoritesActivity.class,
                 R.string.tab_title_favorites,
                 R.drawable.tab_favorites);
@@ -46,8 +51,9 @@ public class MainTabActivity extends TabActivity {
                 R.string.tab_title_details,
                 R.drawable.tab_details);
 
-        // disable details tab on default
+        // disable details and map tab on default
         getTabHost().getTabWidget().getChildTabViewAt(Constants.TAB_DETAILS_INDEX).setEnabled(false);
+        getTabHost().getTabWidget().getChildTabViewAt(Constants.TAB_OVERVIEW_MAP_INDEX).setEnabled(false);
 
         setTabColors(getTabHost());
     }
