@@ -45,6 +45,41 @@
         classname="com.android.ant.SetupTask"
         classpathref="android.antlibs" />
 
+    <target name="-release-variables">
+      <echo>Setting variable: map_api_key</echo>
+      <replace file="${resource.absolute.dir}/values/strings.xml"
+        token="&lt;string name=&quot;map_api_key&quot;&gt;0hgjlMipVsN1Gcie3wjo34LT1XhC8KbezBGpVAQ&lt;/string&gt;"
+        value="&lt;string name=&quot;map_api_key&quot;&gt;0hgjlMipVsN03oMpKIYzKkeeAnWVDQ18rjEa-xw&lt;/string&gt;"/>
+    </target>
+
+    <target name="release"
+                depends="-release-variables, -set-release-mode, -release-obfuscation-check, -package-release, -release-prompt-for-password, -release-nosign"
+                if="has.keystore"
+                description="Builds the application. The generated apk file must be signed before
+                            it is published.">
+        <!-- Signs the APK -->
+        <echo>Signing final apk...</echo>
+        <signjar
+                jar="${out.unsigned.file}"
+                signedjar="${out.unaligned.file}"
+                keystore="${key.store}"
+                storepass="${key.store.password}"
+                alias="${key.alias}"
+                keypass="${key.alias.password}"
+                verbose="${verbose}" />
+
+        <!-- Zip aligns the APK -->
+        <zipalign-helper in.package="${out.unaligned.file}"
+                                   out.package="${out.release.file}" />
+
+        <echo>Resetting variable: map_api_key</echo>
+        <replace file="${resource.absolute.dir}/values/strings.xml"
+          token="&lt;string name=&quot;map_api_key&quot;&gt;0hgjlMipVsN03oMpKIYzKkeeAnWVDQ18rjEa-xw&lt;/string&gt;"
+          value="&lt;string name=&quot;map_api_key&quot;&gt;0hgjlMipVsN1Gcie3wjo34LT1XhC8KbezBGpVAQ&lt;/string&gt;"/>
+
+        <echo>Release Package: ${out.release.file}</echo>
+    </target>
+
 <!-- extension targets. Uncomment the ones where you want to do custom work
      in between standard targets -->
 <!--
@@ -82,3 +117,4 @@
     <setup />
 
 </project>
+
