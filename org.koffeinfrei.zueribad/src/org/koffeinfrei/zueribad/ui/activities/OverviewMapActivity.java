@@ -36,7 +36,6 @@ public class OverviewMapActivity extends MapActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-        setContentView(R.layout.overview_map);
 
         Hashtable<Integer,Bath> baths = BathRepository.getInstance().getAll();
 
@@ -46,6 +45,8 @@ public class OverviewMapActivity extends MapActivity {
         }
         else
         {
+            setContentView(R.layout.overview_map);
+            
             MapView mapView = (MapView) findViewById(R.id.overview_map_content_map);
             mapView.setBuiltInZoomControls(true);
             mapView.invalidate();
