@@ -106,7 +106,7 @@ containing a value of this type.
         public static final int favorites=0x7f030005;
         public static final int main=0x7f030006;
         public static final int nearlocation=0x7f030007;
-        public static final int overview=0x7f030008;
+        public static final int overview_list=0x7f030008;
         public static final int overview_listview=0x7f030009;
         public static final int overview_map=0x7f03000a;
     }
@@ -115,33 +115,37 @@ containing a value of this type.
     }
     public static final class string {
         public static final int app_name=0x7f060000;
-        public static final int button_cancel=0x7f060013;
-        public static final int button_ok=0x7f060014;
-        public static final int dialog_downloadingdetails=0x7f060012;
-        public static final int dialog_error=0x7f060011;
-        public static final int error_download=0x7f060017;
-        public static final int error_loadsettings=0x7f060016;
-        public static final int error_parsedata=0x7f060018;
-        public static final int error_savesettings=0x7f060015;
-        public static final int error_url=0x7f060019;
-        public static final int info_data_outofdate=0x7f06001a;
-        public static final int menu_about=0x7f060010;
-        public static final int menu_addtofavorites=0x7f06000d;
-        public static final int menu_reload_data=0x7f06000f;
-        public static final int menu_removefromfavorites=0x7f06000e;
-        public static final int tab_title_details=0x7f060003;
-        public static final int tab_title_favorites=0x7f060002;
-        public static final int tab_title_nearlocation=0x7f060004;
-        public static final int tab_title_overview=0x7f060001;
-        public static final int text_about=0x7f06001b;
-        public static final int title_about=0x7f06000b;
-        public static final int title_address=0x7f060006;
-        public static final int title_bath=0x7f060009;
-        public static final int title_lastmodified=0x7f06000a;
-        public static final int title_map=0x7f060008;
-        public static final int title_openinghours=0x7f060007;
-        public static final int title_route=0x7f060005;
-        public static final int title_version=0x7f06000c;
+        public static final int button_cancel=0x7f060015;
+        public static final int button_ok=0x7f060016;
+        public static final int dialog_downloadingdetails=0x7f060014;
+        public static final int dialog_error=0x7f060013;
+        public static final int error_download=0x7f060019;
+        public static final int error_loadsettings=0x7f060018;
+        public static final int error_parsedata=0x7f06001a;
+        public static final int error_savesettings=0x7f060017;
+        public static final int error_url=0x7f06001b;
+        public static final int info_data_outofdate=0x7f06001c;
+        public static final int map_api_key=0x7f060001;
+        public static final int menu_about=0x7f060012;
+        public static final int menu_addtofavorites=0x7f06000f;
+        public static final int menu_reload_data=0x7f060011;
+        public static final int menu_removefromfavorites=0x7f060010;
+        public static final int tab_title_details=0x7f060005;
+        public static final int tab_title_favorites=0x7f060004;
+        public static final int tab_title_nearlocation=0x7f060006;
+        /**  this is the debug key, the release key is inserted by ant 
+         */
+        public static final int tab_title_overview_list=0x7f060002;
+        public static final int tab_title_overview_map=0x7f060003;
+        public static final int text_about=0x7f06001d;
+        public static final int title_about=0x7f06000d;
+        public static final int title_address=0x7f060008;
+        public static final int title_bath=0x7f06000b;
+        public static final int title_lastmodified=0x7f06000c;
+        public static final int title_map=0x7f06000a;
+        public static final int title_openinghours=0x7f060009;
+        public static final int title_route=0x7f060007;
+        public static final int title_version=0x7f06000e;
     }
     public static final class style {
         public static final int TranslucentZueribad=0x7f070000;

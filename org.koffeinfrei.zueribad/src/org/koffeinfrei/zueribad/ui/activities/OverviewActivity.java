@@ -55,7 +55,7 @@ public class OverviewActivity extends FirstLevelActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.overview);
+        setContentView(R.layout.overview_list);
 
         filterText = (EditText) findViewById(R.id.overview_search_box);
         filterText.addTextChangedListener(filterTextWatcher);

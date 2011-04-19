@@ -2,7 +2,8 @@
 <resources>
 	<string name="app_name">Züribad</string>
 	<string name="map_api_key">0hgjlMipVsN1Gcie3wjo34LT1XhC8KbezBGpVAQ</string><!-- this is the debug key, the release key is inserted by ant -->
-	<string name="tab_title_overview">Overview</string>
+	<string name="tab_title_overview_list">List</string>
+    <string name="tab_title_overview_map">Map</string>
 	<string name="tab_title_favorites">Favorites</string>
 	<string name="tab_title_details">Details</string>
 	<string name="tab_title_nearlocation">Near</string>

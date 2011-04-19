@@ -51,12 +51,12 @@ public class MainTabActivity extends TabActivity {
 
         createTab(
                 OverviewActivity.class,
-                R.string.tab_title_overview,
+                R.string.tab_title_overview_list,
                 R.drawable.tab_overview);
 
         createTab(
                 OverviewMapActivity.class,
-                R.string.tab_title_overview,
+                R.string.tab_title_overview_map,
                 R.drawable.tab_overview_map);
 
         createTab(
