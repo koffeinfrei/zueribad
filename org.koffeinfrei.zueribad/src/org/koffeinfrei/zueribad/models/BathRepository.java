@@ -47,11 +47,16 @@ public class BathRepository {
         all = service.load();
         uvIndexImage = service.getUvIndexImage();
 
-		favorites = UserSettings.loadFavorites(context);
-		
-		if (favorites == null) {
-			favorites = new Hashtable<Integer, Bath>();
-		}
+        favorites = new Hashtable<Integer, Bath>();
+        Hashtable<Integer, Bath> loadedFavorites = UserSettings.loadFavorites(context);
+        if (loadedFavorites != null){
+            for(Bath bath : loadedFavorites.values()){
+                Bath actualBath = get(bath.getName());
+                if (actualBath != null){
+                    favorites.put(actualBath.getId(), actualBath);
+                }
+            }
+        }
 	}
 
     public void clear(){
@@ -83,6 +88,15 @@ public class BathRepository {
 		
 		return bath;
 	}
+
+    public Bath get(String name){
+        for (Bath bath : all.values()){
+            if (bath.getName().equals(name)) {
+                return bath;
+            }
+        }
+        return null;
+    }
 	
 	public void addToFavorites(Context context, int id) throws AndroidI18nException {
 		favorites.put(id, all.get(id));

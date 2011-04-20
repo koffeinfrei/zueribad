@@ -1,11 +1,11 @@
-* add license!!
-* strikethrough not up-to-date temperatures (older than ~2 days)
+* add reset button to map, keep position on not-first load
 * correct android page http://developer.android.com/resources/tutorials/views/hello-mapview.html:
   * custom class constructor -> call this(...)
   * call constructor with 2 params
 * add opening hours
+* add pictures (add statically into bundle)
 * clear button to filterbox
-* add uv index
+* walking/driving route to bath
 
 /* reload button in global menu
 /* diversify error messages (maybe throw koffeinfreiexception, handle messages in throwing methods)
@@ -14,4 +14,10 @@
 /* last modified is wrong
 /* home button -> press state
 /* back button (catch when not on overview, else default, test especially progress dialog!)
-
+/* add license!!
+/* strikethrough not up-to-date temperatures (older than ~2 days)
+/* add uv index
+/* map keys debug/build -> viewmodifier, set map view propery
+/* rename: overview -> liste, overview -> map
+/* if data is null, switch to tab 1 from overview map doesn't work properly
+/* ERROR: add to favorites

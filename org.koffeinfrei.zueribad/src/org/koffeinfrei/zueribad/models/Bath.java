@@ -29,13 +29,13 @@ public class Bath implements Serializable{
 	
 	private static final long serialVersionUID = 4857741782219006158L;
 	
-	private int id;
+	private transient int id;
 	private String name;
-	private Double temperature;
-    private Date modified;
-    private String status;
-    private String url;
-    private GeoPoint geoPoint;
+	private transient Double temperature;
+    private transient Date modified;
+    private transient String status;
+    private transient String url;
+    private transient GeoPoint geoPoint;
 	
 	public Bath(int id){
 		this.id = id;
