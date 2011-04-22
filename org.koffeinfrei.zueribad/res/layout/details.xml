@@ -11,6 +11,7 @@
             android:scrollbars="vertical">
 
         <TextView
+                android:textColor="@color/main_text"
                 android:id="@+id/details_title"
                 android:textSize="20sp"
                 android:layout_width="match_parent"
@@ -54,6 +55,7 @@
         <TextView
                 android:id="@+id/details_status"
                 android:textSize="14sp"
+                android:textColor="@color/second_text"
                 android:layout_marginTop="15dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
@@ -79,6 +81,7 @@
                     android:gravity="left"
                     android:layout_height="wrap_content"
                     android:textSize="10sp"
+                    android:textColor="@color/second_text"
                     android:text="@string/title_lastmodified"/>
 
             <TextView
@@ -88,6 +91,7 @@
                     android:gravity="right"
                     android:layout_height="wrap_content"
                     android:textSize="10sp"
+                    android:textColor="@color/second_text"
                     android:text="-"/>
 
         </LinearLayout>
@@ -96,11 +100,11 @@
         <!--<ImageView
               android:id="@+id/details_picture"
               android:layout_width="match_parent"
-              android:layout_height="wrap_content" />
+              android:layout_height="wrap_content" />-->
 
           <include layout="@layout/details_section_content_address" />
 
-          <include layout="@layout/details_section_content_map" />-->
+          <!--<include layout="@layout/details_section_content_map" />-->
 
     </LinearLayout>
     

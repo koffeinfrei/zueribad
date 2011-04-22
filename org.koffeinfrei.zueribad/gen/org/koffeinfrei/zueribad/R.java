@@ -60,14 +60,16 @@ containing a value of this type.
         public static final int ic_tab_overview_inactive=0x7f020012;
         public static final int ic_tab_overview_map_active=0x7f020013;
         public static final int ic_tab_overview_map_inactive=0x7f020014;
-        public static final int listselector=0x7f020015;
-        public static final int listview=0x7f020016;
-        public static final int reload=0x7f020017;
-        public static final int searchbox=0x7f020018;
-        public static final int tab_details=0x7f020019;
-        public static final int tab_favorites=0x7f02001a;
-        public static final int tab_overview=0x7f02001b;
-        public static final int tab_overview_map=0x7f02001c;
+        public static final int ic_toggle_closed=0x7f020015;
+        public static final int ic_toggle_open=0x7f020016;
+        public static final int listselector=0x7f020017;
+        public static final int listview=0x7f020018;
+        public static final int reload=0x7f020019;
+        public static final int searchbox=0x7f02001a;
+        public static final int tab_details=0x7f02001b;
+        public static final int tab_favorites=0x7f02001c;
+        public static final int tab_overview=0x7f02001d;
+        public static final int tab_overview_map=0x7f02001e;
     }
     public static final class id {
         public static final int balloon_inner_layout=0x7f090001;
@@ -77,25 +79,26 @@ containing a value of this type.
         public static final int close_img_button=0x7f090004;
         public static final int details_homepagebutton=0x7f090007;
         public static final int details_lastmodified=0x7f09000a;
-        public static final int details_section_content_address_address=0x7f09000d;
-        public static final int details_section_content_address_panel=0x7f09000c;
-        public static final int details_section_content_address_route=0x7f09000e;
-        public static final int details_section_content_address_togglebutton=0x7f09000b;
-        public static final int details_section_content_map=0x7f090011;
-        public static final int details_section_content_map_panel=0x7f090010;
-        public static final int details_section_content_map_togglebutton=0x7f09000f;
+        public static final int details_section_content_address_address=0x7f09000e;
+        public static final int details_section_content_address_panel=0x7f09000d;
+        public static final int details_section_content_address_route=0x7f09000f;
+        public static final int details_section_content_address_togglebuttonicon=0x7f09000b;
+        public static final int details_section_content_address_togglebuttontext=0x7f09000c;
+        public static final int details_section_content_map=0x7f090012;
+        public static final int details_section_content_map_panel=0x7f090011;
+        public static final int details_section_content_map_togglebutton=0x7f090010;
         public static final int details_status=0x7f090008;
         public static final int details_title=0x7f090005;
         public static final int details_uvindex_picture=0x7f090009;
         public static final int details_watertemperature=0x7f090006;
-        public static final int favorites_list=0x7f090012;
-        public static final int main_menu_about=0x7f090019;
-        public static final int main_menu_reload_data=0x7f090018;
-        public static final int overview_list=0x7f090014;
-        public static final int overview_listitem_bathname=0x7f090015;
-        public static final int overview_listitem_bathtemperature=0x7f090016;
-        public static final int overview_map_content_map=0x7f090017;
-        public static final int overview_search_box=0x7f090013;
+        public static final int favorites_list=0x7f090013;
+        public static final int main_menu_about=0x7f09001a;
+        public static final int main_menu_reload_data=0x7f090019;
+        public static final int overview_list=0x7f090015;
+        public static final int overview_listitem_bathname=0x7f090016;
+        public static final int overview_listitem_bathtemperature=0x7f090017;
+        public static final int overview_map_content_map=0x7f090018;
+        public static final int overview_search_box=0x7f090014;
     }
     public static final class layout {
         public static final int balloon_overlay=0x7f030000;
@@ -115,21 +118,21 @@ containing a value of this type.
     }
     public static final class string {
         public static final int app_name=0x7f060000;
-        public static final int button_cancel=0x7f060015;
-        public static final int button_ok=0x7f060016;
-        public static final int dialog_downloadingdetails=0x7f060014;
-        public static final int dialog_error=0x7f060013;
-        public static final int error_download=0x7f060019;
-        public static final int error_loadsettings=0x7f060018;
-        public static final int error_parsedata=0x7f06001a;
-        public static final int error_savesettings=0x7f060017;
-        public static final int error_url=0x7f06001b;
-        public static final int info_data_outofdate=0x7f06001c;
+        public static final int button_cancel=0x7f060014;
+        public static final int button_ok=0x7f060015;
+        public static final int dialog_downloadingdetails=0x7f060013;
+        public static final int dialog_error=0x7f060012;
+        public static final int error_download=0x7f060018;
+        public static final int error_loadsettings=0x7f060017;
+        public static final int error_parsedata=0x7f060019;
+        public static final int error_savesettings=0x7f060016;
+        public static final int error_url=0x7f06001a;
+        public static final int info_data_outofdate=0x7f06001b;
         public static final int map_api_key=0x7f060001;
-        public static final int menu_about=0x7f060012;
-        public static final int menu_addtofavorites=0x7f06000f;
-        public static final int menu_reload_data=0x7f060011;
-        public static final int menu_removefromfavorites=0x7f060010;
+        public static final int menu_about=0x7f060011;
+        public static final int menu_addtofavorites=0x7f06000e;
+        public static final int menu_reload_data=0x7f060010;
+        public static final int menu_removefromfavorites=0x7f06000f;
         public static final int tab_title_details=0x7f060005;
         public static final int tab_title_favorites=0x7f060004;
         public static final int tab_title_nearlocation=0x7f060006;
@@ -137,15 +140,14 @@ containing a value of this type.
          */
         public static final int tab_title_overview_list=0x7f060002;
         public static final int tab_title_overview_map=0x7f060003;
-        public static final int text_about=0x7f06001d;
-        public static final int title_about=0x7f06000d;
-        public static final int title_address=0x7f060008;
-        public static final int title_bath=0x7f06000b;
-        public static final int title_lastmodified=0x7f06000c;
-        public static final int title_map=0x7f06000a;
-        public static final int title_openinghours=0x7f060009;
-        public static final int title_route=0x7f060007;
-        public static final int title_version=0x7f06000e;
+        public static final int text_about=0x7f06001c;
+        public static final int title_about=0x7f06000c;
+        public static final int title_address=0x7f060007;
+        public static final int title_bath=0x7f06000a;
+        public static final int title_lastmodified=0x7f06000b;
+        public static final int title_map=0x7f060009;
+        public static final int title_openinghours=0x7f060008;
+        public static final int title_version=0x7f06000d;
     }
     public static final class style {
         public static final int TranslucentZueribad=0x7f070000;

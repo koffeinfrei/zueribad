@@ -54,7 +54,7 @@ public class CollapsiblePanel extends LinearLayout {
 	public void toggle() {
 		AnimationSet set = new AnimationSet(true);
 
-		if (getVisibility() == View.GONE) {
+		if (!isOpen()) {
 			set.addAnimation(expand);
 			set.setAnimationListener(showListener);
 		} 
@@ -100,4 +100,7 @@ public class CollapsiblePanel extends LinearLayout {
 		}
 	};
 
+    public boolean isOpen(){
+        return getVisibility() != View.GONE;
+    }
 }

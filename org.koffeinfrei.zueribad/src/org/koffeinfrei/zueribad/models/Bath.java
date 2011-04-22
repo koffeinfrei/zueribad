@@ -37,6 +37,8 @@ public class Bath implements Serializable{
     private transient String url;
     private transient GeoPoint geoPoint;
     private String address;
+    private String address2;
+    private String route;
 
     public Bath(int id){
 		this.id = id;
@@ -109,5 +111,21 @@ public class Bath implements Serializable{
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String getAddress2() {
+        return address2;
+    }
+
+    public void setAddress2(String address2) {
+        this.address2 = address2;
+    }
+
+    public void setRoute(String route) {
+        this.route = route;
+    }
+
+    public String getRoute() {
+        return route;
     }
 }

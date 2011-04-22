@@ -24,6 +24,7 @@ import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -57,8 +58,17 @@ public class DetailsActivity extends Activity {
             TextView lastModifiedView = (TextView) findViewById(R.id.details_lastmodified);
             TextView status = (TextView) findViewById(R.id.details_status);
             ImageView uvIndex = (ImageView) findViewById(R.id.details_uvindex_picture);
+            TextView address = (TextView) findViewById(R.id.details_section_content_address_address);
+            TextView route = (TextView) findViewById(R.id.details_section_content_address_route);
 
-            //SetupSlidingPanel(R.id.details_section_content_address_panel, R.id.details_section_content_address_togglebutton);
+            SetupSlidingPanel(
+                    R.id.details_section_content_address_panel,
+                    R.id.details_section_content_address_togglebuttonicon,
+                    R.id.details_section_content_address_togglebuttonicon);
+            SetupSlidingPanel(
+                    R.id.details_section_content_address_panel,
+                    R.id.details_section_content_address_togglebuttontext,
+                    R.id.details_section_content_address_togglebuttonicon);
             //SetupSlidingPanel(R.id.details_section_content_map_panel, R.id.details_section_content_map_togglebutton);
 
             titleView.setText(bath.getName());
@@ -75,8 +85,10 @@ public class DetailsActivity extends Activity {
                 uvIndex.setImageDrawable(uvIndexImage);
             }
 
+            address.setText(bath.getAddress() + "\n" + bath.getAddress2());
+            route.setText(bath.getRoute());
+
             //setMap(bath);
-            //setAddress(bath);
 
             final Button button = (Button) findViewById(R.id.details_homepagebutton);
             button.setOnClickListener(new View.OnClickListener() {
@@ -88,14 +100,24 @@ public class DetailsActivity extends Activity {
         }
 	}
 
-	private void SetupSlidingPanel(int slidingPanelId, int toggleButtonId) {
+	private void SetupSlidingPanel(int slidingPanelId, int toggleButtonId, int toggleImageButtonId) {
 		final CollapsiblePanel panel = (CollapsiblePanel) findViewById(slidingPanelId);
 		final Button toggleButton = (Button) findViewById(toggleButtonId);
-		
+        final Button toggleImageButton = (Button) findViewById(toggleImageButtonId);
+
 		toggleButton.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				toggleButton.invalidate();
+
+                // state before animation
+                if (panel.isOpen()){
+                    toggleImageButton.setBackgroundResource(R.drawable.ic_toggle_closed);
+                }
+                else{
+                    toggleImageButton.setBackgroundResource(R.drawable.ic_toggle_open);
+                }
+
 				panel.toggle();
 			}
 		});

@@ -7,8 +7,7 @@
 	<string name="tab_title_favorites">Favorites</string>
 	<string name="tab_title_details">Details</string>
 	<string name="tab_title_nearlocation">Near</string>
-	<string name="title_route">Route</string>
-	<string name="title_address">Address</string>
+	<string name="title_address">Address / Route</string>
 	<string name="title_openinghours">Opening hours</string>
 	<string name="title_map">Map</string>
 	<string name="title_bath">Bath</string>
