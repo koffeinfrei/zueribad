@@ -59,7 +59,7 @@ public class OverviewMapActivity extends MapActivity {
 
             for (Bath bath : baths.values()) {
                 itemizedOverlay.addOverlay(bath.getId(),
-                        new OverlayItem(bath.getGeoPoint(), bath.getName(), null));
+                        new OverlayItem(bath.getGeoPoint(), bath.getName(), bath.getAddress()));
             }
 
             mapOverlays.add(itemizedOverlay);

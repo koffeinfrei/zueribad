@@ -144,11 +144,13 @@ public class BathService {
             String title = getElementStringValue(bathElement, "title");
             int x = (int)(getElementDoubleValue(bathElement, "geoPointX") * Constants.GEO_POINT_MULTIPLIER);
             int y = (int)(getElementDoubleValue(bathElement, "geoPointY") * Constants.GEO_POINT_MULTIPLIER);
+            String address = getElementStringValue(bathElement, "address");
             GeoPoint point = new GeoPoint(x, y);
 
             for (Bath b : baths.values()){
                 if (b.getName().equals(title)){
                     b.setGeoPoint(point);
+                    b.setAddress(address);
                 }
             }
         }

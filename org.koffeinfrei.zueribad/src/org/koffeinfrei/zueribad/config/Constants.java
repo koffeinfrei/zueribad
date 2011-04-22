@@ -25,7 +25,7 @@ public class Constants {
     public static final boolean IS_EMULATOR = Build.PRODUCT.equals("google_sdk");
 
     public static final String SERVICE_URL = IS_EMULATOR
-            ? "http://192.168.1.38/stzh_bath_data.xml"
+            ? "http://192.168.1.39/stzh_bath_data.xml"
             : "http://www.stadt-zuerich.ch/stzh/bathdatadownload";
 
     public static final int PROGRESS_DIALOG = 1;
@@ -52,76 +52,91 @@ public class Constants {
         "            <title>Flussbad Au-Höngg</title>\n" +
         "            <geoPointX>47.399166</geoPointX>\n" +
         "            <geoPointY>8.489263</geoPointY>\n" +
+        "            <address>Werdinsel 2\n8049 Zürich</address>\n" +
         "        </bath>\n" +
         "        <bath>\n" +
         "            <title>Flussbad Oberer Letten</title>\n" +
         "            <geoPointX>47.385687</geoPointX>\n" +
         "            <geoPointY>8.534254</geoPointY>\n" +
+        "            <address>Lettensteg 10\n8031 Zürich</address>\n" +
         "        </bath>\n" +
         "        <bath>\n" +
         "            <title>Flussbad Unterer Letten</title>\n" +
         "            <geoPointX>47.390076</geoPointX>\n" +
         "            <geoPointY>8.528622</geoPointY>\n" +
+        "            <address>Wasserwerkstrasse 141\n8037 Zürich</address>\n" +
         "        </bath>\n" +
         "        <bath>\n" +
         "            <title>Frauenbad Stadthausquai</title>\n" +
         "            <geoPointX>47.36846</geoPointX>\n" +
         "            <geoPointY>8.541937</geoPointY>\n" +
+        "            <address>Stadthausquai\n8001 Zürich</address>\n" +
         "        </bath>\n" +
         "        <bath>\n" +
         "            <title>Freibad Allenmoos</title>\n" +
         "            <geoPointX>47.40553</geoPointX>\n" +
         "            <geoPointY>8.539007</geoPointY>\n" +
+        "            <address>Ringstrasse 79\n8057 Zürich</address>\n" +
         "        </bath>\n" +
         "        <bath>\n" +
         "            <title>Freibad Auhof</title>\n" +
         "            <geoPointX>47.408672</geoPointX>\n" +
         "            <geoPointY>8.57131</geoPointY>\n" +
+        "            <address>Luegislandstrasse 160\n8051 Zürich</address>\n" +
         "        </bath>\n" +
         "        <bath>\n" +
         "            <title>Freibad Heuried</title>\n" +
         "            <geoPointX>47.367737</geoPointX>\n" +
         "            <geoPointY>8.505909</geoPointY>\n" +
+        "            <address>Wasserschöpfi 71\n8055 Zürich</address>\n" +
         "        </bath>\n" +
         "        <bath>\n" +
         "            <title>Freibad Letzigraben</title>\n" +
         "            <geoPointX>47.380135</geoPointX>\n" +
         "            <geoPointY>8.499813</geoPointY>\n" +
+        "            <address>Edelweissstrasse 5\n8048 Zürich</address>\n" +
         "        </bath>\n" +
         "        <bath>\n" +
         "            <title>Freibad Seebach</title>\n" +
         "            <geoPointX>47.423773</geoPointX>\n" +
         "            <geoPointY>8.548291</geoPointY>\n" +
+        "            <address>Glattalstrasse 41\n8052 Zürich</address>\n" +
         "        </bath>\n" +
         "        <bath>\n" +
         "            <title>Freibad Zwischen den Hölzern</title>\n" +
         "            <geoPointX>47.409524</geoPointX>\n" +
         "            <geoPointY>8.473765</geoPointY>\n" +
+        "            <address>Zwischen den Hölzern\n8102 Oberengstringen</address>\n" +
         "        </bath>\n" +
         "        <bath>\n" +
         "            <title>Seebad Katzensee</title>\n" +
         "            <geoPointX>47.430845</geoPointX>\n" +
         "            <geoPointY>8.493294</geoPointY>\n" +
+        "            <address>Katzenseestrasse\n8046 Zürich</address>\n" +
         "        </bath>\n" +
         "        <bath>\n" +
         "            <title>Seebad Utoquai</title>\n" +
         "            <geoPointX>47.361789</geoPointX>\n" +
         "            <geoPointY>8.547226</geoPointY>\n" +
+        "            <address>Utoquai\n8008 Zürich</address>\n" +
         "        </bath>\n" +
         "        <bath>\n" +
         "            <title>Strandbad Mythenquai</title>\n" +
         "            <geoPointX>47.354947</geoPointX>\n" +
         "            <geoPointY>8.534615</geoPointY>\n" +
+        "            <address>Mythenquai 95\n8002 Zürich</address>\n" +
         "        </bath>\n" +
         "        <bath>\n" +
         "            <title>Strandbad Tiefenbrunnen</title>\n" +
         "            <geoPointX>47.352397</geoPointX>\n" +
         "            <geoPointY>8.557541</geoPointY>\n" +
+        "            <address>Bellerivestrasse 200\n8008 Zürich</address>\n" +
         "        </bath>\n" +
         "        <bath>\n" +
         "            <title>Strandbad Wollishofen</title>\n" +
         "            <geoPointX>47.340952</geoPointX>\n" +
         "            <geoPointY>8.537305</geoPointY>\n" +
+        "            <address>Seestrasse 451\n8038 Zürich</address>\n" +
         "        </bath>\n" +
         "    </baths>\n" +
         "</bathinfos>";
