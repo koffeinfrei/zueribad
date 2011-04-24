@@ -36,9 +36,9 @@ public class Bath implements Serializable{
     private transient String status;
     private transient String url;
     private transient GeoPoint geoPoint;
-    private String address;
-    private String address2;
-    private String route;
+    private transient String address;
+    private transient String address2;
+    private transient String route;
 
     public Bath(int id){
 		this.id = id;
