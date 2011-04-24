@@ -30,6 +30,7 @@ import org.koffeinfrei.zueribad.config.Constants;
 import org.koffeinfrei.zueribad.utils.AndroidI18nException;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
@@ -50,12 +51,12 @@ import java.util.Locale;
 public class BathService {
     private URI remoteUrl;
     private String remoteXmlData;
-    private String staticXmlData;
+    private String[] staticXmlData;
     private Hashtable<Integer, Bath> baths;
     private URI uvIndexImageUrl;
     private Drawable uvIndexImage;
 
-    public BathService(String remoteUrl, String staticXmlData) throws AndroidI18nException {
+    public BathService(String remoteUrl, String...staticXmlData) throws AndroidI18nException {
         this.staticXmlData = staticXmlData;
         try {
             this.remoteUrl = new URI(remoteUrl);
@@ -134,27 +135,39 @@ public class BathService {
     }
 
     private void parseStaticXml() throws AndroidI18nException {
-        Document doc = getXmlDocument(staticXmlData);
+        for(String data : staticXmlData){
+            Document doc = getXmlDocument(data);
 
-        // get all baths
-        NodeList bathNodes = doc.getElementsByTagName("bath");
-        for(int i = 0; i < bathNodes.getLength(); ++i){
-            Element bathElement = (Element)bathNodes.item(i);
+            // get all baths
+            NodeList bathNodes = doc.getElementsByTagName("bath");
+            for(int i = 0; i < bathNodes.getLength(); ++i){
+                Element bathElement = (Element)bathNodes.item(i);
 
-            String title = getElementStringValue(bathElement, "title");
-            int x = (int)(getElementDoubleValue(bathElement, "geoPointX") * Constants.GEO_POINT_MULTIPLIER);
-            int y = (int)(getElementDoubleValue(bathElement, "geoPointY") * Constants.GEO_POINT_MULTIPLIER);
-            String address = getElementStringValue(bathElement, "address");
-            String address2 = getElementStringValue(bathElement, "address2");
-            String route = getElementStringValue(bathElement,  "route");
-            GeoPoint point = new GeoPoint(x, y);
+                String title = getElementStringValue(bathElement, "title");
+                Double geoX = getElementDoubleValue(bathElement, "geoPointX");
+                Double geoY = getElementDoubleValue(bathElement, "geoPointY");
+                String address = getElementStringValue(bathElement, "address");
+                String address2 = getElementStringValue(bathElement, "address2");
+                String route = getElementStringValue(bathElement,  "route");
 
-            for (Bath b : baths.values()){
-                if (b.getName().equals(title)){
-                    b.setGeoPoint(point);
-                    b.setAddress(address);
-                    b.setAddress2(address2);
-                    b.setRoute(route);
+                for (Bath b : baths.values()){
+                    if (b.getName().equals(title)){
+                        if (geoX != null && geoY != null){
+                            Integer x = (int)(geoX * Constants.GEO_POINT_MULTIPLIER);
+                            Integer y = (int)(geoY * Constants.GEO_POINT_MULTIPLIER);
+                            GeoPoint point = new GeoPoint(x, y);
+                            b.setGeoPoint(point);
+                        }
+                        if (address != null){
+                            b.setAddress(address);
+                        }
+                        if (address2 != null){
+                            b.setAddress2(address2);
+                        }
+                        if (route != null){
+                            b.setRoute(route);
+                        }
+                    }
                 }
             }
         }
@@ -184,16 +197,26 @@ public class BathService {
     }
 
     private String getElementStringValue(Element parent, String childName){
-        return parent.getElementsByTagName(childName).item(0).getTextContent().trim();
+        Node node = parent.getElementsByTagName(childName).item(0);
+        if (node == null){
+            return null;
+        }
+        return node.getTextContent().trim();
     }
 
     private Double getElementDoubleValue(Element parent, String childName){
         String stringValue = getElementStringValue(parent, childName);
+        if (stringValue == null){
+            return null;
+        }
         return Double.parseDouble(stringValue);
     }
 
     private Date getElementDateValue(Element parent, String childName){
         String stringValue = getElementStringValue(parent, childName);
+        if (stringValue == null){
+            return null;
+        }
         final String dateFormat = "dd.MM.yyyy HH:mm";
         DateFormat format = new SimpleDateFormat(dateFormat, Locale.GERMAN);
         Date date = format.parse(stringValue, new ParsePosition(4));
@@ -202,6 +225,9 @@ public class BathService {
 
     private URI getElementUriValue(Element parent, String childName){
         String stringValue = getElementStringValue(parent, childName);
+        if (stringValue == null){
+            return null;
+        }
         try {
             URI url = new URI(stringValue);
             return url;

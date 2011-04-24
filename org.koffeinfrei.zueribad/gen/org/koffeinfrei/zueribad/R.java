@@ -133,6 +133,8 @@ containing a value of this type.
         public static final int menu_addtofavorites=0x7f06000e;
         public static final int menu_reload_data=0x7f060010;
         public static final int menu_removefromfavorites=0x7f06000f;
+        public static final int static_18n_bath_data=0x7f06001e;
+        public static final int static_bath_data=0x7f06001d;
         public static final int tab_title_details=0x7f060005;
         public static final int tab_title_favorites=0x7f060004;
         public static final int tab_title_nearlocation=0x7f060006;

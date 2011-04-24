@@ -20,6 +20,7 @@ package org.koffeinfrei.zueribad.models;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
+import org.koffeinfrei.zueribad.R;
 import org.koffeinfrei.zueribad.config.Constants;
 import org.koffeinfrei.zueribad.config.UserSettings;
 import org.koffeinfrei.zueribad.utils.AndroidI18nException;
@@ -41,8 +42,9 @@ public class BathRepository {
 	}
 	
 	public void init(Context context) throws AndroidI18nException {
-
-        BathService service = new BathService(Constants.SERVICE_URL, Constants.STATIC_DATA);
+        BathService service = new BathService(Constants.SERVICE_URL,
+                context.getString(R.string.static_bath_data),
+                context.getString(R.string.static_18n_bath_data));
 
         all = service.load();
         uvIndexImage = service.getUvIndexImage();

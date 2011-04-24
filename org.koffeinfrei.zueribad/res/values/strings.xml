@@ -29,4 +29,183 @@
 	<string name="error_url">The server url is wrong. Corrupt configuration?</string>
     <string name="info_data_outofdate">The data is not up-to-date!</string>
     <string name="text_about">More about the author of this application on koffeinfrei.\n\nThe data is provided by the Schul- und Sportdepartement der Stadt Zürich.</string>
+    <string name="static_bath_data">
+        <![CDATA[
+        <bathinfos>
+            <baths>
+                <bath>
+                    <title>Flussbad Au-Höngg</title>
+                    <geoPointX>47.399166</geoPointX>
+                    <geoPointY>8.489263</geoPointY>
+                    <address>Werdinsel 2\n8049 Zürich</address>
+                </bath>
+                <bath>
+                    <title>Flussbad Oberer Letten</title>
+                    <geoPointX>47.385687</geoPointX>
+                    <geoPointY>8.534254</geoPointY>
+                    <address>Lettensteg 10\n8031 Zürich</address>
+                </bath>
+                <bath>
+                    <title>Flussbad Unterer Letten</title>
+                    <geoPointX>47.390076</geoPointX>
+                    <geoPointY>8.528622</geoPointY>
+                    <address>Wasserwerkstrasse 141\n8037 Zürich</address>
+                </bath>
+                <bath>
+                    <title>Frauenbad Stadthausquai</title>
+                    <geoPointX>47.36846</geoPointX>
+                    <geoPointY>8.541937</geoPointY>
+                    <address>Stadthausquai\n8001 Zürich</address>
+                </bath>
+                <bath>
+                    <title>Freibad Allenmoos</title>
+                    <geoPointX>47.40553</geoPointX>
+                    <geoPointY>8.539007</geoPointY>
+                    <address>Ringstrasse 79\n8057 Zürich</address>
+                </bath>
+                <bath>
+                    <title>Freibad Auhof</title>
+                    <geoPointX>47.408672</geoPointX>
+                    <geoPointY>8.57131</geoPointY>
+                    <address>Luegislandstrasse 160\n8051 Zürich</address>
+                </bath>
+                <bath>
+                    <title>Freibad Heuried</title>
+                    <geoPointX>47.367737</geoPointX>
+                    <geoPointY>8.505909</geoPointY>
+                    <address>Wasserschöpfi 71\n8055 Zürich</address>
+                </bath>
+                <bath>
+                    <title>Freibad Letzigraben</title>
+                    <geoPointX>47.380135</geoPointX>
+                    <geoPointY>8.499813</geoPointY>
+                    <address>Edelweissstrasse 5\n8048 Zürich</address>
+                </bath>
+                <bath>
+                    <title>Freibad Seebach</title>
+                    <geoPointX>47.423773</geoPointX>
+                    <geoPointY>8.548291</geoPointY>
+                    <address>Glattalstrasse 41\n8052 Zürich</address>
+                </bath>
+                <bath>
+                    <title>Freibad Zwischen den Hölzern</title>
+                    <geoPointX>47.409524</geoPointX>
+                    <geoPointY>8.473765</geoPointY>
+                    <address>Zwischen den Hölzern\n8102 Oberengstringen</address>
+                </bath>
+                <bath>
+                    <title>Seebad Katzensee</title>
+                    <geoPointX>47.430845</geoPointX>
+                    <geoPointY>8.493294</geoPointY>
+                    <address>Katzenseestrasse\n8046 Zürich</address>
+                </bath>
+                <bath>
+                    <title>Seebad Utoquai</title>
+                    <geoPointX>47.361789</geoPointX>
+                    <geoPointY>8.547226</geoPointY>
+                    <address>Utoquai\n8008 Zürich</address>
+                </bath>
+                <bath>
+                    <title>Strandbad Mythenquai</title>
+                    <geoPointX>47.354947</geoPointX>
+                    <geoPointY>8.534615</geoPointY>
+                    <address>Mythenquai 95\n8002 Zürich</address>
+                </bath>
+                <bath>
+                    <title>Strandbad Tiefenbrunnen</title>
+                    <geoPointX>47.352397</geoPointX>
+                    <geoPointY>8.557541</geoPointY>
+                    <address>Bellerivestrasse 200\n8008 Zürich</address>
+                </bath>
+                <bath>
+                    <title>Strandbad Wollishofen</title>
+                    <geoPointX>47.340952</geoPointX>
+                    <geoPointY>8.537305</geoPointY>
+                    <address>Seestrasse 451\n8038 Zürich</address>
+                </bath>
+            </baths>
+        </bathinfos>]]>
+    </string>
+    <string name="static_18n_bath_data">
+        <![CDATA[
+        <bathinfos>
+            <baths>
+                <bath>
+                    <title>Flussbad Au-Höngg</title>
+                    <address2>Phone 044 341 71 93\nAdministration: Daniel Hof</address2>
+                    <route>Tram 4 to «Tüffenwies»\nBus 80/89 to «Winzerhalde»\nPublic parking (under Europabrücke or «Blaue Zone»)</route>
+                </bath>
+                <bath>
+                    <title>Flussbad Oberer Letten</title>
+                    <address2>Phone 044 362 92 00\nAdministration: Adrian Kehl</address2>
+                    <route>Tram 4/13, Bus to «Limmatplatz»\nBus 46 to «Nordstrasse»\nPublic parking («Blaue Zone»)</route>
+                </bath>
+                <bath>
+                    <title>Flussbad Unterer Letten</title>
+                    <address2>Phone 044 362 10 80\nAdministration: Heinrich Stadler</address2>
+                    <route>Tram 4/13 to «Dammweg»\nBus 46 to «Nordstrasse»\nS2/S8/S14 to Bahnhof Wipkingen\nPublic parking</route>
+                </bath>
+                <bath>
+                    <title>Frauenbad Stadthausquai</title>
+                    <address2>Phone 044 211 95 92 \nAdministration: Nathalie Schneider</address2>
+                    <route>Tram 4/15 to «Helmhaus»\nTram 2/5/6/7/8/9/11/13 to «Paradeplatz»\nLimmat ship to «Bürkliplatz»</route>
+                </bath>
+                <bath>
+                    <title>Freibad Allenmoos</title>
+                    <address2>Phone 044 315 50 00\nAdministration: Reto Heuberger</address2>
+                    <route>Tram 11 to «Bad Allenmoos»\nPublic parking («Blaue Zone»)</route>
+                </bath>
+                <bath>
+                    <title>Freibad Auhof</title>
+                    <address2>Phone 044 322 21 41 \nAdministration: Lukas Oppliger</address2>
+                    <route>Tram 7/9 to «Schwamendingerplatz»\nBus 63/79/94 to «Aubrücke»\nPublic parking (fee required)</route>
+                </bath>
+                <bath>
+                    <title>Freibad Heuried</title>
+                    <address2>Phone 044 455 51 61\nAdministration: Roland Bächler</address2>
+                    <route>Tram 9/14 to «Heuried»\nPublic parking (underground parking oder «Blaue Zone»), handicapped accessible</route>
+                </bath>
+                <bath>
+                    <title>Freibad Letzigraben</title>
+                    <address2>Phone 044 492 10 50\nAdministration: vacant</address2>
+                    <route>Tram 2 to «Letzigrund» \nTram 3, Bus 72/89 to «Hubertus»\nPublic parking («Blaue Zone»)</route>
+                </bath>
+                <bath>
+                    <title>Freibad Seebach</title>
+                    <address2>Phone 044 302 78 33\nAdministration: Martin Hunold</address2>
+                    <route>Tram 14 to Endstation Seebach\nPublic parking at the final station (fee required)</route>
+                </bath>
+                <bath>
+                    <title>Freibad Zwischen den Hölzern</title>
+                    <address2>Phone 044 750 01 77\nAdministration: Doris Hängärtner</address2>
+                    <route>Tram 13 to «Frankental», 12 min. by foot\nBus 89 to «Riedhofstrasse», 7 min. by foot\nBig parking area</route>
+                </bath>
+                <bath>
+                    <title>Seebad Katzensee</title>
+                    <address2>Phone 044 371 08 90\nContact: Marc Welti</address2>
+                    <route>Bus 32 to final station «Holzerhurd»</route>
+                </bath>
+                <bath>
+                    <title>Seebad Utoquai</title>
+                    <route>Tram 2/4 to «Kreuzstrasse»\nShip to «Theater»</route>
+                </bath>
+                <bath>
+                    <title>Strandbad Mythenquai</title>
+                    <address2>Phone 044 201 00 00\nAdministration: Franco Seiler</address2>
+                    <route>Tram 7 to «Brunaustrasse»\nBus 161/165 to «Sukkulentensammlung»\nLimmat ship to «Seerestaurant»\nPublic parking (fee required)</route>
+                </bath>
+                <bath>
+                    <title>Strandbad Tiefenbrunnen</title>
+                    <address2>Phone 044 422 32 00\nAdministration: Jürg Randegger</address2>
+                    <route>Tram 2/4, Bus 33 to «Fröhlichstrasse»\nBus 912/916 to «Chinagarten»\nShip to «Casino Zürichhorn» \nPublic parking (fee required)</route>
+                </bath>
+                <bath>
+                    <title>Strandbad Wollishofen</title>
+                    <address2>Phone 044 482 23 20\nAdministration: Ruth Howald</address2>
+                    <route>Tram 7 to «Post Wollishofen»\nBus 161/165 to «Rote Fabrik»\nShip to «Bhf. Wollishofen»\nPublic parking (fee required)</route>
+                </bath>
+            </baths>
+        </bathinfos>]]>
+    </string>
 </resources>
+

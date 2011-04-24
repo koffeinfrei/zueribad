@@ -28,4 +28,85 @@
 	<string name="error_url">Die Server-URL ist falsch. Konfiguration korrupt?</string>
     <string name="info_data_outofdate">Die Daten sind nicht aktuell!</string>
     <string name="text_about">Mehr über den Autoren dieses Programms auf koffeinfrei.\n\nDie Daten werden vom Schul- und Sportdepartement der Stadt Zürich zur Verfügung gestellt.</string>
+    <string name="static_18n_bath_data">
+        <![CDATA[
+        <bathinfos>
+            <baths>
+                <bath>
+                    <title>Flussbad Au-Höngg</title>
+                    <address2>Telefon 044 341 71 93\nLeitung: Daniel Hof</address2>
+                    <route>Tram 4 bis «Tüffenwies»\nBus 80/89 bis «Winzerhalde»\nÖffentliche Parkplätze (unter Europabrücke oder Blaue Zone)</route>
+                </bath>
+                <bath>
+                    <title>Flussbad Oberer Letten</title>
+                    <address2>Telefon 044 362 92 00\nLeitung: Adrian Kehl</address2>
+                    <route>Tram 4/13, Bus bis «Limmatplatz»\nBus 46 bis «Nordstrasse»\nÖffentliche Parkplätze (Blaue Zone)</route>
+                </bath>
+                <bath>
+                    <title>Flussbad Unterer Letten</title>
+                    <address2>Telefon 044 362 10 80\nLeitung: Heinrich Stadler</address2>
+                    <route>Tram 4/13 bis «Dammweg»\nBus 46 bis «Nordstrasse»\nS2/S8/S14 bis Bahnhof Wipkingen\nÖffentliche Parkplätze</route>
+                </bath>
+                <bath>
+                    <title>Frauenbad Stadthausquai</title>
+                    <address2>Telefon 044 211 95 92 \nLeitung: Nathalie Schneider</address2>
+                    <route>Tram 4/15 bis «Helmhaus»\nTram 2/5/6/7/8/9/11/13 bis «Paradeplatz»\nLimmatschiff bis «Bürkliplatz»</route>
+                </bath>
+                <bath>
+                    <title>Freibad Allenmoos</title>
+                    <address2>Telefon 044 315 50 00\nLeitung: Reto Heuberger</address2>
+                    <route>Tram 11 bis «Bad Allenmoos»\nÖffentliche Parkplätze (Blaue Zone)</route>
+                </bath>
+                <bath>
+                    <title>Freibad Auhof</title>
+                    <address2>Telefon 044 322 21 41 \nLeitung: Lukas Oppliger</address2>
+                    <route>Tram 7/9 bis «Schwamendingerplatz»\nBus 63/79/94 bis «Aubrücke»\nÖffentliche Parkplätze (kostenpflichtig)</route>
+                </bath>
+                <bath>
+                    <title>Freibad Heuried</title>
+                    <address2>Telefon 044 455 51 61\nLeitung: Roland Bächler</address2>
+                    <route>Tram 9/14 bis «Heuried»\nÖffentliche Parkplätze (Tiefgarage oder Blaue Zone), rollstuhlgängig</route>
+                </bath>
+                <bath>
+                    <title>Freibad Letzigraben</title>
+                    <address2>Telefon 044 492 10 50\nLeitung: vakant</address2>
+                    <route>Tram 2 bis «Letzigrund» \nTram 3, Bus 72/89 bis «Hubertus»\nÖffentliche Parkplätze (Blaue Zone)</route>
+                </bath>
+                <bath>
+                    <title>Freibad Seebach</title>
+                    <address2>Telefon 044 302 78 33\nLeitung: Martin Hunold</address2>
+                    <route>Tram 14 bis Endstation Seebach\nÖffentliche Parkplätze an der Endstation (kostenpflichtig)</route>
+                </bath>
+                <bath>
+                    <title>Freibad Zwischen den Hölzern</title>
+                    <address2>Telefon 044 750 01 77\nLeitung: Doris Hängärtner</address2>
+                    <route>Tram 13 bis «Frankental», Fussweg 12 Min.\nBus 89 «Riedhofstrasse», Fussweg 7 Min.\nGrosser Parkplatz</route>
+                </bath>
+                <bath>
+                    <title>Seebad Katzensee</title>
+                    <address2>Telefon 044 371 08 90\nAnsprechperson: Marc Welti</address2>
+                    <route>Bus 32 bis Endstation «Holzerhurd»</route>
+                </bath>
+                <bath>
+                    <title>Seebad Utoquai</title>
+                    <route>Tram 2/4 bis «Kreuzstrasse»\nSchiff bis «Theater»</route>
+                </bath>
+                <bath>
+                    <title>Strandbad Mythenquai</title>
+                    <address2>Telefon 044 201 00 00\nLeitung: Franco Seiler</address2>
+                    <route>Tram 7 bis «Brunaustrasse»\nBus 161/165 bis «Sukkulentensammlung»\nLimmatschiff bis «Seerestaurant»\nÖffentliche Parkplätze (kostenpflichtig)</route>
+                </bath>
+                <bath>
+                    <title>Strandbad Tiefenbrunnen</title>
+                    <address2>Telefon 044 422 32 00\nLeitung: Jürg Randegger</address2>
+                    <route>Tram 2/4, Bus 33 bis «Fröhlichstrasse»\nBus 912/916 bis «Chinagarten»\nSchiff bis «Casino Zürichhorn» \nÖffentliche Parkplätze (kostenpflichtig)</route>
+                </bath>
+                <bath>
+                    <title>Strandbad Wollishofen</title>
+                    <address2>Telefon 044 482 23 20\nLeitung: Ruth Howald</address2>
+                    <route>Tram 7 bis «Post Wollishofen»\nBus 161/165 bis «Rote Fabrik»\nSchifffahrt Haltestelle «Bhf. Wollishofen»\nÖffentliche Parkplätze (kostenpflichtig)</route>
+                </bath>
+            </baths>
+        </bathinfos>]]>
+    </string>
 </resources>
