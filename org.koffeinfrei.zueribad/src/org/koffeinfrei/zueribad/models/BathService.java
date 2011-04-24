@@ -120,7 +120,7 @@ public class BathService {
 
             bath.setName(getElementStringValue(bathElement, "title"));
             bath.setTemperature(getElementDoubleValue(bathElement, "temperatureWater"));
-            bath.setModified(getElementDateValue(bathElement, "dateModified"));
+            bath.setModified(getElementDateValue(bathElement, "dateModified", Constants.DATE_FORMAT_CUSTOM, 4));
             bath.setStatus(getElementStringValue(bathElement, "openClosedTextPlain"));
             bath.setUrl(getElementStringValue(bathElement, "urlPage"));
 
@@ -149,6 +149,9 @@ public class BathService {
                 String address = getElementStringValue(bathElement, "address");
                 String address2 = getElementStringValue(bathElement, "address2");
                 String route = getElementStringValue(bathElement,  "route");
+                Date seasonStart = getElementDateValue(bathElement, "seasonStart", Constants.DATE_FORMAT_DATEONLY, 0);
+                Date seasonEnd = getElementDateValue(bathElement, "seasonEnd", Constants.DATE_FORMAT_DATEONLY, 0);
+                String openingHoursInfo = getElementStringValue(bathElement, "openingHoursInfo");
 
                 for (Bath b : baths.values()){
                     if (b.getName().equals(title)){
@@ -166,6 +169,15 @@ public class BathService {
                         }
                         if (route != null){
                             b.setRoute(route);
+                        }
+                        if (seasonStart != null){
+                            b.setSeasonStart(seasonStart);
+                        }
+                        if (seasonEnd != null){
+                            b.setSeasonEnd(seasonEnd);
+                        }
+                        if (openingHoursInfo != null){
+                            b.setOpeningHoursInfo(openingHoursInfo);
                         }
                     }
                 }
@@ -212,14 +224,14 @@ public class BathService {
         return Double.parseDouble(stringValue);
     }
 
-    private Date getElementDateValue(Element parent, String childName){
+    private Date getElementDateValue(Element parent, String childName, String dateFormat, int parsePosition){
         String stringValue = getElementStringValue(parent, childName);
         if (stringValue == null){
             return null;
         }
-        final String dateFormat = "dd.MM.yyyy HH:mm";
+
         DateFormat format = new SimpleDateFormat(dateFormat, Locale.GERMAN);
-        Date date = format.parse(stringValue, new ParsePosition(4));
+        Date date = format.parse(stringValue, new ParsePosition(parsePosition));
         return date == null ? new Date() : date;
     }
 

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout 
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical"
+	android:layout_width="match_parent"
+ 	android:layout_height="wrap_content"
+    android:paddingTop="10dp">
+ 	
+	<LinearLayout
+		android:orientation="horizontal"
+		android:layout_width="match_parent"
+	 	android:layout_height="wrap_content">
+		
+		<Button
+			android:id="@+id/details_section_content_openinghours_togglebuttonicon"
+			android:layout_width="10dp"
+			android:layout_height="10dp"
+            android:layout_gravity="center_vertical"
+			android:background="@drawable/ic_toggle_closed" />
+
+		<Button
+            android:id="@+id/details_section_content_openinghours_togglebuttontext"
+			android:text="@string/title_openinghours"
+            android:textColor="@color/main_text"
+			android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:background="@android:color/transparent"/>
+		    
+	</LinearLayout>
+			
+	<org.koffeinfrei.zueribad.ui.CollapsiblePanel
+		android:id="@+id/details_section_content_openinghours_panel"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:orientation="vertical"
+		android:layout_alignParentBottom="false"
+        android:layout_marginLeft="15dp">
+
+		<TextView 
+			android:id="@+id/details_section_content_openinghours_hours"
+            android:textColor="@color/second_text"
+			android:layout_width="match_parent"
+		    android:layout_height="wrap_content" />
+
+        <TextView
+			android:id="@+id/details_section_content_openinghours_hoursinfo"
+            android:textColor="@color/second_text"
+			android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+            android:paddingTop="5dp"
+            android:visibility="gone" />
+
+        <TextView
+			android:id="@+id/details_section_content_openinghours_season"
+            android:textColor="@color/second_text"
+			android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+            android:paddingTop="5dp"/>
+	
+	</org.koffeinfrei.zueribad.ui.CollapsiblePanel>
+
+</LinearLayout>

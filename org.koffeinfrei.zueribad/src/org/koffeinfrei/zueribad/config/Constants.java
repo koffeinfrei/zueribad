@@ -43,4 +43,7 @@ public class Constants {
     public static final GeoPoint MAP_CENTRE = new GeoPoint(
             (int)(47.381799 * GEO_POINT_MULTIPLIER),
             (int)(8.535328 * GEO_POINT_MULTIPLIER));
+
+    public static final String DATE_FORMAT_CUSTOM = "dd.MM.yyyy HH:mm";
+    public static final String DATE_FORMAT_DATEONLY = "yyyy-MM-dd";
 }

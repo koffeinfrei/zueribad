@@ -39,6 +39,9 @@ public class Bath implements Serializable{
     private transient String address;
     private transient String address2;
     private transient String route;
+    private transient Date seasonStart;
+    private transient Date seasonEnd;
+    private transient String openingHoursInfo;
 
     public Bath(int id){
 		this.id = id;
@@ -127,5 +130,29 @@ public class Bath implements Serializable{
 
     public String getRoute() {
         return route;
+    }
+
+    public Date getSeasonStart() {
+        return seasonStart;
+    }
+
+    public void setSeasonStart(Date seasonStart) {
+        this.seasonStart = seasonStart;
+    }
+
+    public Date getSeasonEnd() {
+        return seasonEnd;
+    }
+
+    public void setSeasonEnd(Date seasonEnd) {
+        this.seasonEnd = seasonEnd;
+    }
+
+    public void setOpeningHoursInfo(String openingHoursInfo) {
+        this.openingHoursInfo = openingHoursInfo;
+    }
+
+    public String getOpeningHoursInfo() {
+        return openingHoursInfo;
     }
 }

@@ -24,7 +24,6 @@ import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -60,15 +59,20 @@ public class DetailsActivity extends Activity {
             ImageView uvIndex = (ImageView) findViewById(R.id.details_uvindex_picture);
             TextView address = (TextView) findViewById(R.id.details_section_content_address_address);
             TextView route = (TextView) findViewById(R.id.details_section_content_address_route);
+            TextView openingHours = (TextView) findViewById(R.id.details_section_content_openinghours_hours);
+            TextView season = (TextView) findViewById(R.id.details_section_content_openinghours_season);
+            TextView openingHoursInfo = (TextView) findViewById(R.id.details_section_content_openinghours_hoursinfo);
 
-            SetupSlidingPanel(
-                    R.id.details_section_content_address_panel,
-                    R.id.details_section_content_address_togglebuttonicon,
-                    R.id.details_section_content_address_togglebuttonicon);
             SetupSlidingPanel(
                     R.id.details_section_content_address_panel,
                     R.id.details_section_content_address_togglebuttontext,
                     R.id.details_section_content_address_togglebuttonicon);
+
+            SetupSlidingPanel(
+                    R.id.details_section_content_openinghours_panel,
+                    R.id.details_section_content_openinghours_togglebuttontext,
+                    R.id.details_section_content_openinghours_togglebuttonicon);
+
             //SetupSlidingPanel(R.id.details_section_content_map_panel, R.id.details_section_content_map_togglebutton);
 
             titleView.setText(bath.getName());
@@ -88,6 +92,23 @@ public class DetailsActivity extends Activity {
             address.setText(bath.getAddress() + "\n" + bath.getAddress2());
             route.setText(bath.getRoute());
 
+            openingHours.setText(
+                    String.format("%1$s\n%2$s\n%3$s\n%4$s",
+                            getString(R.string.text_daily),
+                            getString(R.string.text_openinghoursweather1),
+                            getString(R.string.text_openinghoursweather2),
+                            getString(R.string.text_openinghoursweather3)));
+            season.setText(
+                    String.format("%1$td. %1$tB - %2$td. %2$tB %1$tY",
+                            bath.getSeasonStart(), bath.getSeasonEnd())
+            );
+
+            String openingHoursInfoValue = bath.getOpeningHoursInfo();
+            if (openingHoursInfoValue != null && !openingHoursInfoValue.equals("")){
+                openingHoursInfo.setVisibility(View.VISIBLE);
+                openingHoursInfo.setText(openingHoursInfoValue);
+            }
+
             //setMap(bath);
 
             final Button button = (Button) findViewById(R.id.details_homepagebutton);
@@ -105,22 +126,23 @@ public class DetailsActivity extends Activity {
 		final Button toggleButton = (Button) findViewById(toggleButtonId);
         final Button toggleImageButton = (Button) findViewById(toggleImageButtonId);
 
-		toggleButton.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				toggleButton.invalidate();
+        OnClickListener onClickListener = new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                toggleButton.invalidate();
 
                 // state before animation
-                if (panel.isOpen()){
+                if (panel.isOpen()) {
                     toggleImageButton.setBackgroundResource(R.drawable.ic_toggle_closed);
-                }
-                else{
+                } else {
                     toggleImageButton.setBackgroundResource(R.drawable.ic_toggle_open);
                 }
 
-				panel.toggle();
-			}
-		});
+                panel.toggle();
+            }
+        };
+        toggleButton.setOnClickListener(onClickListener);
+        toggleImageButton.setOnClickListener(onClickListener);
 	}
 
     private void setCurrentTab(int index) {

@@ -87,31 +87,38 @@ containing a value of this type.
         public static final int details_section_content_map=0x7f090012;
         public static final int details_section_content_map_panel=0x7f090011;
         public static final int details_section_content_map_togglebutton=0x7f090010;
+        public static final int details_section_content_openinghours_hours=0x7f090016;
+        public static final int details_section_content_openinghours_hoursinfo=0x7f090017;
+        public static final int details_section_content_openinghours_panel=0x7f090015;
+        public static final int details_section_content_openinghours_season=0x7f090018;
+        public static final int details_section_content_openinghours_togglebuttonicon=0x7f090013;
+        public static final int details_section_content_openinghours_togglebuttontext=0x7f090014;
         public static final int details_status=0x7f090008;
         public static final int details_title=0x7f090005;
         public static final int details_uvindex_picture=0x7f090009;
         public static final int details_watertemperature=0x7f090006;
-        public static final int favorites_list=0x7f090013;
-        public static final int main_menu_about=0x7f09001a;
-        public static final int main_menu_reload_data=0x7f090019;
-        public static final int overview_list=0x7f090015;
-        public static final int overview_listitem_bathname=0x7f090016;
-        public static final int overview_listitem_bathtemperature=0x7f090017;
-        public static final int overview_map_content_map=0x7f090018;
-        public static final int overview_search_box=0x7f090014;
+        public static final int favorites_list=0x7f090019;
+        public static final int main_menu_about=0x7f090020;
+        public static final int main_menu_reload_data=0x7f09001f;
+        public static final int overview_list=0x7f09001b;
+        public static final int overview_listitem_bathname=0x7f09001c;
+        public static final int overview_listitem_bathtemperature=0x7f09001d;
+        public static final int overview_map_content_map=0x7f09001e;
+        public static final int overview_search_box=0x7f09001a;
     }
     public static final class layout {
         public static final int balloon_overlay=0x7f030000;
         public static final int details=0x7f030001;
         public static final int details_section_content_address=0x7f030002;
         public static final int details_section_content_map=0x7f030003;
-        public static final int details_section_title=0x7f030004;
-        public static final int favorites=0x7f030005;
-        public static final int main=0x7f030006;
-        public static final int nearlocation=0x7f030007;
-        public static final int overview_list=0x7f030008;
-        public static final int overview_listview=0x7f030009;
-        public static final int overview_map=0x7f03000a;
+        public static final int details_section_content_openinghours=0x7f030004;
+        public static final int details_section_title=0x7f030005;
+        public static final int favorites=0x7f030006;
+        public static final int main=0x7f030007;
+        public static final int nearlocation=0x7f030008;
+        public static final int overview_list=0x7f030009;
+        public static final int overview_listview=0x7f03000a;
+        public static final int overview_map=0x7f03000b;
     }
     public static final class menu {
         public static final int main_menu=0x7f080000;
@@ -133,8 +140,8 @@ containing a value of this type.
         public static final int menu_addtofavorites=0x7f06000e;
         public static final int menu_reload_data=0x7f060010;
         public static final int menu_removefromfavorites=0x7f06000f;
-        public static final int static_18n_bath_data=0x7f06001e;
-        public static final int static_bath_data=0x7f06001d;
+        public static final int static_18n_bath_data=0x7f060022;
+        public static final int static_bath_data=0x7f060021;
         public static final int tab_title_details=0x7f060005;
         public static final int tab_title_favorites=0x7f060004;
         public static final int tab_title_nearlocation=0x7f060006;
@@ -143,6 +150,10 @@ containing a value of this type.
         public static final int tab_title_overview_list=0x7f060002;
         public static final int tab_title_overview_map=0x7f060003;
         public static final int text_about=0x7f06001c;
+        public static final int text_daily=0x7f06001d;
+        public static final int text_openinghoursweather1=0x7f06001e;
+        public static final int text_openinghoursweather2=0x7f06001f;
+        public static final int text_openinghoursweather3=0x7f060020;
         public static final int title_about=0x7f06000c;
         public static final int title_address=0x7f060007;
         public static final int title_bath=0x7f06000a;
