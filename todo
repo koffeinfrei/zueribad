@@ -1,11 +1,13 @@
+* button -> show bath in map (links to map overview, highlights the bath)
 * add reset button to map, keep position on not-first load
 * correct android page http://developer.android.com/resources/tutorials/views/hello-mapview.html:
   * custom class constructor -> call this(...)
   * call constructor with 2 params
-* add opening hours
-* add pictures (add statically into bundle)
+* add pictures (add statically into bundle OR download dynamically, add app settings -> show images?)
 * clear button to filterbox
 * walking/driving route to bath
+* static bath details, get on demand (not all info in main xml)
+* favorites, store only refs to all, not whole bath objects (&id)
 
 /* reload button in global menu
 /* diversify error messages (maybe throw koffeinfreiexception, handle messages in throwing methods)
@@ -21,3 +23,6 @@
 /* rename: overview -> liste, overview -> map
 /* if data is null, switch to tab 1 from overview map doesn't work properly
 /* ERROR: add to favorites
+/* text colors on detail view are not the defined ones!
+/* bath details, i18n
+/ * add opening hours
