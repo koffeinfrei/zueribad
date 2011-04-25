@@ -69,9 +69,8 @@ public class MainTabActivity extends TabActivity {
                 R.string.tab_title_details,
                 R.drawable.tab_details);
 
-        // disable details and map tab on default
+        // disable details on default
         getTabHost().getTabWidget().getChildTabViewAt(Constants.TAB_DETAILS_INDEX).setEnabled(false);
-        getTabHost().getTabWidget().getChildTabViewAt(Constants.TAB_OVERVIEW_MAP_INDEX).setEnabled(false);
 
         setTabColors(getTabHost());
     }
