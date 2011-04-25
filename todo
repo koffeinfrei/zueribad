@@ -1,4 +1,3 @@
-* button -> show bath in map (links to map overview, highlights the bath)
 * add reset button to map, keep position on not-first load
 * correct android page http://developer.android.com/resources/tutorials/views/hello-mapview.html:
   * custom class constructor -> call this(...)
@@ -26,3 +25,5 @@
 /* text colors on detail view are not the defined ones!
 /* bath details, i18n
 / * add opening hours
+/* bug: randomly map tab is inactive!
+/* button -> show bath in map (links to map overview, highlights the bath)

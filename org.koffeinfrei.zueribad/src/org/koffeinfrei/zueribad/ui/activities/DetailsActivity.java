@@ -111,11 +111,22 @@ public class DetailsActivity extends Activity {
 
             //setMap(bath);
 
-            final Button button = (Button) findViewById(R.id.details_homepagebutton);
-            button.setOnClickListener(new View.OnClickListener() {
+            final Button homepageButton = (Button) findViewById(R.id.details_homepagebutton);
+            homepageButton.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
                     Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(bath.getUrl()));
                     startActivity(browserIntent);
+                }
+            });
+
+            final Button showOnMapButton = (Button) findViewById(R.id.details_showonmapbutton);
+            showOnMapButton.setOnClickListener(new OnClickListener(){
+
+                @Override
+                public void onClick(View view) {
+                    setCurrentTab(Constants.TAB_OVERVIEW_MAP_INDEX);
+                    OverviewMapActivity activity = (OverviewMapActivity) ((TabActivity) getParent()).getTabHost().getCurrentView().getContext();
+                    activity.tapOverlayItem(BathRepository.getInstance().getCurrent().getId());
                 }
             });
         }

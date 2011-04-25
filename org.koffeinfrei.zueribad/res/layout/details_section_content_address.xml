@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout 
 	xmlns:android="http://schemas.android.com/apk/res/android"
-	xmlns:app="http://schemas.android.com/apk/res/org.koffeinfrei.zueribad"
 	android:orientation="vertical"
 	android:layout_width="match_parent"
  	android:layout_height="wrap_content"
@@ -38,11 +37,23 @@
 		android:layout_alignParentBottom="false"
         android:layout_marginLeft="15dp">
 
-		<TextView 
-			android:id="@+id/details_section_content_address_address"
-            android:textColor="@color/second_text"
-			android:layout_width="match_parent"
-		    android:layout_height="wrap_content" />
+        <TableLayout
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:stretchColumns="1">
+
+            <TableRow>
+                <TextView
+                    android:id="@+id/details_section_content_address_address"
+                    android:textColor="@color/second_text"
+                    android:layout_column="1" />
+
+                <Button
+                        android:id="@+id/details_showonmapbutton"
+                        android:gravity="right"
+                        android:background="@drawable/button_showonmap" />
+            </TableRow>
+        </TableLayout>
 		
 		<TextView 
 			android:id="@+id/details_section_content_address_route"

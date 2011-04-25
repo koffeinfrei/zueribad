@@ -61,4 +61,8 @@ public class MapItemizedOverlay extends BalloonItemizedOverlay<OverlayItem> {
         overlays.put(i, overlay);
         populate();
     }
+
+    public void tap(int i){
+        onTap(i);
+    }
 }

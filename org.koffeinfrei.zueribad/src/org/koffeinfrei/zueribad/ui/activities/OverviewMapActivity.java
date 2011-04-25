@@ -33,7 +33,9 @@ import java.util.List;
 
 public class OverviewMapActivity extends MapActivity {
 
-	@Override
+    private MapItemizedOverlay itemizedOverlay;
+
+    @Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
@@ -55,7 +57,7 @@ public class OverviewMapActivity extends MapActivity {
             List<Overlay> mapOverlays = mapView.getOverlays();
             // TODO use different markers for different bath types
             Drawable marker = this.getResources().getDrawable(R.drawable.ic_map_marker_beach);
-            MapItemizedOverlay itemizedOverlay = new MapItemizedOverlay(marker, mapView, this);
+            itemizedOverlay = new MapItemizedOverlay(marker, mapView, this);
 
             for (Bath bath : baths.values()) {
                 itemizedOverlay.addOverlay(bath.getId(),
@@ -75,6 +77,10 @@ public class OverviewMapActivity extends MapActivity {
 	protected boolean isRouteDisplayed() {
 		return false;
 	}
+
+    public void tapOverlayItem(int index){
+        itemizedOverlay.tap(index);
+    }
 
     public void setCurrentTab(int index) {
         ((TabActivity)getParent()).getTabHost().setCurrentTab(index);
