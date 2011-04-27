@@ -43,24 +43,30 @@ public class FavoritesActivity extends FirstLevelActivity {
 	public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.favorites);
+        if(bathRepository.getAll() == null)
+		{
+            setCurrentTab(Constants.TAB_OVERVIEW_INDEX);
+        }
+        else {
+            setContentView(R.layout.favorites);
 
-        bathList = (ListView)findViewById(R.id.favorites_list);
-        adapter = new FavoritesListAdapter(this);
-        
-        bathList.setOnItemClickListener(new OnItemClickListener() {
-			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            bathList = (ListView)findViewById(R.id.favorites_list);
+            adapter = new FavoritesListAdapter(this);
 
-				//showDialog(Constants.PROGRESS_DIALOG);
+            bathList.setOnItemClickListener(new OnItemClickListener() {
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-            	detailTask = new GetDetailsTask(FavoritesActivity.this);
-            	detailTask.execute((int)id);
-            }
-        });
-        
-        bathList.setAdapter(adapter);
-        
-        registerForContextMenu(bathList);
+                    //showDialog(Constants.PROGRESS_DIALOG);
+
+                    detailTask = new GetDetailsTask(FavoritesActivity.this);
+                    detailTask.execute((int)id);
+                }
+            });
+
+            bathList.setAdapter(adapter);
+
+            registerForContextMenu(bathList);
+        }
     }
 
 	@Override

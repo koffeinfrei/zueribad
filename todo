@@ -27,3 +27,4 @@
 / * add opening hours
 /* bug: randomly map tab is inactive!
 /* button -> show bath in map (links to map overview, highlights the bath)
+/* when reloading on favorites, doesn't switch to overview
