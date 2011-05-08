@@ -18,8 +18,13 @@
 
 package org.koffeinfrei.zueribad.models;
 
+import android.content.Context;
+import android.graphics.drawable.Drawable;
+import android.util.AndroidException;
 import com.google.android.maps.GeoPoint;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.io.Serializable;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -154,5 +159,28 @@ public class Bath implements Serializable{
 
     public String getOpeningHoursInfo() {
         return openingHoursInfo;
+    }
+
+    public Drawable getBathImage(Context context) throws AndroidException {
+        try {
+            InputStream inputStream = context.getAssets().open("img_baths/" + getAssetName() + ".jpg");
+            return Drawable.createFromStream(inputStream, "src");
+        } catch (IOException e) {
+            throw new AndroidException(e);
+        }
+    }
+
+    private String getAssetName(){
+        // omit bath type
+        int firstWhitespacePosition = name.indexOf(" ");
+        String assetName = name.substring(firstWhitespacePosition + 1);
+
+        assetName = assetName.toLowerCase();
+
+        assetName = assetName.replaceAll("ä", "ae").replaceAll("ö", "oe").replaceAll("ü", "ue");
+
+        assetName = assetName.replaceAll(" ", "_");
+
+        return assetName;
     }
 }

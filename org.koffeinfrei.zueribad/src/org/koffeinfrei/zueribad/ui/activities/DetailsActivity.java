@@ -24,6 +24,7 @@ import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.AndroidException;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -62,6 +63,7 @@ public class DetailsActivity extends Activity {
             TextView openingHours = (TextView) findViewById(R.id.details_section_content_openinghours_hours);
             TextView season = (TextView) findViewById(R.id.details_section_content_openinghours_season);
             TextView openingHoursInfo = (TextView) findViewById(R.id.details_section_content_openinghours_hoursinfo);
+            ImageView picture = (ImageView) findViewById(R.id.details_picture);
 
             SetupSlidingPanel(
                     R.id.details_section_content_address_panel,
@@ -109,6 +111,11 @@ public class DetailsActivity extends Activity {
                 openingHoursInfo.setText(openingHoursInfoValue);
             }
 
+            try {
+                picture.setImageDrawable(bath.getBathImage(this));
+            } catch (AndroidException e) {
+                // ignore
+            }
             //setMap(bath);
 
             final Button homepageButton = (Button) findViewById(R.id.details_homepagebutton);
