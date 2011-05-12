@@ -25,6 +25,7 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.AndroidException;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -112,7 +113,14 @@ public class DetailsActivity extends Activity {
             }
 
             try {
-                picture.setImageDrawable(bath.getBathImage(this));
+                Drawable bathImage = bath.getBathImage(this);
+                picture.setImageDrawable(bathImage);
+                DisplayMetrics dm = new DisplayMetrics();
+                getWindowManager().getDefaultDisplay().getMetrics(dm);
+                int width = dm.widthPixels;
+                int height = width * bathImage.getIntrinsicHeight() / bathImage.getIntrinsicWidth();
+                picture.getLayoutParams().height = height;
+                picture.getLayoutParams().width = width;
             } catch (AndroidException e) {
                 // ignore
             }
