@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-	package="org.koffeinfrei.zueribad" android:versionCode="8"
-	android:versionName="1.0.7">
+	package="org.koffeinfrei.zueribad" android:versionCode="9"
+	android:versionName="1.1.0">
 	
 	<application android:icon="@drawable/ic_icon" android:label="@string/app_name" android:theme="@style/TranslucentZueribad">
 		<uses-library android:name="com.google.android.maps" />
