@@ -82,7 +82,7 @@ public class DetailsActivity extends Activity {
             waterTemperatureView.setText(bath.getFormattedTemperature());
             ViewModifier.temperature(waterTemperatureView, bath.getModified());
 
-            lastModifiedView.setText(bath.getFormattedModified());
+            lastModifiedView.setText(bath.getFormattedModified(this));
             ViewModifier.lastModified(lastModifiedView, bath.getModified());
             
             status.setText(bath.getStatus());
@@ -103,7 +103,7 @@ public class DetailsActivity extends Activity {
                             getString(R.string.text_openinghoursweather3)));
             season.setText(
                     String.format("%1$td. %1$tB - %2$td. %2$tB %1$tY",
-                            bath.getSeasonStart(), bath.getSeasonEnd())
+                            bath.getSeasonStart().getDate(), bath.getSeasonEnd().getDate())
             );
 
             String openingHoursInfoValue = bath.getOpeningHoursInfo();

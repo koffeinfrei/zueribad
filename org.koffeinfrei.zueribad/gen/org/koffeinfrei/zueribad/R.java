@@ -145,8 +145,8 @@ containing a value of this type.
         public static final int menu_addtofavorites=0x7f06000e;
         public static final int menu_reload_data=0x7f060010;
         public static final int menu_removefromfavorites=0x7f06000f;
-        public static final int static_18n_bath_data=0x7f060022;
-        public static final int static_bath_data=0x7f060021;
+        public static final int static_18n_bath_data=0x7f060024;
+        public static final int static_bath_data=0x7f060023;
         public static final int tab_title_details=0x7f060005;
         public static final int tab_title_favorites=0x7f060004;
         public static final int tab_title_nearlocation=0x7f060006;
@@ -159,6 +159,8 @@ containing a value of this type.
         public static final int text_openinghoursweather1=0x7f06001e;
         public static final int text_openinghoursweather2=0x7f06001f;
         public static final int text_openinghoursweather3=0x7f060020;
+        public static final int text_today=0x7f060021;
+        public static final int text_yesterday=0x7f060022;
         public static final int title_about=0x7f06000c;
         public static final int title_address=0x7f060007;
         public static final int title_bath=0x7f06000a;

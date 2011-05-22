@@ -28,6 +28,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.koffeinfrei.zueribad.R;
 import org.koffeinfrei.zueribad.config.Constants;
 import org.koffeinfrei.zueribad.utils.AndroidI18nException;
+import org.koffeinfrei.zueribad.utils.BetterDate;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -41,12 +42,7 @@ import javax.xml.parsers.ParserConfigurationException;
 import java.io.*;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.text.DateFormat;
-import java.text.ParsePosition;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.Hashtable;
-import java.util.Locale;
 
 public class BathService {
     private URI remoteUrl;
@@ -149,8 +145,8 @@ public class BathService {
                 String address = getElementStringValue(bathElement, "address");
                 String address2 = getElementStringValue(bathElement, "address2");
                 String route = getElementStringValue(bathElement,  "route");
-                Date seasonStart = getElementDateValue(bathElement, "seasonStart", Constants.DATE_FORMAT_DATEONLY, 0);
-                Date seasonEnd = getElementDateValue(bathElement, "seasonEnd", Constants.DATE_FORMAT_DATEONLY, 0);
+                BetterDate seasonStart = getElementDateValue(bathElement, "seasonStart", Constants.DATE_FORMAT_DATEONLY, 0);
+                BetterDate seasonEnd = getElementDateValue(bathElement, "seasonEnd", Constants.DATE_FORMAT_DATEONLY, 0);
                 String openingHoursInfo = getElementStringValue(bathElement, "openingHoursInfo");
 
                 for (Bath b : baths.values()){
@@ -224,15 +220,14 @@ public class BathService {
         return Double.parseDouble(stringValue);
     }
 
-    private Date getElementDateValue(Element parent, String childName, String dateFormat, int parsePosition){
+    private BetterDate getElementDateValue(Element parent, String childName, String dateFormat, int parsePosition){
         String stringValue = getElementStringValue(parent, childName);
         if (stringValue == null){
             return null;
         }
 
-        DateFormat format = new SimpleDateFormat(dateFormat, Locale.GERMAN);
-        Date date = format.parse(stringValue, new ParsePosition(parsePosition));
-        return date == null ? new Date() : date;
+        BetterDate date = BetterDate.parse(stringValue, dateFormat, parsePosition);
+        return date == null ? new BetterDate() : date;
     }
 
     private URI getElementUriValue(Element parent, String childName){

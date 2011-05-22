@@ -21,30 +21,26 @@ package org.koffeinfrei.zueribad.utils;
 import junit.framework.TestCase;
 
 import java.text.SimpleDateFormat;
-import java.util.Date;
 
-public class DateCalculatorTest extends TestCase {
+public class BetterDateTest extends TestCase {
     public void test_diffInDays_diffIs47Hours_Returns1() throws Exception {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yy HH:mm");
-        Date start = dateFormat.parse("02.02.2011 13:00");
-        Date end = dateFormat.parse("04.02.2011 12:59");
-        long diff = DateCalculator.diffInDays(start, end);
+        BetterDate start = BetterDate.parse("02.02.2011 13:00", "dd.MM.yy HH:mm");
+        BetterDate end = BetterDate.parse("04.02.2011 12:59", "dd.MM.yy HH:mm");
+        long diff = start.diffInDays(end);
         assertEquals(1, diff);
     }
 
     public void test_diffInDays_diffIs48Hours_Returns1() throws Exception {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yy HH:mm");
-        Date start = dateFormat.parse("02.02.2011 13:00");
-        Date end = dateFormat.parse("04.02.2011 13:00");
-        long diff = DateCalculator.diffInDays(start, end);
+        BetterDate start = BetterDate.parse("02.02.2011 13:00", "dd.MM.yy HH:mm");
+        BetterDate end = BetterDate.parse("04.02.2011 13:00", "dd.MM.yy HH:mm");
+        long diff = start.diffInDays(end);
         assertEquals(2, diff);
     }
 
     public void test_diffInDays_sameDates_Returns0() throws Exception {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yy HH:mm");
-        Date start = dateFormat.parse("02.02.2011 13:00");
-        Date end = dateFormat.parse("02.02.2011 13:00");
-        long diff = DateCalculator.diffInDays(start, end);
+        BetterDate start = BetterDate.parse("02.02.2011 13:00", "dd.MM.yy HH:mm");
+        BetterDate end = BetterDate.parse("02.02.2011 13:00", "dd.MM.yy HH:mm");
+        long diff = start.diffInDays(end);
         assertEquals(0, diff);
     }
 }

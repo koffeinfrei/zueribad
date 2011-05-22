@@ -38,10 +38,11 @@
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/gen" isTestSource="false" />
     </content>
-    <orderEntry type="inheritedJdk" />
+    <orderEntry type="jdk" jdkName="1.6" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="Android 2.3 Google APIs" level="application" />
+    <orderEntry type="library" name="libs" level="project" />
   </component>
 </module>
 

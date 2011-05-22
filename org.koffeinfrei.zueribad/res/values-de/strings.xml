@@ -32,6 +32,8 @@
     <string name="text_openinghoursweather1">09:00 - 11:00 Uhr bei jeder Witterung</string>
     <string name="text_openinghoursweather2">11:00 - 20:00 Uhr je nach Witterung</string>
     <string name="text_openinghoursweather3">Bei schlechter Witterung wird das Bad geschlossen.</string>
+    <string name="text_today">Heute</string>
+    <string name="text_yesterday">Gestern</string>
     <string name="static_18n_bath_data">
         <![CDATA[
         <bathinfos>

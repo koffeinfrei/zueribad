@@ -33,6 +33,8 @@
     <string name="text_openinghoursweather1">09:00 - 11:00 whatever the weather</string>
     <string name="text_openinghoursweather2">11:00 - 20:00 depending on the weather</string>
     <string name="text_openinghoursweather3">In bad weather the bath is closed.</string>
+    <string name="text_today">Today</string>
+    <string name="text_yesterday">Yesterday</string>
     <string name="static_bath_data">
         <![CDATA[
         <bathinfos>

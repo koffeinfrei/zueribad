@@ -23,9 +23,7 @@ import android.graphics.Paint;
 import android.widget.TextView;
 import org.koffeinfrei.zueribad.R;
 import org.koffeinfrei.zueribad.config.Constants;
-import org.koffeinfrei.zueribad.utils.DateCalculator;
-
-import java.util.Date;
+import org.koffeinfrei.zueribad.utils.BetterDate;
 
 public class ViewModifier {
 
@@ -33,16 +31,16 @@ public class ViewModifier {
      * If the modified date is too old, the temperature label is
      * marked accordingly.
      */
-    public static void temperature(TextView view, Date modifiedDate){
-        if (DateCalculator.daysAgo(modifiedDate) >= Constants.EXPIRED_MODIFIED_DATE_IN_DAYS){
+    public static void temperature(TextView view, BetterDate modifiedDate){
+        if (modifiedDate.daysAgo() >= Constants.EXPIRED_MODIFIED_DATE_IN_DAYS){
             view.setPaintFlags(view.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
             // TODO find a way to reference from colors.xml, or put in Constants.java
             view.setTextColor(Color.parseColor("#99c4c4c4"));
         }
     }
 
-    public static void lastModified(TextView view, Date modifiedDate){
-        if (DateCalculator.daysAgo(modifiedDate) >= Constants.EXPIRED_MODIFIED_DATE_IN_DAYS){
+    public static void lastModified(TextView view, BetterDate modifiedDate){
+        if (modifiedDate.daysAgo() >= Constants.EXPIRED_MODIFIED_DATE_IN_DAYS){
             view.setText(view.getText() + "\n" + view.getContext().getString(R.string.info_data_outofdate));
         }
     }

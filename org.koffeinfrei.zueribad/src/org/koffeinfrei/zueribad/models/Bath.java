@@ -22,13 +22,11 @@ import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.util.AndroidException;
 import com.google.android.maps.GeoPoint;
+import org.koffeinfrei.zueribad.utils.BetterDate;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.Serializable;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 public class Bath implements Serializable{
 	
@@ -37,15 +35,15 @@ public class Bath implements Serializable{
 	private transient int id;
 	private String name;
 	private transient Double temperature;
-    private transient Date modified;
+    private transient BetterDate modified;
     private transient String status;
     private transient String url;
     private transient GeoPoint geoPoint;
     private transient String address;
     private transient String address2;
     private transient String route;
-    private transient Date seasonStart;
-    private transient Date seasonEnd;
+    private transient BetterDate seasonStart;
+    private transient BetterDate seasonEnd;
     private transient String openingHoursInfo;
 
     public Bath(int id){
@@ -76,16 +74,15 @@ public class Bath implements Serializable{
 		return temperature + " °C";
 	}
 
-    public Date getModified() {
+    public BetterDate getModified() {
         return modified;
     }
 
-    public String getFormattedModified(){
-        DateFormat format = new SimpleDateFormat("E dd.MM.yyyy HH:mm");
-        return format.format(modified);
+    public String getFormattedModified(Context context){
+        return modified.prettyFormat(context);
     }
 
-    public void setModified(Date modified) {
+    public void setModified(BetterDate modified) {
         this.modified = modified;
     }
 
@@ -137,19 +134,19 @@ public class Bath implements Serializable{
         return route;
     }
 
-    public Date getSeasonStart() {
+    public BetterDate getSeasonStart() {
         return seasonStart;
     }
 
-    public void setSeasonStart(Date seasonStart) {
+    public void setSeasonStart(BetterDate seasonStart) {
         this.seasonStart = seasonStart;
     }
 
-    public Date getSeasonEnd() {
+    public BetterDate getSeasonEnd() {
         return seasonEnd;
     }
 
-    public void setSeasonEnd(Date seasonEnd) {
+    public void setSeasonEnd(BetterDate seasonEnd) {
         this.seasonEnd = seasonEnd;
     }
 
