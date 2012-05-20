@@ -61,6 +61,8 @@
                     <address2>Telefon 044 211 95 92 \nLeitung: Nathalie Schneider</address2>
                     <route>Tram 4/15 bis «Helmhaus»\nTram 2/5/6/7/8/9/11/13 bis «Paradeplatz»\nLimmatschiff bis «Bürkliplatz»</route>
                     <openingHoursInfo>Ab 18 Uhr jeweils Ruheschwimmen\nZutritt nur für Frauen (Knaben bis 6 Jahre)</openingHoursInfo>
+                    <openinghoursweather1>07:00 - 11:00 Uhr bei jeder Witterung</openinghoursweather1>
+                    <openinghoursweather2>11:00 - 19:30 Uhr je nach Witterung</openinghoursweather2>
                 </bath>
                 <bath>
                     <title>Freibad Allenmoos</title>
@@ -91,6 +93,9 @@
                     <address2>Telefon 044 302 78 33\nLeitung: Martin Hunold</address2>
                     <route>Tram 14 bis Endstation Seebach\nÖffentliche Parkplätze an der Endstation (kostenpflichtig)</route>
                     <openingHoursInfo></openingHoursInfo>
+                    <openinghoursweather1>07:00 - 20:00 bei jeder Witterung</openinghoursweather1>
+                    <openinghoursweather2></openinghoursweather2>
+                    <openinghoursweather3></openinghoursweather3>
                 </bath>
                 <bath>
                     <title>Freibad Zwischen den Hölzern</title>
@@ -109,6 +114,9 @@
                     <address2>Telefon 044 251 61 51\nLeitung: Roger Herrmann</address2>
                     <route>Tram 2/4 bis «Kreuzstrasse»\nSchiff bis «Theater»</route>
                     <openingHoursInfo></openingHoursInfo>
+                    <openinghoursweather1>07:00 - 20:00 bei jeder Witterung</openinghoursweather1>
+                    <openinghoursweather2></openinghoursweather2>
+                    <openinghoursweather3></openinghoursweather3>
                 </bath>
                 <bath>
                     <title>Strandbad Mythenquai</title>

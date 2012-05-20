@@ -148,6 +148,9 @@ public class BathService {
                 BetterDate seasonStart = getElementDateValue(bathElement, "seasonStart", Constants.DATE_FORMAT_DATEONLY, 0);
                 BetterDate seasonEnd = getElementDateValue(bathElement, "seasonEnd", Constants.DATE_FORMAT_DATEONLY, 0);
                 String openingHoursInfo = getElementStringValue(bathElement, "openingHoursInfo");
+                String openingHoursWeather1 = getElementStringValue(bathElement, "openingHoursWeather1");
+                String openingHoursWeather2 = getElementStringValue(bathElement, "openingHoursWeather2");
+                String openingHoursWeather3 = getElementStringValue(bathElement, "openingHoursWeather3");
 
                 for (Bath b : baths.values()){
                     if (b.getName().equals(title)){
@@ -174,6 +177,15 @@ public class BathService {
                         }
                         if (openingHoursInfo != null){
                             b.setOpeningHoursInfo(openingHoursInfo);
+                        }
+                        if (openingHoursWeather1 != null){
+                        	b.setOpeningHoursWeather1(openingHoursWeather1);
+                        }
+                        if (openingHoursWeather2 != null){
+                        	b.setOpeningHoursWeather2(openingHoursWeather2);
+                        }
+                        if (openingHoursWeather3 != null){
+                        	b.setOpeningHoursWeather3(openingHoursWeather3);
                         }
                     }
                 }

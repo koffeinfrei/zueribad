@@ -95,12 +95,25 @@ public class DetailsActivity extends Activity {
             address.setText(bath.getAddress() + "\n" + bath.getAddress2());
             route.setText(bath.getRoute());
 
+            String openingHoursWeather1 = bath.getOpeningHoursWeather1();
+            if (openingHoursWeather1 == null){
+                openingHoursWeather1 = getString(R.string.text_openinghoursweather1);
+            }
+            String openingHoursWeather2 = bath.getOpeningHoursWeather2();
+            if (openingHoursWeather2 == null){
+                openingHoursWeather2 = getString(R.string.text_openinghoursweather2);
+            }
+            String openingHoursWeather3 = bath.getOpeningHoursWeather3();
+            if (openingHoursWeather3 == null){
+                openingHoursWeather3 = getString(R.string.text_openinghoursweather3);
+            }
+            
             openingHours.setText(
                     String.format("%1$s\n%2$s\n%3$s\n%4$s",
                             getString(R.string.text_daily),
-                            getString(R.string.text_openinghoursweather1),
-                            getString(R.string.text_openinghoursweather2),
-                            getString(R.string.text_openinghoursweather3)));
+                            openingHoursWeather1,
+                            openingHoursWeather2,
+                            openingHoursWeather3).trim());
             season.setText(
                     String.format("%1$td. %1$tB - %2$td. %2$tB %1$tY",
                             bath.getSeasonStart().getDate(), bath.getSeasonEnd().getDate())

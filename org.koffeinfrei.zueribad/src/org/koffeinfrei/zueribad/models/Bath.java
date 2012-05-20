@@ -45,6 +45,9 @@ public class Bath implements Serializable{
     private transient BetterDate seasonStart;
     private transient BetterDate seasonEnd;
     private transient String openingHoursInfo;
+	private String openingHoursWeather1;
+	private String openingHoursWeather2;
+	private String openingHoursWeather3;
 
     public Bath(int id){
 		this.id = id;
@@ -157,6 +160,30 @@ public class Bath implements Serializable{
     public String getOpeningHoursInfo() {
         return openingHoursInfo;
     }
+
+    public void setOpeningHoursWeather1(String openingHoursWeather1){
+        this.openingHoursWeather1 = openingHoursWeather1;
+    }
+
+    public String getOpeningHoursWeather1(){
+        return openingHoursWeather1;
+    }
+
+    public String getOpeningHoursWeather2() {
+		return openingHoursWeather2;
+	}
+
+	public void setOpeningHoursWeather2(String openingHoursWeather2) {
+		this.openingHoursWeather2 = openingHoursWeather2;
+	}
+
+	public String getOpeningHoursWeather3() {
+		return openingHoursWeather3;
+	}
+
+	public void setOpeningHoursWeather3(String openingHoursWeather3) {
+		this.openingHoursWeather3 = openingHoursWeather3;
+	}
 
     public Drawable getBathImage(Context context) throws AndroidException {
         try {
