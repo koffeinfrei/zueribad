@@ -1,0 +1,16 @@
+<project name="koffeinfrei.zueribad">
+    <target name="-pre-build">
+        <echo>Setting variable: map_api_key</echo>
+        <replace
+            file="${resource.absolute.dir}/values/strings.xml"
+            token="&lt;string name=&quot;map_api_key&quot;&gt;0hgjlMipVsN1Gcie3wjo34LT1XhC8KbezBGpVAQ&lt;/string&gt;"
+            value="&lt;string name=&quot;map_api_key&quot;&gt;0hgjlMipVsN03oMpKIYzKkeeAnWVDQ18rjEa-xw&lt;/string&gt;"/>
+    </target>
+    <target name="-post-build">
+        <echo>Resetting variable: map_api_key</echo>
+        <replace
+            file="${resource.absolute.dir}/values/strings.xml"
+            token="&lt;string name=&quot;map_api_key&quot;&gt;0hgjlMipVsN03oMpKIYzKkeeAnWVDQ18rjEa-xw&lt;/string&gt;"
+            value="&lt;string name=&quot;map_api_key&quot;&gt;0hgjlMipVsN1Gcie3wjo34LT1XhC8KbezBGpVAQ&lt;/string&gt;"/>
+    </target>
+</project>
