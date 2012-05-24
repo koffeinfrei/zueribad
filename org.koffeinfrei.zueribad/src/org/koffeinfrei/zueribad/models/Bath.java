@@ -74,7 +74,8 @@ public class Bath implements Serializable{
 	}
 	
 	public String getFormattedTemperature(){
-		return temperature + " °C";
+		String temp = temperature != null ? temperature.toString() : "-";
+		return temp + " °C";
 	}
 
     public BetterDate getModified() {

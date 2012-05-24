@@ -226,7 +226,7 @@ public class BathService {
 
     private Double getElementDoubleValue(Element parent, String childName){
         String stringValue = getElementStringValue(parent, childName);
-        if (stringValue == null){
+        if (stringValue == null || stringValue.equals("")){
             return null;
         }
         return Double.parseDouble(stringValue);
@@ -234,7 +234,7 @@ public class BathService {
 
     private BetterDate getElementDateValue(Element parent, String childName, String dateFormat, int parsePosition){
         String stringValue = getElementStringValue(parent, childName);
-        if (stringValue == null){
+        if (stringValue == null || stringValue.equals("")){
             return null;
         }
 
@@ -244,7 +244,7 @@ public class BathService {
 
     private URI getElementUriValue(Element parent, String childName){
         String stringValue = getElementStringValue(parent, childName);
-        if (stringValue == null){
+        if (stringValue == null || stringValue.equals("")){
             return null;
         }
         try {
