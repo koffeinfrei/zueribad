@@ -215,6 +215,9 @@
                     <address2>Phone 044 492 10 50\nAdministration: Uwe Gulde</address2>
                     <route>Tram 2 to «Letzigrund» \nTram 3, Bus 72/89 to «Hubertus»\nPublic parking («Blaue Zone»)</route>
                     <openingHoursInfo></openingHoursInfo>
+                    <openingHoursWeather1>07:00 - 20:00 whatever the weather</openingHoursWeather1>
+                    <openingHoursWeather2></openingHoursWeather2>
+                    <openingHoursWeather3></openingHoursWeather3>
                 </bath>
                 <bath>
                     <title>Freibad Seebach</title>
