@@ -40,7 +40,7 @@
             <baths>
                 <bath>
                     <title>Flussbad Au-Höngg</title>
-                    <address2>Telefon 044 341 71 93\nLeitung: Daniel Hof</address2>
+                    <address2>Telefon 044 341 71 93\nLeitung: Simon Köchling</address2>
                     <route>Tram 4 bis «Tüffenwies»\nBus 80/89 bis «Winzerhalde»\nÖffentliche Parkplätze (unter Europabrücke oder Blaue Zone)</route>
                     <openingHoursInfo></openingHoursInfo>
                 </bath>
@@ -61,7 +61,7 @@
                     <address2>Telefon 044 211 95 92 \nLeitung: Nathalie Schneider</address2>
                     <route>Tram 4/15 bis «Helmhaus»\nTram 2/5/6/7/8/9/11/13 bis «Paradeplatz»\nLimmatschiff bis «Bürkliplatz»</route>
                     <openingHoursInfo>Ab 18 Uhr jeweils Ruheschwimmen\nZutritt nur für Frauen (Knaben bis 6 Jahre)</openingHoursInfo>
-                    <openingHoursWeather1>07:00 - 11:00 Uhr bei jeder Witterung</openingHoursWeather1>
+                    <openingHoursWeather1>09:00 - 11:00 Uhr bei jeder Witterung</openingHoursWeather1>
                     <openingHoursWeather2>11:00 - 19:30 Uhr je nach Witterung</openingHoursWeather2>
                 </bath>
                 <bath>
@@ -108,9 +108,9 @@
                 </bath>
                 <bath>
                     <title>Seebad Katzensee</title>
-                    <address2>Telefon 044 371 08 90\nAnsprechperson: Michael Jassberg</address2>
+                    <address2>Telefon 044 371 08 90\nAnsprechperson: Daniel Hof</address2>
                     <route>Bus 32 bis Endstation «Holzerhurd»</route>
-                    <openingHoursInfo></openingHoursInfo>
+                    <openingHoursInfo>Keine Badeaufsicht, Schwimmen auf eigene Verantwortung.\nBadepersonal in erster Linie für Sanität sowie Betrieb der Anlage zuständig.</openingHoursInfo>
                 </bath>
                 <bath>
                     <title>Seebad Utoquai</title>
