@@ -42,22 +42,18 @@ private LayoutInflater inflater;
 		bathRepository = BathRepository.getInstance();
 	}
 	
-	@Override
 	public int getCount() {
 		return getList().size();
 	}
 
-	@Override
 	public Object getItem(int arg0) {
 		return null;
 	}
 
-	@Override
 	public long getItemId(int arg0) {
 		return (long)getList().get(arg0).getId();
 	}
 
-	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 		ViewHolder holder;
 		if (convertView == null) {

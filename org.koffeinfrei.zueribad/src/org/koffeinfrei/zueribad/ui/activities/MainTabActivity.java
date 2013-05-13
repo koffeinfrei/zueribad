@@ -89,7 +89,6 @@ public class MainTabActivity extends TabActivity {
         tabHost.addTab(spec);
 
         tabHost.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
-            @Override
             public void onTabChanged(String tabId) {
                 setTabColors(tabHost);
             }

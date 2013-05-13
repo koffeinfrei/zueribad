@@ -91,7 +91,6 @@ public class OverviewActivity extends FirstLevelActivity {
         case Constants.PROGRESS_DIALOG:
         	final ProgressDialog progressDialog = (ProgressDialog) dialog;
             progressDialog.setOnCancelListener(new DialogInterface.OnCancelListener(){
-                @Override
                 public void onCancel(DialogInterface dialogInterface) {
                     assertHasBaths();
 

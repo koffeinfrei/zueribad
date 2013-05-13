@@ -150,7 +150,6 @@ public class DetailsActivity extends Activity {
             final Button showOnMapButton = (Button) findViewById(R.id.details_showonmapbutton);
             showOnMapButton.setOnClickListener(new OnClickListener(){
 
-                @Override
                 public void onClick(View view) {
                     setCurrentTab(Constants.TAB_OVERVIEW_MAP_INDEX);
                     OverviewMapActivity activity = (OverviewMapActivity) ((TabActivity) getParent()).getTabHost().getCurrentView().getContext();
@@ -166,7 +165,6 @@ public class DetailsActivity extends Activity {
         final Button toggleImageButton = (Button) findViewById(toggleImageButtonId);
 
         OnClickListener onClickListener = new OnClickListener() {
-            @Override
             public void onClick(View v) {
                 toggleButton.invalidate();
 
