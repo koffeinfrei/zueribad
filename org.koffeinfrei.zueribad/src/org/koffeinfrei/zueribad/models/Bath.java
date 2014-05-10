@@ -79,11 +79,11 @@ public class Bath implements Serializable{
 	}
 
     public BetterDate getModified() {
-        return modified;
+        return modified != null ? modified : BetterDate.MIN_DATE;
     }
 
     public String getFormattedModified(Context context){
-        return modified.prettyFormat(context);
+        return modified != null ? modified.prettyFormat(context) : "-";
     }
 
     public void setModified(BetterDate modified) {

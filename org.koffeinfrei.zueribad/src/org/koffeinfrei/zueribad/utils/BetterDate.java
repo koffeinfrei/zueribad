@@ -19,6 +19,7 @@
 package org.koffeinfrei.zueribad.utils;
 
 import android.content.Context;
+
 import org.koffeinfrei.zueribad.R;
 
 import java.text.DateFormat;
@@ -32,6 +33,8 @@ public class BetterDate {
     public static final long MILLISECONDS_PER_MINUTE = 60 * 1000;
     public static final long MILLISECONDS_PER_HOUR   = 60 * MILLISECONDS_PER_MINUTE;
     public static final long MILLISECONDS_PER_DAY = 24 * MILLISECONDS_PER_HOUR;
+
+    public static final BetterDate MIN_DATE = new BetterDate(new Date(0));
 
     private Date date;
 
