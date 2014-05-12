@@ -26,7 +26,7 @@ public class Constants {
 
     public static final String SERVICE_URL = IS_EMULATOR
             ? "http://192.168.1.39/stzh_bath_data.xml"
-            : "http://www.stadt-zuerich.ch/stzh/bathdatadownload";
+            : "https://www.stadt-zuerich.ch/stzh/bathdatadownload";
 
     public static final int PROGRESS_DIALOG = 1;
     public static final int ERROR_DIALOG = 2;
